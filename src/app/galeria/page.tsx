@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { eventos } from "@/lib/mocks"
+import { events } from "@/data/events"
 import { GalleryGrid } from "./gallery-grid"
 import {
   seoConfig,
@@ -18,10 +18,6 @@ export const metadata: Metadata = {
 }
 
 export default function GaleriaPage() {
-  const publicEventos = eventos
-    .filter((e) => e.estado === "PUBLICADO")
-    .sort((a, b) => b.anio - a.anio)
-
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
     { name: "Inicio", path: "/" },
     { name: "Galería", path: "/galeria" },
@@ -33,7 +29,7 @@ export default function GaleriaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <GalleryGrid eventos={publicEventos} />
+      <GalleryGrid eventos={events} />
     </div>
   )
 }

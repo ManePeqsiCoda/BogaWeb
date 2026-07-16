@@ -1,32 +1,21 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import Image from "next/image"
-import type { Evento, TipoEvento } from "@/lib/mocks"
+import { eventTypeLabels, type Event } from "@/data/events"
 import { Badge } from "@/components/ui/badge"
 import { FadeIn } from "@/components/home/fade-in"
 import { cn } from "@/lib/utils"
 
 interface GalleryGridProps {
-  eventos: Evento[]
-}
-
-const tipoLabels: Record<string, string> = {
-  CONCIERTO: "Concierto",
-  FESTIVAL: "Festival",
-  FERIA: "Feria",
-  CORPORATIVO: "Corporativo",
-  GOBIERNO: "Gobierno",
-  PRIVADO: "Privado",
+  eventos: Event[]
 }
 
 const tipoColors: Record<string, string> = {
-  CONCIERTO: "bg-purple-500",
-  FESTIVAL: "bg-pink-500",
-  FERIA: "bg-blue-500",
-  CORPORATIVO: "bg-emerald-500",
-  GOBIERNO: "bg-amber-500",
-  PRIVADO: "bg-indigo-500",
+  concierto: "bg-purple-500",
+  festival: "bg-pink-500",
+  feria: "bg-blue-500",
+  corporativo: "bg-emerald-500",
+  privado: "bg-indigo-500",
 }
 
 export function GalleryGrid({ eventos }: GalleryGridProps) {
@@ -34,22 +23,19 @@ export function GalleryGrid({ eventos }: GalleryGridProps) {
   const [activeType, setActiveType] = useState<string>("todos")
 
   const years = useMemo(
-    () => Array.from(new Set(eventos.map((e) => e.anio))).sort((a, b) => b - a),
+    () => Array.from(new Set(eventos.flatMap((e) => e.years))).sort((a, b) => b - a),
     [eventos]
   )
 
   const types = useMemo(
-    () =>
-      Array.from(new Set(eventos.map((e) => e.tipo))).filter(
-        (t): t is TipoEvento => t !== null
-      ),
+    () => Array.from(new Set(eventos.map((e) => e.type))),
     [eventos]
   )
 
   const filteredEvents = useMemo(() => {
     return eventos.filter((e) => {
-      const yearMatch = activeYear === "todos" || e.anio.toString() === activeYear
-      const typeMatch = activeType === "todos" || e.tipo === activeType
+      const yearMatch = activeYear === "todos" || e.years.includes(Number(activeYear))
+      const typeMatch = activeType === "todos" || e.type === activeType
       return yearMatch && typeMatch
     })
   }, [eventos, activeYear, activeType])
@@ -63,10 +49,10 @@ export function GalleryGrid({ eventos }: GalleryGridProps) {
             Nuestra Experiencia
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-text-on-dark-muted">
-            33+ eventos de gran magnitud respaldan nuestra trayectoria
+            Eventos de gran magnitud que respaldan nuestra trayectoria
           </p>
           <p className="mx-auto mt-2 inline-block rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-text-on-dark-muted">
-            {eventos.length}+ eventos · 500+ servicios completados
+            {eventos.length} eventos verificables · cobertura nacional
           </p>
         </div>
       </section>
@@ -129,7 +115,7 @@ export function GalleryGrid({ eventos }: GalleryGridProps) {
                       : "text-body hover:bg-bg-light"
                   )}
                 >
-                  {tipoLabels[type] || type}
+                  {eventTypeLabels[type] || type}
                 </button>
               ))}
             </div>
@@ -148,33 +134,34 @@ export function GalleryGrid({ eventos }: GalleryGridProps) {
                 <div
                   className={cn(
                     "relative aspect-[4/3] w-full",
-                    evento.destacado && "aspect-square"
+                    evento.highlighted && "aspect-square"
                   )}
                 >
-                  <Image
-                    src={evento.imagenPrincipal || "/images/eventos/placeholder.svg"}
-                    alt={evento.nombre}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    loading={index < 8 ? "eager" : "lazy"}
-                  />
+                  {/* Placeholder con texto descriptivo — sin foto genérica */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-secondary-800 to-secondary-900 p-4 text-center">
+                    <span className="font-outfit text-lg font-semibold text-white">
+                      {evento.name}
+                    </span>
+                    <span className="mt-1 text-sm text-neutral-400">
+                      {evento.years.join(", ")}
+                    </span>
+                    {/* TODO: Reemplazar por foto real del evento */}
+                  </div>
+
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute top-3 left-3">
+                  <div className="absolute left-3 top-3">
                     <Badge
                       className={cn(
                         "border-0 text-xs font-semibold text-white",
-                        tipoColors[evento.tipo || ""] || "bg-primary"
+                        tipoColors[evento.type] || "bg-primary"
                       )}
                     >
-                      {tipoLabels[evento.tipo || ""] || evento.tipo}
+                      {eventTypeLabels[evento.type] || evento.type}
                     </Badge>
                   </div>
-                  <div className="absolute right-3 bottom-3 left-3">
-                    <p className="text-lg font-bold text-white">
-                      {evento.nombre}
-                    </p>
-                    <p className="text-sm text-white/80">{evento.anio}</p>
+                  <div className="absolute inset-x-3 bottom-3">
+                    <p className="text-lg font-bold text-white">{evento.name}</p>
+                    <p className="text-sm text-white/80">{evento.years.join(", ")}</p>
                   </div>
                 </div>
               </div>

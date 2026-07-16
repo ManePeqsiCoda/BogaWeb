@@ -2,22 +2,12 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
+import { ProductGrid } from "@/components/product-grid"
 import type { Producto, Categoria } from "@/lib/mocks"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { FadeIn } from "@/components/home/fade-in"
 import { cn } from "@/lib/utils"
-import { ArrowRight, Star, Bath, Accessibility, Users, Leaf } from "lucide-react"
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Crown: Star,
-  Bath: Bath,
-  Accessibility: Accessibility,
-  Leaf: Leaf,
-  Users: Users,
-}
+import { ArrowRight } from "lucide-react"
 
 interface ProductCatalogProps {
   productos: Producto[]
@@ -69,62 +59,7 @@ export function ProductCatalog({ productos, categorias }: ProductCatalogProps) {
 
       {/* Product grid */}
       <h2 className="sr-only">Catálogo de productos</h2>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {filteredProducts.map((producto, index) => {
-          const Icon = iconMap[producto.categoria.icono || ""] || Bath
-          return (
-            <FadeIn key={producto.id} delay={index * 0.05}>
-              <Card className="group h-full overflow-hidden border-border-subtle bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-                <Link href={`/productos/${producto.slug}`}>
-                  <div className="relative h-48 overflow-hidden bg-bg-light">
-                    <Image
-                      src={producto.imagenPrincipal}
-                      alt={producto.nombre}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-white/60 opacity-0 transition-opacity group-hover:opacity-100">
-                      <span className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white">
-                        Ver detalles
-                      </span>
-                    </div>
-                    {producto.badge && (
-                      <Badge className="absolute top-3 right-3 bg-accent-gold text-white hover:bg-accent-gold">
-                        {producto.badge}
-                      </Badge>
-                    )}
-                  </div>
-                </Link>
-                <CardContent className="flex flex-col p-5">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-light text-primary">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-lg font-bold text-dark">
-                    <Link
-                      href={`/productos/${producto.slug}`}
-                      className="hover:text-primary"
-                    >
-                      {producto.nombre}
-                    </Link>
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm text-body">
-                    {producto.descripcionCorta}
-                  </p>
-                  <Link
-                    href={`/productos/${producto.slug}`}
-                    className="mt-4 inline-flex items-center text-sm font-semibold text-primary hover:text-primary-hover"
-                  >
-                    Ver más
-                    <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </CardContent>
-              </Card>
-            </FadeIn>
-          )
-        })}
-      </div>
+      <ProductGrid productos={filteredProducts} columns={4} />
 
       {filteredProducts.length === 0 && (
         <div className="py-20 text-center">
