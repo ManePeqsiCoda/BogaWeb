@@ -536,7 +536,7 @@ export const usuarios: Usuario[] = [
   {
     id: "usr_1",
     email: "admin@junisama.com",
-    nombre: "Administrador Junisama",
+    nombre: "Administrador BOGA",
     passwordHash: "mock-hash",
     rol: "ADMIN",
     activo: true,
@@ -741,18 +741,18 @@ export const faqs: Faq[] = [
 // Configuración
 export const configuracion: Configuracion = {
   id: 1,
-  nombreSitio: "Junisama Inversiones S.A.S",
+  nombreSitio: "BOGA — Ingeniería Portátil",
   telefono: "+57 350 708 9584",
   email: "soporte@junisama.com",
   direccionMedellin: "Calle 13 sur #51C-54",
-  direccionBogota: "Cra 58b bis # 131A 51",
+  direccionBogota: "Cra 58b bis #131A 51",
   whatsappNumero: "573507089584",
-  instagramUrl: "https://instagram.com/junisama",
-  linkedinUrl: "https://linkedin.com/company/junisama",
-  seoTitleDefault: "Junisama | Alquiler de Baños Portátiles en Colombia",
+  instagramUrl: "https://www.instagram.com/junisama_inversiones/",
+  linkedinUrl: "https://www.linkedin.com/company/inversiones-junisama-s-a-s/",
+  seoTitleDefault: "BOGA | Alquiler de Baños Portátiles en Colombia",
   seoDescriptionDefault:
-    "Soluciones sanitarias portátiles para eventos, obras e industria. Baños VIP, estándar, accesibles y puntos ecológicos en Medellín, Bogotá y toda Colombia.",
-  mensajeWhatsApp: "Hola, me gustaría recibir información sobre sus servicios.",
+    "Ingeniería portátil para eventos, obras e industria. Baños VIP, estándar, accesibles y puntos ecológicos en Medellín, Bogotá y toda Colombia.",
+  mensajeWhatsApp: "Hola BOGA, me gustaría recibir información sobre sus servicios.",
 }
 
 // Helpers

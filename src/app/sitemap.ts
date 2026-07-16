@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { productos } from "@/lib/mocks";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://junisama.com";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://junisama.com.co";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [

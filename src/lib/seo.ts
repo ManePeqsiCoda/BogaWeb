@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Junisama",
-  fullName: "Junisama Inversiones S.A.S",
-  tagline: "Infraestructura Sanitaria Industrial",
+  name: "BOGA",
+  fullName: "BOGA — Ingeniería Portátil",
+  tagline: "Elevamos el estándar de tus eventos.",
   url: "https://junisama.com.co",
   logo: "https://junisama.com.co/logo.svg",
   phone: "+57 350 708 9584",
@@ -26,78 +26,78 @@ export const siteConfig = {
 export const seoConfig = {
   home: {
     title:
-      "Junisama | Alquiler de Baños Portátiles en Colombia | Servicio Premium 24/7",
+      "BOGA | Alquiler de Baños Portátiles en Colombia | Ingeniería Portátil 24/7",
     description:
-      "Alquiler de baños portátiles y unidades sanitarias para eventos en Colombia. Servicio premium con baños VIP, estándar, eléctricos y para discapacitados. Operarios profesionales disponibles 24/7.",
+      "BOGA ofrece alquiler de baños portátiles y unidades sanitarias para eventos en Colombia. Servicio premium con baños VIP, estándar, eléctricos y para discapacitados. Operarios profesionales disponibles 24/7.",
     keywords:
-      "baños portátiles Colombia, alquiler baños portátiles, baños portátiles Medellín, baños portátiles Bogotá, baños portátiles VIP, baños portátiles eventos, unidades sanitarias portátiles, infraestructura sanitaria eventos, baños para discapacitados, tráiler de lujo sanitario",
+      "baños portátiles Colombia, alquiler baños portátiles, baños portátiles Medellín, baños portátiles Bogotá, baños portátiles VIP, baños portátiles eventos, unidades sanitarias portátiles, ingeniería portátil, baños para discapacitados, tráiler de lujo sanitario",
   },
   productos: {
-    title: "Productos | Baños Portátiles y Unidades Sanitarias",
+    title: "Productos | Baños Portátiles y Unidades Sanitarias BOGA",
     description:
-      "Catálogo de baños portátiles VIP, estándar, eléctricos, para discapacitados, lavamanos, trailers de lujo y puntos ecológicos en Colombia.",
+      "Catálogo BOGA de baños portátiles VIP, estándar, eléctricos, para discapacitados, lavamanos, trailers de lujo y puntos ecológicos en Colombia.",
     keywords:
       "baños portátiles, baño VIP, baño estándar, lavamanos portátil, trailer de lujo",
   },
   servicios: {
-    title: "Servicios Especializados | Alquiler y Operación",
+    title: "Servicios Especializados | Alquiler y Operación BOGA",
     description:
       "Alquiler de unidades sanitarias, mantenimiento especializado, operarios certificados e insumos biodegradables para eventos y obras.",
     keywords:
       "servicios sanitarios, operarios para baños, mantenimiento baños portátiles",
   },
   galeria: {
-    title: "Galería | Eventos Atendidos",
+    title: "Galería | Eventos Atendidos por BOGA",
     description:
-      "Conoce los eventos de gran magnitud que han confiado en Junisama para su infraestructura sanitaria industrial.",
-    keywords: "eventos atendidos, galería Junisama, baños para eventos",
+      "Conoce los eventos de gran magnitud que han confiado en BOGA para su ingeniería portátil sanitaria.",
+    keywords: "eventos atendidos, galería BOGA, baños para eventos",
   },
   clientes: {
-    title: "Clientes | Quiénes Confían",
+    title: "Clientes | Quiénes Confían en BOGA",
     description:
-      "Empresas, festivales, conciertos y organizaciones que confían en Junisama para sus eventos en Colombia.",
-    keywords: "clientes Junisama, testimonios, eventos corporativos",
+      "Empresas, festivales, conciertos y organizaciones que confían en BOGA para sus eventos en Colombia.",
+    keywords: "clientes BOGA, testimonios, eventos corporativos",
   },
   "quienes-somos": {
-    title: "Nuestra Empresa | Junisama Inversiones S.A.S",
+    title: "Nuestra Empresa | BOGA — Ingeniería Portátil",
     description:
       "Más de 10 años de experiencia en alquiler y operación de unidades sanitarias portátiles para eventos y obras en Colombia.",
-    keywords: "Junisama, empresa baños portátiles, infraestructura sanitaria",
+    keywords: "BOGA, empresa baños portátiles, ingeniería portátil",
   },
   faq: {
-    title: "Preguntas Frecuentes",
+    title: "Preguntas Frecuentes | BOGA",
     description:
       "Resolvemos tus dudas sobre baños portátiles, servicios, cotizaciones y atención de eventos en Colombia.",
     keywords: "preguntas frecuentes, FAQ baños portátiles",
   },
   contacto: {
-    title: "Contacto",
+    title: "Contacto | BOGA",
     description:
-      "Contácta a Junisama. Línea directa +57 350 708 9584, WhatsApp 24/7, sedes en Medellín y Bogotá. Solicita tu cotización.",
-    keywords: "contacto Junisama, cotización baños portátiles",
+      "Contácta a BOGA. Línea directa +57 350 708 9584, WhatsApp 24/7, sedes en Medellín y Bogotá. Solicita tu cotización.",
+    keywords: "contacto BOGA, cotización baños portátiles",
   },
   cotizacion: {
-    title: "Solicitar Cotización",
+    title: "Solicitar Cotización | BOGA",
     description:
       "Solicita una cotización personalizada para tu evento u obra. Baños portátiles, lavamanos, trailers de lujo y operarios profesionales.",
     keywords: "cotizar baños portátiles, cotización eventos",
   },
   privacidad: {
-    title: "Política de Privacidad",
+    title: "Política de Privacidad | BOGA",
     description:
-      "Política de privacidad de Junisama Inversiones S.A.S conforme a la Ley 1581 de 2012 de Colombia.",
+      "Política de privacidad de BOGA conforme a la Ley 1581 de 2012 de Colombia.",
     keywords: "política de privacidad, protección de datos",
   },
   terminos: {
-    title: "Términos y Condiciones",
+    title: "Términos y Condiciones | BOGA",
     description:
-      "Términos y condiciones de uso del sitio web de Junisama Inversiones S.A.S.",
+      "Términos y condiciones de uso del sitio web de BOGA.",
     keywords: "términos y condiciones",
   },
   cookies: {
-    title: "Política de Cookies",
+    title: "Política de Cookies | BOGA",
     description:
-      "Política de cookies del sitio web de Junisama Inversiones S.A.S.",
+      "Política de cookies del sitio web de BOGA.",
     keywords: "política de cookies",
   },
 }
@@ -144,7 +144,7 @@ export function generateOrganizationJsonLd() {
     url: siteConfig.url,
     logo: siteConfig.logo,
     description:
-      "Infraestructura sanitaria industrial: alquiler de baños portátiles, lavamanos, puntos ecológicos y servicios de operarios en Colombia.",
+      "Ingeniería portátil: alquiler de baños portátiles, lavamanos, puntos ecológicos y servicios de operarios en Colombia.",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: siteConfig.phone,

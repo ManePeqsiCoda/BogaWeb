@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, ReactNode } from "react"
+import { loginAdmin } from "@/app/admin/login/actions"
 
 interface MockUser {
   id: string
@@ -20,8 +21,8 @@ const AuthMockContext = createContext<AuthMockContextValue | null>(null)
 
 const MOCK_USER: MockUser = {
   id: "usr_1",
-  email: process.env.NEXT_PUBLIC_ADMIN_EMAIL || "",
-  name: "Administrador Junisama",
+  email: "admin@junisama.com",
+  name: "Administrador BOGA",
   role: "ADMIN",
 }
 
@@ -32,16 +33,10 @@ export function AuthMockProvider({ children }: { children: ReactNode }) {
   )
 
   const signIn = async (email: string, password: string) => {
-    const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL
-    const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD
+    const ok = await loginAdmin(email, password)
 
-    if (
-      adminEmail &&
-      adminPassword &&
-      email.trim().toLowerCase() === adminEmail.trim().toLowerCase() &&
-      password === adminPassword
-    ) {
-      setUser(MOCK_USER)
+    if (ok) {
+      setUser({ ...MOCK_USER, email })
       setStatus("authenticated")
       return true
     }

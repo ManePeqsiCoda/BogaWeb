@@ -60,13 +60,13 @@ function LoginForm() {
     <Card className="w-full max-w-md border-border bg-card text-card-foreground shadow-xl">
       <CardHeader className="space-y-2 text-center">
         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground font-extrabold text-xl">
-          J
+          B
         </div>
         <h1 className="text-2xl font-extrabold uppercase tracking-wider text-foreground">
           Panel de Administración
         </h1>
         <CardDescription className="text-muted-foreground">
-          Inicia sesión para gestionar Junisama
+          Inicia sesión para gestionar BOGA
         </CardDescription>
         {process.env.NODE_ENV === "development" && (
           <p className="text-xs text-muted-foreground">
