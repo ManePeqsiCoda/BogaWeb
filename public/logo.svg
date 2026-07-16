@@ -1,10 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" fill="none">
-  <!-- Icono geométrico Junisama -->
-  <rect x="0" y="0" width="40" height="40" rx="8" fill="#0F1923"/>
-  <path d="M20 8L32 32H8L20 8Z" fill="#E85D24"/>
-  <path d="M20 14L28 30H12L20 14Z" fill="#C9A84C"/>
-  <!-- Texto JUNISAMA -->
-  <text x="48" y="26" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0F1923" letter-spacing="0.02em">JUNISAMA</text>
-  <!-- Subtítulo -->
-  <text x="48" y="36" font-family="Arial, sans-serif" font-size="8" font-weight="500" fill="#5A6779" letter-spacing="0.12em">INVERSIONES S.A.S</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" fill="none">
+  <!-- TODO: Reemplazar con el logo BOGA oficial entregado por el cliente (AI/EPS/SVG/PNG). -->
+  <!-- Placeholder: isotipo BOGA + wordmark + barra lima + sub-marca -->
+
+  <!-- Isotipo: B estilizada / gota de agua (colores BOGA) -->
+  <g transform="translate(0, 2)">
+    <circle cx="20" cy="20" r="18" fill="#1b1341"/>
+    <path d="M20 8 C12 8 8 15 8 20 C8 27 13 32 20 32 C27 32 30 28 30 24 C30 20 26 18 22 18 C20 18 18 19 18 21 C18 23 20 24 22 24 C23 24 24 25 24 26 C24 28 22 29 20 29 C15 29 12 25 12 20 C12 15 16 11 20 11 C25 11 29 15 29 20 L32 20 C32 12 27 8 20 8 Z" fill="#2c4df2"/>
+    <circle cx="26" cy="14" r="4" fill="#daf73a"/>
+  </g>
+
+  <!-- Wordmark BOGA -->
+  <text x="52" y="28" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#1b1341" letter-spacing="-0.02em">BOGA</text>
+
+  <!-- Barra lima debajo del wordmark -->
+  <rect x="52" y="32" width="54" height="4" rx="2" fill="#daf73a"/>
+
+  <!-- Sub-marca INGENIERÍA PORTÁTIL -->
+  <text x="52" y="44" font-family="Arial, sans-serif" font-size="7.5" font-weight="500" fill="#8a849d" letter-spacing="0.22em">INGENIERÍA PORTÁTIL</text>
 </svg>
