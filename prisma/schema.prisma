@@ -1,0 +1,241 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Categoria {
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  nombre      String
+  descripcion String?
+  icono       String?
+  orden       Int        @default(0)
+  productos   Producto[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Producto {
+  id                      String           @id @default(cuid())
+  slug                    String           @unique
+  nombre                  String
+  nombreCorto             String
+  descripcion             String
+  descripcionCorta        String
+  categoriaId             String
+  categoria               Categoria        @relation(fields: [categoriaId], references: [id])
+  tipo                    TipoProducto
+  badge                   String?
+  imagenPrincipal         String
+  imagenes                Json?
+  especificaciones        Json?
+  precioBase              Decimal?
+  unidadMedida            String           @default("unidad")
+  destacado               Boolean          @default(false)
+  orden                   Int              @default(0)
+  seoTitle                String?
+  seoDescription          String?
+  estado                  EstadoProducto   @default(ACTIVO)
+  itemsCotizacion         CotizacionItem[]
+  createdAt               DateTime         @default(now())
+  updatedAt               DateTime         @updatedAt
+}
+
+model Cliente {
+  id             String        @id @default(cuid())
+  nombreEmpresa  String
+  nombreContacto String?
+  email          String
+  telefono       String
+  sector         String?
+  ciudad         String?
+  direccion      String?
+  notas          String?
+  fuente         FuenteCliente @default(WEB)
+  estado         EstadoCliente @default(PROSPECTO)
+  cotizaciones   Cotizacion[]
+  eventos        Evento[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model Cotizacion {
+  id              String           @id @default(cuid())
+  codigo          String           @unique
+  clienteId       String
+  cliente         Cliente          @relation(fields: [clienteId], references: [id])
+  nombre          String
+  descripcion     String?
+  estado          EstadoCotizacion @default(BORRADOR)
+  fechaEvento     DateTime?
+  ubicacionEvento String?
+  tipoEvento      String?
+  duracionDias    Int?
+  costoTotal      Decimal?
+  precioVenta     Decimal?
+  margen          Decimal?
+  moneda          String           @default("COP")
+  items           CotizacionItem[]
+  creadoPorId     String
+  creadoPor       Usuario          @relation(fields: [creadoPorId], references: [id])
+  notasInternas   String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+}
+
+model CotizacionItem {
+  id                       String     @id @default(cuid())
+  cotizacionId             String
+  cotizacion               Cotizacion @relation(fields: [cotizacionId], references: [id], onDelete: Cascade)
+  productoId               String
+  producto                 Producto   @relation(fields: [productoId], references: [id])
+  cantidad                 Int
+  precioUnitario           Decimal
+  precioTotal              Decimal
+  descripcionPersonalizada String?
+  costoUnitario            Decimal?
+  createdAt                DateTime   @default(now())
+}
+
+model Evento {
+  id                  String    @id @default(cuid())
+  slug                String    @unique
+  nombre              String
+  anio                Int
+  tipo                TipoEvento?
+  descripcion         String?
+  imagenPrincipal     String?
+  imagenes            Json?
+  logoCliente         String?
+  ciudad              String?
+  cantidadUnidades    Int?
+  productosUsados     Json?
+  testimonio          String?
+  nombreTestimonio    String?
+  cargoTestimonio     String?
+  estrellasTestimonio Int?
+  destacado           Boolean   @default(false)
+  estado              String    @default("PUBLICADO")
+  // Campos administrativos de evento / CRM
+  fecha               DateTime?
+  horaInicio          String?
+  horaFin             String?
+  ubicacion           String?
+  tipoEvento          String?
+  numeroInvitados     Int?
+  clienteId           String?
+  cliente             Cliente?  @relation(fields: [clienteId], references: [id])
+  contactoNombre      String?
+  contactoTelefono    String?
+  contactoEmail       String?
+  notas               String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model Usuario {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  nombre       String
+  passwordHash String
+  rol          RolUsuario   @default(EDITOR)
+  activo       Boolean      @default(true)
+  ultimoAcceso DateTime?
+  cotizaciones Cotizacion[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Configuracion {
+  id                    Int      @id @default(1)
+  nombreSitio           String   @default("Junisama Inversiones S.A.S")
+  telefono              String   @default("+57 350 708 9584")
+  email                 String   @default("soporte@junisama.com")
+  direccionMedellin     String   @default("Calle 13 sur #51C-54")
+  direccionBogota       String   @default("Cra 58b bis # 131A 51")
+  whatsappNumero        String   @default("573507089584")
+  instagramUrl          String?
+  linkedinUrl           String?
+  seoTitleDefault       String?
+  seoDescriptionDefault String?
+  scriptAnalytics       String?
+  mensajeWhatsApp       String   @default("Hola, me gustaría recibir información sobre sus servicios.")
+  updatedAt             DateTime @updatedAt
+}
+
+model Faq {
+  id        String      @id @default(cuid())
+  pregunta  String
+  respuesta String
+  categoria CategoriaFaq @default(GENERAL)
+  orden     Int         @default(0)
+  estado    EstadoFaq   @default(PUBLICADO)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+// Enums
+enum TipoProducto {
+  PRODUCTO
+  SERVICIO
+}
+
+enum EstadoProducto {
+  ACTIVO
+  INACTIVO
+  AGOTADO
+}
+
+enum FuenteCliente {
+  WEB
+  REFERIDO
+  WHATSAPP
+  TELEFONO
+}
+
+enum EstadoCliente {
+  PROSPECTO
+  ACTIVO
+  INACTIVO
+}
+
+enum EstadoCotizacion {
+  BORRADOR
+  ENVIADA
+  APROBADA
+  RECHAZADA
+  EXPIRADA
+}
+
+enum TipoEvento {
+  CONCIERTO
+  FERIA
+  FESTIVAL
+  CORPORATIVO
+  GOBIERNO
+  PRIVADO
+}
+
+
+
+enum RolUsuario {
+  ADMIN
+  EDITOR
+}
+
+enum CategoriaFaq {
+  GENERAL
+  PRODUCTOS
+  SERVICIOS
+  PRECIOS
+  EVENTOS
+}
+
+enum EstadoFaq {
+  PUBLICADO
+  BORRADOR
+}

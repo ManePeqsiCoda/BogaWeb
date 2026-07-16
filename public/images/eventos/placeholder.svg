@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#1A202C"/>
+  <circle cx="400" cy="250" r="80" fill="#FF6B35" opacity="0.2"/>
+  <path d="M400 200l50 86.6H350L400 200z" fill="#D4A853" opacity="0.5"/>
+  <text x="400" y="380" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" fill="#FFFFFF" font-weight="bold">
+    Evento Junisama
+  </text>
+  <text x="400" y="410" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" fill="#A0AEC0">
+    Infraestructura Sanitaria Industrial
+  </text>
+</svg>

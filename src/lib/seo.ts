@@ -1,0 +1,234 @@
+export const siteConfig = {
+  name: "Junisama",
+  fullName: "Junisama Inversiones S.A.S",
+  tagline: "Infraestructura Sanitaria Industrial",
+  url: "https://junisama.com",
+  logo: "https://junisama.com/logo.svg",
+  phone: "+57 350 708 9584",
+  email: "soporte@junisama.com",
+  whatsapp: "573507089584",
+  locale: "es_CO",
+  language: "es-CO",
+  addresses: [
+    {
+      city: "Medellín",
+      street: "Calle 13 sur #51C-54",
+      country: "CO",
+    },
+    {
+      city: "Bogotá",
+      street: "Cra 58b bis #131A 51",
+      country: "CO",
+    },
+  ],
+}
+
+export const seoConfig = {
+  home: {
+    title:
+      "Junisama | Alquiler de Baños Portátiles en Colombia | Servicio Premium 24/7",
+    description:
+      "Alquiler de baños portátiles y unidades sanitarias para eventos en Colombia. Servicio premium con baños VIP, estándar, eléctricos y para discapacitados. Operarios profesionales disponibles 24/7.",
+    keywords:
+      "baños portátiles Colombia, alquiler baños portátiles, unidades sanitarias portátiles, baños para eventos",
+  },
+  productos: {
+    title: "Productos | Baños Portátiles y Unidades Sanitarias | Junisama",
+    description:
+      "Catálogo de baños portátiles VIP, estándar, eléctricos, para discapacitados, lavamanos, trailers de lujo y puntos ecológicos en Colombia.",
+    keywords:
+      "baños portátiles, baño VIP, baño estándar, lavamanos portátil, trailer de lujo",
+  },
+  servicios: {
+    title: "Servicios Especializados | Alquiler y Operación | Junisama",
+    description:
+      "Alquiler de unidades sanitarias, mantenimiento especializado, operarios certificados e insumos biodegradables para eventos y obras.",
+    keywords:
+      "servicios sanitarios, operarios para baños, mantenimiento baños portátiles",
+  },
+  galeria: {
+    title: "Galería | Eventos Atendidos | Junisama",
+    description:
+      "Conoce los eventos de gran magnitud que han confiado en Junisama para su infraestructura sanitaria industrial.",
+    keywords: "eventos atendidos, galería Junisama, baños para eventos",
+  },
+  clientes: {
+    title: "Clientes | Quiénes Confían en Junisama",
+    description:
+      "Empresas, festivales, conciertos y organizaciones que confían en Junisama para sus eventos en Colombia.",
+    keywords: "clientes Junisama, testimonios, eventos corporativos",
+  },
+  "quienes-somos": {
+    title: "Nuestra Empresa | Junisama Inversiones S.A.S",
+    description:
+      "Más de 10 años de experiencia en alquiler y operación de unidades sanitarias portátiles para eventos y obras en Colombia.",
+    keywords: "Junisama, empresa baños portátiles, infraestructura sanitaria",
+  },
+  faq: {
+    title: "Preguntas Frecuentes | Junisama",
+    description:
+      "Resolvemos tus dudas sobre baños portátiles, servicios, cotizaciones y atención de eventos en Colombia.",
+    keywords: "preguntas frecuentes, FAQ baños portátiles",
+  },
+  contacto: {
+    title: "Contacto | Junisama",
+    description:
+      "Contácta a Junisama. Línea directa +57 350 708 9584, WhatsApp 24/7, sedes en Medellín y Bogotá. Solicita tu cotización.",
+    keywords: "contacto Junisama, cotización baños portátiles",
+  },
+  cotizacion: {
+    title: "Solicitar Cotización | Junisama",
+    description:
+      "Solicita una cotización personalizada para tu evento u obra. Baños portátiles, lavamanos, trailers de lujo y operarios profesionales.",
+    keywords: "cotizar baños portátiles, cotización eventos",
+  },
+  privacidad: {
+    title: "Política de Privacidad | Junisama",
+    description:
+      "Política de privacidad de Junisama Inversiones S.A.S conforme a la Ley 1581 de 2012 de Colombia.",
+    keywords: "política de privacidad, protección de datos",
+  },
+  terminos: {
+    title: "Términos y Condiciones | Junisama",
+    description:
+      "Términos y condiciones de uso del sitio web de Junisama Inversiones S.A.S.",
+    keywords: "términos y condiciones",
+  },
+  cookies: {
+    title: "Política de Cookies | Junisama",
+    description:
+      "Política de cookies del sitio web de Junisama Inversiones S.A.S.",
+    keywords: "política de cookies",
+  },
+}
+
+export function generateOpenGraph(
+  page: keyof typeof seoConfig,
+  path: string = "/"
+) {
+  const config = seoConfig[page]
+  return {
+    title: config.title,
+    description: config.description,
+    url: `${siteConfig.url}${path}`,
+    siteName: siteConfig.fullName,
+    locale: siteConfig.locale,
+    type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}/images/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: config.title,
+      },
+    ],
+  }
+}
+
+export function generateTwitterCard(page: keyof typeof seoConfig) {
+  const config = seoConfig[page]
+  return {
+    card: "summary_large_image",
+    title: config.title,
+    description: config.description,
+    images: [`${siteConfig.url}/images/og-image.png`],
+  }
+}
+
+export function generateOrganizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteConfig.url}/#organization`,
+    name: siteConfig.fullName,
+    url: siteConfig.url,
+    logo: siteConfig.logo,
+    description:
+      "Infraestructura sanitaria industrial: alquiler de baños portátiles, lavamanos, puntos ecológicos y servicios de operarios en Colombia.",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: siteConfig.phone,
+      contactType: "customer service",
+      email: siteConfig.email,
+      areaServed: "CO",
+      availableLanguage: ["Spanish"],
+    },
+    sameAs: [
+      "https://www.instagram.com/junisama_inversiones/",
+      "https://www.linkedin.com/company/inversiones-junisama-s-a-s/",
+    ],
+  }
+}
+
+export function generateLocalBusinessJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteConfig.url}/#localbusiness`,
+    name: siteConfig.fullName,
+    image: siteConfig.logo,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    url: siteConfig.url,
+    address: siteConfig.addresses.map((addr) => ({
+      "@type": "PostalAddress",
+      streetAddress: addr.street,
+      addressLocality: addr.city,
+      addressCountry: addr.country,
+    })),
+    priceRange: "$$",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+  }
+}
+
+export function generateWebsiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.fullName,
+    url: siteConfig.url,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/productos?search={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  }
+}
+
+export function generateBreadcrumbJsonLd(
+  items: { name: string; path: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${siteConfig.url}${item.path}`,
+    })),
+  }
+}
+
+export function generateContactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contacto",
+    url: `${siteConfig.url}/contacto`,
+    mainEntity: {
+      "@type": "Organization",
+      name: siteConfig.fullName,
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+    },
+  }
+}
