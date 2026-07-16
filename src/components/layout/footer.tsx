@@ -165,6 +165,13 @@ export function Footer() {
               </span>
               <span className="text-sm font-medium text-neutral-400">WhatsApp en línea</span>
             </div>
+
+            <div className="mt-6 rounded-lg border border-white/10 bg-white/5 p-4">
+              <h5 className="mb-2 text-xs font-semibold uppercase tracking-wider text-neutral-300">
+                Acceso interno
+              </h5>
+              <AdminLink className="text-sm text-neutral-400 hover:text-white" />
+            </div>
           </div>
         </div>
       </div>
