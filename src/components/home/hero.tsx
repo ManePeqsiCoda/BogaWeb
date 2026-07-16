@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ShieldCheck, ArrowRight, CircleDot, LayoutGrid } from "lucide-react"
@@ -11,14 +13,20 @@ const stats = [
   { value: "10+", label: "Años experiencia" },
 ]
 
+// TODO: Agregar número real de certificado ISO 14001 cuando esté disponible
+const ISO_CERTIFICATE_NUMBER = ""
+
 export function Hero() {
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageError, setImageError] = useState(false)
+  const showImage = imageLoaded && !imageError
+
   return (
     <section
       className="relative flex min-h-[90vh] items-center justify-center overflow-hidden"
       aria-label="Sección principal"
     >
-      {/* Fondo: gradiente industrial oscuro con patrón sutil */}
-      {/* TODO: Reemplazar por foto/video real de evento atendido por Junisama */}
+      {/* Fallback: gradiente industrial oscuro con patrón sutil */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary-900 via-secondary-800 to-secondary-900" />
       <div
         className="absolute inset-0 opacity-[0.04]"
@@ -27,6 +35,21 @@ export function Hero() {
             "repeating-linear-gradient(45deg, #ffffff 0, #ffffff 1px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, #ffffff 0, #ffffff 1px, transparent 0, transparent 50%)",
           backgroundSize: "40px 40px",
         }}
+      />
+
+      {/* Fondo real con overlay oscuro */}
+      {/* TODO: Reemplazar /images/hero-background.jpg por foto/video real de evento atendido por Junisama */}
+      <Image
+        src="/images/hero-background.jpg"
+        alt=""
+        fill
+        className="absolute inset-0 -z-10 object-cover transition-opacity duration-700"
+        style={{ opacity: showImage ? 1 : 0 }}
+        priority
+        quality={85}
+        onLoad={() => setImageLoaded(true)}
+        onError={() => setImageError(true)}
+        aria-hidden="true"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/90 via-secondary-900/70 to-secondary-900/85" />
 
@@ -39,6 +62,11 @@ export function Hero() {
           <div className="badge-iso mx-auto mb-6">
             <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
             <span>ISO 14001 Certificado</span>
+            {ISO_CERTIFICATE_NUMBER && (
+              <span className="ml-1 font-space-grotesk text-neutral-400">
+                · {ISO_CERTIFICATE_NUMBER}
+              </span>
+            )}
           </div>
         </motion.div>
 

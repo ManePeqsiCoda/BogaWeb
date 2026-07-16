@@ -33,6 +33,10 @@ export const metadata: Metadata = {
     "geo.position": "6.2518;-75.5636",
     ICBM: "6.2518, -75.5636",
   },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 const jsonLd = {

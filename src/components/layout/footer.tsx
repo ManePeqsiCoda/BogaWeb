@@ -20,6 +20,13 @@ const footerLinks = [
   { name: "Cookies", href: "/cookies" },
 ]
 
+const mapUrls = {
+  medellin:
+    "https://maps.google.com/maps?q=Calle+13+sur+%2351C-54%2C+Medell%C3%ADn%2C+Antioquia%2C+Colombia&t=&z=15&ie=UTF8&iwloc=&output=embed",
+  bogota:
+    "https://maps.google.com/maps?q=Cra+58b+bis+%23131A+51%2C+Bogot%C3%A1%2C+Colombia&t=&z=15&ie=UTF8&iwloc=&output=embed",
+}
+
 export function Footer() {
   return (
     <footer className="bg-secondary-900 text-white" role="contentinfo">
@@ -171,6 +178,50 @@ export function Footer() {
                 Acceso interno
               </h5>
               <AdminLink className="text-sm text-neutral-400 hover:text-white" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Sedes / Mapas */}
+      <div className="border-y border-white/10 bg-secondary-800/50">
+        <div className="container-junisama py-12">
+          <div className="mb-8 flex items-center gap-2">
+            <MapPin className="h-5 w-5 text-primary-500" aria-hidden="true" />
+            <h3 className="font-outfit text-heading-sm text-white">Nuestras Sedes</h3>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-secondary-900">
+              <div className="aspect-[16/9] w-full">
+                <iframe
+                  src={mapUrls.medellin}
+                  title="Sede Junisama Medellín"
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+              <div className="p-4">
+                <p className="font-medium text-white">Medellín</p>
+                <p className="text-sm text-neutral-400">Calle 13 sur #51C-54</p>
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-secondary-900">
+              <div className="aspect-[16/9] w-full">
+                <iframe
+                  src={mapUrls.bogota}
+                  title="Sede Junisama Bogotá"
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+              <div className="p-4">
+                <p className="font-medium text-white">Bogotá</p>
+                <p className="text-sm text-neutral-400">Cra 58b bis #131A 51</p>
+              </div>
             </div>
           </div>
         </div>
