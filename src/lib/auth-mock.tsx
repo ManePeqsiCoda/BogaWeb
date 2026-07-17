@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from "react"
 import { loginAdmin } from "@/app/admin/login/actions"
+import { siteConfig } from "@/lib/site"
 
 interface MockUser {
   id: string
@@ -21,7 +22,7 @@ const AuthMockContext = createContext<AuthMockContextValue | null>(null)
 
 const MOCK_USER: MockUser = {
   id: "usr_1",
-  email: "admin@junisama.com",
+  email: siteConfig.admin.email,
   name: "Administrador BOGA",
   role: "ADMIN",
 }

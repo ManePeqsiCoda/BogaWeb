@@ -49,7 +49,7 @@ const statsData = [
 export function OurNumbers() {
   return (
     <section className="bg-[var(--boga-deep-500)] py-20 md:py-28" aria-labelledby="numbers-heading">
-      <div className="container-junisama">
+      <div className="container-boga">
         <div className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center gap-2 text-caption uppercase tracking-wider text-[var(--boga-lima-500)]">
             <span className="boga-circles--s">

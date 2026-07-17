@@ -142,7 +142,7 @@ export function Navbar() {
         )}
       >
         <nav
-          className="container-junisama flex h-[var(--header-height)] items-center justify-between"
+          className="container-boga flex h-[var(--header-height)] items-center justify-between"
           aria-label="Navegación principal"
         >
           {/* Logo */}

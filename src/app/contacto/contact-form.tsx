@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { FadeIn } from "@/components/home/fade-in"
+import { siteConfig } from "@/lib/site"
 import {
   Phone,
   Mail,
@@ -44,20 +45,20 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Línea directa",
-    value: "+57 350 708 9584",
-    href: "tel:+573507089584",
+    value: siteConfig.phone,
+    href: `tel:+${siteConfig.phoneRaw}`,
   },
   {
     icon: Mail,
     label: "Email",
-    value: "soporte@junisama.com",
-    href: "mailto:soporte@junisama.com",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
     value: "Chat inmediato",
-    href: "https://wa.me/573507089584?text=Hola,%20me%20gustaría%20recibir%20información%20sobre%20sus%20servicios",
+    href: `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`,
   },
   {
     icon: Clock,
@@ -69,14 +70,14 @@ const contactInfo = [
 
 const sedes = [
   {
-    city: "Sede Medellín",
-    address: "Calle 13 sur #51C-54",
+    city: `Sede ${siteConfig.addresses[0].city}`,
+    address: siteConfig.addresses[0].street,
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d-75.612!3d6.208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMjguOCJOIDc1wrAzNic0My4yIlc!5e0!3m2!1ses!2sco!4v1600000000000!5m2!1ses!2sco",
   },
   {
-    city: "Sede Bogotá",
-    address: "Cra 58b bis #131A 51",
+    city: `Sede ${siteConfig.addresses[1].city}`,
+    address: siteConfig.addresses[1].street,
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.123456789012!2d-74.085!3d4.710!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNDInMzYuMCJOIDc0wrAwNScwNi4wIlc!5e0!3m2!1ses!2sco!4v1600000000000!5m2!1ses!2sco",
   },

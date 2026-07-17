@@ -5,6 +5,7 @@ import {
   generateTwitterCard,
   generateBreadcrumbJsonLd,
 } from "@/lib/seo"
+import { siteConfig } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: seoConfig.cookies.title,
@@ -32,7 +33,7 @@ export default function CookiesPage() {
           Política de Cookies
         </h1>
         <p className="mt-4 text-body">
-          Junisama Inversiones S.A.S utiliza cookies y tecnologías similares en
+          {siteConfig.legalName} utiliza cookies y tecnologías similares en
           su sitio web para mejorar la experiencia del usuario y analizar el
           tráfico de la plataforma.
         </p>
@@ -86,7 +87,7 @@ export default function CookiesPage() {
         <section className="mt-8 space-y-4">
           <h2 className="text-xl font-bold text-dark">5. Cambios en la política</h2>
           <p className="text-body">
-            Junisama puede actualizar esta política de cookies en cualquier
+            {siteConfig.name} puede actualizar esta política de cookies en cualquier
             momento. Se recomienda revisar periódicamente esta página para
             conocer las actualizaciones.
           </p>

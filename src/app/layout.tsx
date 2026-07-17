@@ -56,7 +56,9 @@ export default function RootLayout({
   return (
     <html
       lang={siteConfig.language}
-      className="h-full antialiased"
+      className="h-full antialiased light"
+      style={{ colorScheme: "light" }}
+      suppressHydrationWarning
     >
       <head>
         <meta httpEquiv="content-language" content={siteConfig.language} />

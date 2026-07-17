@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
 import { useAuthMock } from "@/lib/auth-mock"
+import { siteConfig } from "@/lib/site"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -36,6 +37,7 @@ function LoginForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
@@ -68,11 +70,26 @@ function LoginForm() {
         <CardDescription className="text-muted-foreground">
           Inicia sesión para gestionar BOGA
         </CardDescription>
-        {process.env.NODE_ENV === "development" && (
+        <div className="rounded-md border border-dashed border-border bg-muted/40 p-3 text-left">
           <p className="text-xs text-muted-foreground">
-            Modo desarrollo — revisa variables de entorno
+            <strong>Acceso demo:</strong>
           </p>
-        )}
+          <p className="text-xs text-muted-foreground">
+            {siteConfig.admin.email} / {siteConfig.admin.password}
+          </p>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            className="mt-2 w-full text-xs"
+            onClick={() => {
+              setValue("email", siteConfig.admin.email)
+              setValue("password", siteConfig.admin.password)
+            }}
+          >
+            Autocompletar credenciales
+          </Button>
+        </div>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

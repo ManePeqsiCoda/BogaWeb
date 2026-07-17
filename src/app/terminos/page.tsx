@@ -5,6 +5,7 @@ import {
   generateTwitterCard,
   generateBreadcrumbJsonLd,
 } from "@/lib/seo"
+import { siteConfig } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: seoConfig.terminos.title,
@@ -32,16 +33,16 @@ export default function TerminosPage() {
           Términos y Condiciones
         </h1>
         <p className="mt-4 text-body">
-          El acceso y uso del sitio web de Junisama Inversiones S.A.S implica la
+          El acceso y uso del sitio web de {siteConfig.legalName} implica la
           aceptación de los siguientes términos y condiciones de uso.
         </p>
 
         <section className="mt-10 space-y-4">
           <h2 className="text-xl font-bold text-dark">1. Información general</h2>
           <p className="text-body">
-            Este sitio web es operado por Junisama Inversiones S.A.S, con sedes
-            en Medellín y Bogotá, Colombia. Nuestro teléfono de contacto es +57
-            350 708 9584 y nuestro correo electrónico es soporte@junisama.com.
+            Este sitio web es operado por {siteConfig.legalName}, con sedes
+            en Medellín y Bogotá, Colombia. Nuestro teléfono de contacto es {siteConfig.phone}
+            y nuestro correo electrónico es {siteConfig.email}.
           </p>
         </section>
 
@@ -51,7 +52,7 @@ export default function TerminosPage() {
             El usuario se compromete a utilizar el sitio web de manera lícita,
             respetando la legislación colombiana vigente y los derechos de
             terceros. Queda prohibido el uso del sitio para fines ilícitos,
-            fraudulentos o que puedan dañar la imagen de Junisama.
+            fraudulentos o que puedan dañar la imagen de {siteConfig.name}.
           </p>
         </section>
 
@@ -59,7 +60,7 @@ export default function TerminosPage() {
           <h2 className="text-xl font-bold text-dark">3. Propiedad intelectual</h2>
           <p className="text-body">
             Todos los contenidos del sitio, incluyendo textos, imágenes, logos,
-            diseño y código, son propiedad de Junisama Inversiones S.A.S o de
+            diseño y código, son propiedad de {siteConfig.legalName} o de
             terceros que han autorizado su uso. Queda prohibida su reproducción,
             distribución o comunicación pública sin autorización expresa.
           </p>
@@ -69,7 +70,7 @@ export default function TerminosPage() {
           <h2 className="text-xl font-bold text-dark">4. Cotizaciones y contratación</h2>
           <p className="text-body">
             Las cotizaciones realizadas a través del sitio web son preliminares
-            y están sujetas a confirmación por parte de Junisama. La
+            y están sujetas a confirmación por parte de {siteConfig.name}. La
             contratación de servicios se formaliza mediante orden de servicio o
             contrato escrito, según corresponda.
           </p>
@@ -78,7 +79,7 @@ export default function TerminosPage() {
         <section className="mt-8 space-y-4">
           <h2 className="text-xl font-bold text-dark">5. Limitación de responsabilidad</h2>
           <p className="text-body">
-            Junisama no garantiza la disponibilidad ininterrumpida del sitio
+            {siteConfig.name} no garantiza la disponibilidad ininterrumpida del sitio
             web. No nos hacemos responsables por daños derivados del acceso o
             uso del sitio, salvo que resulten de dolo o negligencia grave.
           </p>
@@ -87,7 +88,7 @@ export default function TerminosPage() {
         <section className="mt-8 space-y-4">
           <h2 className="text-xl font-bold text-dark">6. Modificaciones</h2>
           <p className="text-body">
-            Junisama se reserva el derecho de modificar estos términos y
+            {siteConfig.name} se reserva el derecho de modificar estos términos y
             condiciones en cualquier momento. Los cambios entrarán en vigor
             desde su publicación en esta página.
           </p>

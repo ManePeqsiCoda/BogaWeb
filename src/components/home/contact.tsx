@@ -20,6 +20,7 @@ import {
   AlertCircle,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { siteConfig } from "@/lib/site"
 
 const contactSchema = z.object({
   nombre: z.string().min(2, "El nombre es requerido"),
@@ -35,26 +36,26 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Teléfono",
-    value: "+57 350 708 9584",
-    href: "tel:+573507089584",
+    value: siteConfig.phone,
+    href: `tel:+${siteConfig.phoneRaw}`,
   },
   {
     icon: Mail,
     label: "Email",
-    value: "soporte@junisama.com",
-    href: "mailto:soporte@junisama.com",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
   },
   {
     icon: MessageCircle,
     label: "WhatsApp 24/7",
-    value: "+57 350 708 9584",
-    href: "https://wa.me/573507089584?text=Hola%20BOGA,%20me%20gustaría%20recibir%20información%20sobre%20sus%20servicios",
+    value: siteConfig.phone,
+    href: `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`,
   },
 ]
 
 const sedes = [
-  { city: "Medellín", address: "Calle 13 sur #51C-54" },
-  { city: "Bogotá", address: "Cra 58b bis #131A 51" },
+  { city: siteConfig.addresses[0].city, address: siteConfig.addresses[0].street },
+  { city: siteConfig.addresses[1].city, address: siteConfig.addresses[1].street },
 ]
 
 export function Contact() {
@@ -289,7 +290,7 @@ export function Contact() {
               </div>
 
               <a
-                href="https://wa.me/573507089584?text=Hola%20BOGA,%20me%20gustaría%20recibir%20información%20sobre%20sus%20servicios"
+                href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(

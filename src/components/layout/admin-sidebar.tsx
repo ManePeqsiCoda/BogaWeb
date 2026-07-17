@@ -41,11 +41,11 @@ export function AdminSidebar() {
       {/* Logo */}
       <div className="flex h-16 items-center gap-3 border-b border-border px-6">
         <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm">
-          J
+          B
         </div>
         <div className="flex flex-col">
           <span className="text-sm font-extrabold tracking-wide text-foreground">
-            JUNISAMA
+            BOGA
           </span>
           <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
             Admin
@@ -94,7 +94,7 @@ export function AdminSidebar() {
       {/* Footer */}
       <div className="border-t border-border px-6 py-4">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Junisama
+          © {new Date().getFullYear()} BOGA
         </p>
       </div>
     </aside>

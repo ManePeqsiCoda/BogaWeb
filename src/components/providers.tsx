@@ -13,7 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const isAdmin = pathname?.startsWith("/admin")
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <AuthMockProvider>
         {!isAdmin && (
           <a

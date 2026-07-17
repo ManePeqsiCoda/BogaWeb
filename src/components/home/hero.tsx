@@ -61,7 +61,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="container-junisama relative z-10 py-24 text-center">
+      <div className="container-boga relative z-10 py-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

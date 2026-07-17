@@ -121,10 +121,11 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* About */}
+      {/* About — scrollytelling: imagen antes y sticky, texto se desplaza */}
       <section className="container mx-auto px-4 py-16 lg:px-6 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <FadeIn direction="left">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
+          {/* Imagen del equipo: aparece primero y se mantiene visible en desktop */}
+          <div className="order-1 lg:sticky lg:top-24">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-boga-surface-muted">
               <Image
                 src="/images/quienes-somos/equipo.jpg"
@@ -132,32 +133,44 @@ export default function QuienesSomosPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
-              {/* TODO: Reemplazar por foto real del equipo */}
             </div>
-          </FadeIn>
-          <FadeIn direction="right">
-            <div className="space-y-5">
-              <h2 className="text-2xl font-bold text-boga-text-primary md:text-3xl">
-                Nuestra Empresa
-              </h2>
-              <p className="text-boga-text-secondary">
-                Somos una empresa especializada en el alquiler y operación de
-                unidades sanitarias portátiles para eventos de diversa magnitud.
-                Desde conciertos masivos y ferias corporativas hasta obras de
-                construcción y campamentos industriales, brindamos soluciones
-                confiables que cumplen con los más altos estándares de higiene y
-                servicio.
-              </p>
-              <p className="text-boga-text-secondary">
-                Con más de una década de trayectoria en Colombia, hemos
-                acompañado eventos icónicos como la Feria de las Flores,
-                conciertos internacionales y visitas de alto perfil. Nuestra
-                flota, nuestro equipo humano y nuestros protocolos están
-                preparados para responder con eficiencia y profesionalismo.
-              </p>
-            </div>
-          </FadeIn>
+          </div>
+
+          {/* Texto de la empresa: se desplaza junto a la imagen fija */}
+          <div className="order-2 space-y-5 lg:py-12">
+            <h2 className="text-2xl font-bold text-boga-text-primary md:text-3xl">
+              Nuestra Empresa
+            </h2>
+            <p className="text-boga-text-secondary">
+              Somos una empresa especializada en el alquiler y operación de
+              unidades sanitarias portátiles para eventos de diversa magnitud.
+              Desde conciertos masivos y ferias corporativas hasta obras de
+              construcción y campamentos industriales, brindamos soluciones
+              confiables que cumplen con los más altos estándares de higiene y
+              servicio.
+            </p>
+            <p className="text-boga-text-secondary">
+              Con más de una década de trayectoria en Colombia, hemos
+              acompañado eventos icónicos como la Feria de las Flores,
+              conciertos internacionales y visitas de alto perfil. Nuestra
+              flota, nuestro equipo humano y nuestros protocolos están
+              preparados para responder con eficiencia y profesionalismo.
+            </p>
+            <p className="text-boga-text-secondary">
+              Nuestro compromiso es garantizar la satisfacción de nuestros
+              clientes a través de un servicio integral, desde la instalación
+              hasta el retiro de las unidades, con atención personalizada y
+              soporte técnico disponible las 24 horas del día.
+            </p>
+            <p className="text-boga-text-secondary">
+              Creemos que cada evento merece una experiencia sanitaria digna,
+              segura y sostenible. Por eso invertimos continuamente en
+              tecnología, capacitación y procesos que elevan el estándar de la
+              industria.
+            </p>
+          </div>
         </div>
       </section>
 

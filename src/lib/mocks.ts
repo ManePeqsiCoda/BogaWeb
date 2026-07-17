@@ -1,5 +1,7 @@
-// Datos mock para el prototipo de Junisama
+// Datos mock para el prototipo de BOGA
 // Reemplazan temporalmente el backend y la base de datos
+
+import { siteConfig } from "@/lib/site"
 
 export type EstadoProducto = "ACTIVO" | "INACTIVO" | "AGOTADO"
 export type TipoProducto = "PRODUCTO" | "SERVICIO"
@@ -535,7 +537,7 @@ export const eventos: Evento[] = [
 export const usuarios: Usuario[] = [
   {
     id: "usr_1",
-    email: "admin@junisama.com",
+    email: siteConfig.admin.email,
     nombre: "Administrador BOGA",
     passwordHash: "mock-hash",
     rol: "ADMIN",
@@ -741,18 +743,18 @@ export const faqs: Faq[] = [
 // Configuración
 export const configuracion: Configuracion = {
   id: 1,
-  nombreSitio: "BOGA — Ingeniería Portátil",
-  telefono: "+57 350 708 9584",
-  email: "soporte@junisama.com",
-  direccionMedellin: "Calle 13 sur #51C-54",
-  direccionBogota: "Cra 58b bis #131A 51",
-  whatsappNumero: "573507089584",
-  instagramUrl: "https://www.instagram.com/junisama_inversiones/",
-  linkedinUrl: "https://www.linkedin.com/company/inversiones-junisama-s-a-s/",
+  nombreSitio: siteConfig.fullName,
+  telefono: siteConfig.phone,
+  email: siteConfig.email,
+  direccionMedellin: siteConfig.addresses[0].street,
+  direccionBogota: siteConfig.addresses[1].street,
+  whatsappNumero: siteConfig.whatsapp,
+  instagramUrl: siteConfig.social.instagram.url,
+  linkedinUrl: siteConfig.social.linkedin.url,
   seoTitleDefault: "BOGA | Alquiler de Baños Portátiles en Colombia",
   seoDescriptionDefault:
     "Ingeniería portátil para eventos, obras e industria. Baños VIP, estándar, accesibles y puntos ecológicos en Medellín, Bogotá y toda Colombia.",
-  mensajeWhatsApp: "Hola BOGA, me gustaría recibir información sobre sus servicios.",
+  mensajeWhatsApp: siteConfig.whatsappMessage,
 }
 
 // Helpers

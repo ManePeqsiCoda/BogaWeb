@@ -127,11 +127,11 @@ export function AdminHeader({ user, onLogout }: AdminHeaderProps) {
             <SheetHeader className="border-b border-border px-4 py-4">
               <SheetTitle className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-extrabold text-sm">
-                  J
+                  B
                 </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-extrabold tracking-wide text-foreground">
-                    JUNISAMA
+                    BOGA
                   </span>
                   <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
                     Admin

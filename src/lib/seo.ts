@@ -1,27 +1,5 @@
-export const siteConfig = {
-  name: "BOGA",
-  fullName: "BOGA — Ingeniería Portátil",
-  tagline: "Elevamos el estándar de tus eventos.",
-  url: "https://junisama.com.co",
-  logo: "https://junisama.com.co/logo.svg",
-  phone: "+57 350 708 9584",
-  email: "soporte@junisama.com",
-  whatsapp: "573507089584",
-  locale: "es_CO",
-  language: "es-CO",
-  addresses: [
-    {
-      city: "Medellín",
-      street: "Calle 13 sur #51C-54",
-      country: "CO",
-    },
-    {
-      city: "Bogotá",
-      street: "Cra 58b bis #131A 51",
-      country: "CO",
-    },
-  ],
-}
+export { siteConfig } from "@/lib/site"
+import { siteConfig } from "@/lib/site"
 
 export const seoConfig = {
   home: {
@@ -153,10 +131,7 @@ export function generateOrganizationJsonLd() {
       areaServed: "CO",
       availableLanguage: ["Spanish"],
     },
-    sameAs: [
-      "https://www.instagram.com/junisama_inversiones/",
-      "https://www.linkedin.com/company/inversiones-junisama-s-a-s/",
-    ],
+    sameAs: [siteConfig.social.instagram.url, siteConfig.social.linkedin.url],
   }
 }
 
@@ -203,6 +178,28 @@ export function generateWebsiteJsonLd() {
   }
 }
 
+export function generateContactPageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contacto | BOGA",
+    url: `${siteConfig.url}/contacto`,
+    mainEntity: {
+      "@type": "Organization",
+      name: siteConfig.fullName,
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      url: siteConfig.url,
+      address: siteConfig.addresses.map((addr) => ({
+        "@type": "PostalAddress",
+        streetAddress: addr.street,
+        addressLocality: addr.city,
+        addressCountry: addr.country,
+      })),
+    },
+  }
+}
+
 export function generateBreadcrumbJsonLd(
   items: { name: string; path: string }[]
 ) {
@@ -215,20 +212,5 @@ export function generateBreadcrumbJsonLd(
       name: item.name,
       item: `${siteConfig.url}${item.path}`,
     })),
-  }
-}
-
-export function generateContactPageJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: "Contacto",
-    url: `${siteConfig.url}/contacto`,
-    mainEntity: {
-      "@type": "Organization",
-      name: siteConfig.fullName,
-      telephone: siteConfig.phone,
-      email: siteConfig.email,
-    },
   }
 }

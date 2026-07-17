@@ -24,7 +24,7 @@ const testimonials = [
     name: "Carlos Martínez",
     role: "Productor de eventos",
     company: "Festival Nacional",
-    text: "Junisama entregó una operación impecable durante los 3 días del festival. El soporte 24/7 nos dio la tranquilidad que necesitábamos.",
+    text: "BOGA entregó una operación impecable durante los 3 días del festival. El soporte 24/7 nos dio la tranquilidad que necesitábamos.",
   },
   {
     name: "Mariana López",
@@ -36,19 +36,19 @@ const testimonials = [
     name: "Andrés Gómez",
     role: "Jefe de obra",
     company: "Constructora del Norte",
-    text: "En obra, la confiabilidad es todo. Junisama cumple con los tiempos, mantiene los equipos impecables y responde al instante.",
+    text: "En obra, la confiabilidad es todo. BOGA cumple con los tiempos, mantiene los equipos impecables y responde al instante.",
   },
   {
     name: "Laura Fernández",
     role: "Directora de producción",
     company: "Conciertos Live",
-    text: "Hemos trabajado con Junisama en múltiples conciertos masivos. Su capacidad logística y atención al detalle son inigualables.",
+    text: "Hemos trabajado con BOGA en múltiples conciertos masivos. Su capacidad logística y atención al detalle son inigualables.",
   },
   {
     name: "Diego Ramírez",
     role: "Gerente de operaciones",
     company: "Ferias del País",
-    text: "Para ferias de gran magnitud, necesitamos un aliado que responda rápido. Junisama cumple siempre con los estándares de higiene y puntualidad.",
+    text: "Para ferias de gran magnitud, necesitamos un aliado que responda rápido. BOGA cumple siempre con los estándares de higiene y puntualidad.",
   },
 ]
 

@@ -69,7 +69,7 @@ export default function DesignSystemPage() {
         <div className="container mx-auto px-4">
           <Badge className="mb-4 bg-accent-gold text-white hover:bg-accent-gold">Design System</Badge>
           <h1 className="text-5xl font-extrabold text-white md:text-6xl">
-            Sistema de diseño Junisama
+            Sistema de diseño BOGA
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-text-on-dark-muted">
             Fundamento visual para la web corporativa y el panel administrativo.
@@ -103,7 +103,7 @@ export default function DesignSystemPage() {
         {/* Tipografía */}
         <section className="mb-20">
           <h2 className="mb-2 text-3xl font-bold text-dark">Tipografía</h2>
-          <p className="mb-8 text-body">Familia Inter, pesos 400 a 800. Escala optimizada para legibilidad en eventos y administración.</p>
+          <p className="mb-8 text-body">Familia Montserrat, pesos 300 a 900. Escala optimizada para legibilidad en eventos y administración.</p>
           <div className="space-y-6 rounded-lg border border-border bg-white p-6 shadow-sm">
             {typography.map((t) => (
               <div key={t.name} className="flex flex-col gap-1 border-b border-border-subtle pb-4 last:border-0 last:pb-0">
@@ -119,7 +119,7 @@ export default function DesignSystemPage() {
         {/* Botones */}
         <section className="mb-20">
           <h2 className="mb-2 text-3xl font-bold text-dark">Botones</h2>
-          <p className="mb-8 text-body">CTAs con naranja Junisama, estados claros y foco accesible.</p>
+          <p className="mb-8 text-body">CTAs con azul eléctrico BOGA, estados claros y foco accesible.</p>
           <div className="space-y-8 rounded-lg border border-border bg-white p-6 shadow-sm">
             <div className="flex flex-wrap items-center gap-4">
               <Button>Primario</Button>
@@ -295,7 +295,7 @@ export default function DesignSystemPage() {
 
       <footer className="border-t bg-bg-light py-8">
         <div className="container mx-auto px-4 text-center text-sm text-muted">
-          © {new Date().getFullYear()} Junisama Inversiones S.A.S — Design System v1.0
+          © {new Date().getFullYear()} BOGA — Ingeniería Portátil — Design System v1.0
         </div>
       </footer>
     </main>

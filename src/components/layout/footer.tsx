@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 import { AdminLink } from "@/components/admin-link"
+import { siteConfig } from "@/lib/site"
 import { Phone, Mail, MapPin } from "lucide-react"
 
 const footerServices = [
@@ -35,7 +36,7 @@ export function Footer() {
     >
       {/* CTA Banner */}
       <div className="border-y border-white/10 bg-gradient-to-r from-[var(--boga-electric-500)] to-[var(--boga-electric-600)]">
-        <div className="container-junisama flex flex-col items-center justify-between gap-6 py-12 md:flex-row md:py-16">
+        <div className="container-boga flex flex-col items-center justify-between gap-6 py-12 md:flex-row md:py-16">
           <div>
             <h3 className="font-sans text-heading-lg text-white">
               ¿Listo para elevar tu evento?
@@ -46,7 +47,7 @@ export function Footer() {
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
-              href="tel:+573507089584"
+              href={`tel:+${siteConfig.phoneRaw}`}
               className="flex items-center gap-3 rounded-xl bg-white/10 px-5 py-3 transition-colors hover:bg-white/20"
             >
               <Phone className="h-5 w-5 text-[var(--boga-lima-500)]" aria-hidden="true" />
@@ -56,13 +57,13 @@ export function Footer() {
               </div>
             </a>
             <a
-              href="mailto:soporte@junisama.com"
+              href={`mailto:${siteConfig.email}`}
               className="flex items-center gap-3 rounded-xl bg-white/10 px-5 py-3 transition-colors hover:bg-white/20"
             >
               <Mail className="h-5 w-5 text-[var(--boga-lima-500)]" aria-hidden="true" />
               <div>
                 <div className="text-xs uppercase tracking-wider text-white/70">Email</div>
-                <div className="font-semibold">soporte@junisama.com</div>
+                <div className="font-semibold">{siteConfig.email}</div>
               </div>
             </a>
           </div>
@@ -70,7 +71,7 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container-junisama py-16">
+      <div className="container-boga py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Brand */}
           <div className="lg:col-span-1">
@@ -115,14 +116,14 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-white/70">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-[var(--boga-lima-500)]" aria-hidden="true" />
-                <a href="tel:+573507089584" className="hover:text-white transition-colors">
+                <a href={`tel:+${siteConfig.phoneRaw}`} className="hover:text-white transition-colors">
                   +57 350 708 9584
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-[var(--boga-lima-500)]" aria-hidden="true" />
-                <a href="mailto:soporte@junisama.com" className="hover:text-white transition-colors">
-                  soporte@junisama.com
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-white transition-colors">
+                  {siteConfig.email}
                 </a>
               </li>
               <li className="flex items-start gap-2">
@@ -149,7 +150,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/junisama_inversiones"
+                href={siteConfig.social.instagram.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-[var(--boga-electric-500)]"
@@ -158,7 +159,7 @@ export function Footer() {
                 <InstagramIcon className="h-5 w-5" aria-hidden="true" />
               </a>
               <a
-                href="https://www.linkedin.com/company/inversiones-junisama-s-a-s"
+                href={siteConfig.social.linkedin.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-[var(--boga-electric-500)]"
@@ -188,7 +189,7 @@ export function Footer() {
 
       {/* Sedes / Mapas */}
       <div className="border-y border-white/10 bg-[var(--boga-deep-600)]/30">
-        <div className="container-junisama py-12">
+        <div className="container-boga py-12">
           <div className="mb-8 flex items-center gap-2">
             <MapPin className="h-5 w-5 text-[var(--boga-lima-500)]" aria-hidden="true" />
             <h3 className="font-sans text-heading-sm text-white">Nuestras Sedes</h3>
@@ -232,7 +233,7 @@ export function Footer() {
 
       {/* Copyright Bar */}
       <div className="border-t border-white/10">
-        <div className="container-junisama flex flex-col items-center justify-between gap-4 py-6 md:flex-row">
+        <div className="container-boga flex flex-col items-center justify-between gap-4 py-6 md:flex-row">
           <p className="text-center text-sm text-white/50 md:text-left">
             © 2025 BOGA — Ingeniería Portátil — Todos los derechos reservados
           </p>

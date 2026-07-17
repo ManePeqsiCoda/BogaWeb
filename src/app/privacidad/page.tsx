@@ -5,6 +5,7 @@ import {
   generateTwitterCard,
   generateBreadcrumbJsonLd,
 } from "@/lib/seo"
+import { siteConfig } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: seoConfig.privacidad.title,
@@ -32,7 +33,7 @@ export default function PrivacidadPage() {
           Política de Privacidad
         </h1>
         <p className="mt-4 text-body">
-          Junisama Inversiones S.A.S, en cumplimiento de la Ley 1581 de 2012,
+          {siteConfig.legalName}, en cumplimiento de la Ley 1581 de 2012,
           el Decreto 1377 de 2013 y demás normas concordantes, presenta la
           siguiente política de tratamiento de datos personales.
         </p>
@@ -40,14 +41,14 @@ export default function PrivacidadPage() {
         <section className="mt-10 space-y-4">
           <h2 className="text-xl font-bold text-dark">1. Responsable del tratamiento</h2>
           <p className="text-body">
-            <strong>Razón social:</strong> Junisama Inversiones S.A.S
+            <strong>Razón social:</strong> {siteConfig.legalName}
             <br />
-            <strong>Correo electrónico:</strong> soporte@junisama.com
+            <strong>Correo electrónico:</strong> {siteConfig.email}
             <br />
-            <strong>Teléfono:</strong> +57 350 708 9584
+            <strong>Teléfono:</strong> {siteConfig.phone}
             <br />
-            <strong>Sedes:</strong> Medellín (Calle 13 sur #51C-54) y Bogotá
-            (Cra 58b bis #131A 51).
+            <strong>Sedes:</strong> Medellín ({siteConfig.addresses[0].street}) y Bogotá
+            ({siteConfig.addresses[1].street}).
           </p>
         </section>
 
@@ -87,7 +88,7 @@ export default function PrivacidadPage() {
           <h2 className="text-xl font-bold text-dark">5. Procedimiento para ejercer derechos</h2>
           <p className="text-body">
             Para consultas, reclamaciones o ejercer sus derechos, el titular
-            puede enviar un correo electrónico a soporte@junisama.com con su
+            puede enviar un correo electrónico a {siteConfig.email} con su
             nombre completo, identificación, descripción de la solicitud y
             datos de contacto. Responderemos en un término máximo de 15 días
             hábiles.
@@ -97,7 +98,7 @@ export default function PrivacidadPage() {
         <section className="mt-8 space-y-4">
           <h2 className="text-xl font-bold text-dark">6. Seguridad de la información</h2>
           <p className="text-body">
-            Junisama adopta medidas técnicas, administrativas y físicas para
+            {siteConfig.name} adopta medidas técnicas, administrativas y físicas para
             proteger los datos personales contra acceso no autorizado, pérdida,
             alteración o divulgación.
           </p>

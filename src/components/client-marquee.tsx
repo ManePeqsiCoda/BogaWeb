@@ -24,7 +24,7 @@ export function ClientMarquee({ filterType, filterYear, className }: ClientMarqu
       className={cn("overflow-hidden bg-[var(--boga-surface-muted)] py-12 md:py-16", className)}
       aria-labelledby="clients-heading"
     >
-      <div className="container-junisama mb-8 text-center">
+      <div className="container-boga mb-8 text-center">
         <span className="inline-flex items-center gap-2 text-caption uppercase tracking-wider text-[var(--boga-text-tertiary)]">
           <span className="boga-circles--s boga-circles--electric">
             <span className="circle" />
@@ -51,10 +51,7 @@ export function ClientMarquee({ filterType, filterYear, className }: ClientMarqu
 
       {/* Marquee Track 2 — derecha a izquierda (reversa) */}
       <div className="marquee-container">
-        <div
-          className="flex w-max"
-          style={{ animation: "boga-marquee-reverse 30s linear infinite" }}
-        >
+        <div className="marquee-track-reverse">
           {[...duplicated].reverse().map((event, i) => (
             <EventPill key={`${event.id}-rev-${i}`} event={event} variant="outline" />
           ))}
