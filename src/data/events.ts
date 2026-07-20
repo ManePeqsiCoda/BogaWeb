@@ -4,15 +4,74 @@ export interface Event {
   years: number[]
   type: "festival" | "concierto" | "feria" | "corporativo" | "privado"
   highlighted?: boolean
-  /** Foto local temática (stock libre). Sustituir por foto autorizada del evento cuando exista. */
+  /** Portada del álbum en la grilla. */
   image: string
-  /** Álbum del evento (carrusel). Si no hay, se usa solo `image`. */
+  /** Álbum explícito. Si no hay, se genera con stock de baños / equipos BOGA. */
   album?: string[]
 }
 
+/** Stock compartido: baños portátiles e infraestructura de evento. */
+const ALBUM_SANITATION = [
+  "/images/eventos/albums/_shared/banos-fila-crepusculo.jpg",
+  "/images/eventos/albums/_shared/banos-verdes.jpg",
+  "/images/eventos/albums/_shared/banos-coloridos-calle.jpg",
+  "/images/eventos/albums/_shared/banos-noche.jpg",
+  "/images/eventos/albums/_shared/bano-azul-exterior.jpg",
+  "/images/eventos/albums/_shared/banos-obra.jpg",
+  "/images/eventos/albums/alvaro-diaz/07-bano-evento.jpg",
+  "/images/eventos/albums/alvaro-diaz/06-banos-portatiles.jpg",
+  "/images/eventos/albums/alvaro-diaz/08-unidades-sanitarias.jpg",
+] as const
+
+/** Equipos y operación BOGA (tema del servicio en el evento). */
+const ALBUM_BOGA = [
+  "/images/eventos/albums/_shared/bano-vip-photo.jpg",
+  "/images/eventos/albums/_shared/bano-estandar-photo.jpg",
+  "/images/eventos/albums/_shared/discapacitados-photo.jpg",
+  "/images/eventos/albums/_shared/electricos-photo.jpg",
+  "/images/eventos/albums/_shared/lavamanos-photo.jpg",
+  "/images/eventos/albums/_shared/trailer-lujo-photo.jpg",
+  "/images/eventos/albums/_shared/operarios-photo.jpg",
+  "/images/eventos/albums/_shared/puntos-ecologicos-photo.jpg",
+] as const
+
+const ALBUM_POOL = [...ALBUM_SANITATION, ...ALBUM_BOGA]
+
+function hashId(id: string): number {
+  let h = 0
+  for (let i = 0; i < id.length; i++) {
+    h = (h * 31 + id.charCodeAt(i)) >>> 0
+  }
+  return h
+}
+
+/** Genera un álbum independiente por evento (portada + stock temático). */
+function buildThematicAlbum(event: Event): string[] {
+  const h = hashId(event.id)
+  // 4–8 fotos en total (incluye portada); destacados un poco más largos
+  const total = event.highlighted ? 6 + (h % 3) : 4 + (h % 3)
+  const extras = Math.max(3, total - 1)
+  const start = h % ALBUM_POOL.length
+  const step = 2 + (h % 3)
+
+  const picked: string[] = []
+  for (let i = 0; i < extras && picked.length < extras; i++) {
+    const src = ALBUM_POOL[(start + i * step) % ALBUM_POOL.length]
+    if (src !== event.image && !picked.includes(src)) picked.push(src)
+  }
+
+  // Relleno si el paso dejó huecos
+  for (const src of ALBUM_POOL) {
+    if (picked.length >= extras) break
+    if (src !== event.image && !picked.includes(src)) picked.push(src)
+  }
+
+  return [event.image, ...picked]
+}
+
 export function getEventAlbum(event: Event): string[] {
-  if (event.album && event.album.length > 0) return event.album
-  return [event.image]
+  if (event.album && event.album.length > 1) return event.album
+  return buildThematicAlbum(event)
 }
 
 export const events: Event[] = [
@@ -26,8 +85,6 @@ export const events: Event[] = [
     image: "/images/eventos/alvaro-diaz-2025.jpg",
     album: [
       "/images/eventos/alvaro-diaz-2025.jpg",
-      "/images/eventos/albums/alvaro-diaz/01-concierto-atmosfera.jpg",
-      "/images/eventos/albums/alvaro-diaz/03-produccion-escenario.jpg",
       "/images/eventos/albums/alvaro-diaz/07-bano-evento.jpg",
       "/images/eventos/albums/alvaro-diaz/06-banos-portatiles.jpg",
       "/images/eventos/albums/alvaro-diaz/08-unidades-sanitarias.jpg",
@@ -35,6 +92,8 @@ export const events: Event[] = [
       "/images/eventos/albums/alvaro-diaz/10-boga-puntos.jpg",
       "/images/eventos/albums/alvaro-diaz/11-boga-operarios.jpg",
       "/images/eventos/albums/alvaro-diaz/12-boga-lavamanos.jpg",
+      "/images/eventos/albums/_shared/banos-noche.jpg",
+      "/images/eventos/albums/_shared/bano-estandar-photo.jpg",
     ],
   },
   { id: "andme-2025", name: "&ME", years: [2025], type: "concierto", highlighted: true, image: "/images/eventos/andme-2025.jpg" },

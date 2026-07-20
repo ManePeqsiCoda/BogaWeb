@@ -7,10 +7,7 @@ import { eventTypeLabels, getEventAlbum, type Event } from "@/data/events"
 import { Badge } from "@/components/ui/badge"
 import { FadeIn } from "@/components/home/fade-in"
 import { cn } from "@/lib/utils"
-import {
-  buildGallerySlides,
-  GalleryLightbox,
-} from "@/app/galeria/gallery-lightbox"
+import { GalleryLightbox } from "@/app/galeria/gallery-lightbox"
 
 interface GalleryGridProps {
   eventos: Event[]
@@ -27,8 +24,7 @@ const tipoColors: Record<string, string> = {
 export function GalleryGrid({ eventos }: GalleryGridProps) {
   const [activeYear, setActiveYear] = useState<string>("todos")
   const [activeType, setActiveType] = useState<string>("todos")
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [lightboxStart, setLightboxStart] = useState(0)
+  const [activeEvent, setActiveEvent] = useState<Event | null>(null)
 
   const years = useMemo(
     () => Array.from(new Set(eventos.flatMap((e) => e.years))).sort((a, b) => b - a),
@@ -48,15 +44,8 @@ export function GalleryGrid({ eventos }: GalleryGridProps) {
     })
   }, [eventos, activeYear, activeType])
 
-  const slides = useMemo(
-    () => buildGallerySlides(filteredEvents),
-    [filteredEvents]
-  )
-
   const openEventAlbum = (evento: Event) => {
-    const start = slides.findIndex((s) => s.eventId === evento.id)
-    setLightboxStart(start >= 0 ? start : 0)
-    setLightboxOpen(true)
+    setActiveEvent(evento)
   }
 
   return (
@@ -211,10 +200,9 @@ export function GalleryGrid({ eventos }: GalleryGridProps) {
       </section>
 
       <GalleryLightbox
-        slides={slides}
-        startIndex={lightboxStart}
-        open={lightboxOpen}
-        onClose={() => setLightboxOpen(false)}
+        event={activeEvent}
+        open={activeEvent !== null}
+        onClose={() => setActiveEvent(null)}
       />
     </>
   )
