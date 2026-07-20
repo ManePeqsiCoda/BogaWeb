@@ -44,7 +44,12 @@ export default function HomePage() {
               Equipos sanitarios portátiles para todo tipo de evento
             </p>
           </div>
-          <ProductGrid productos={productosDestacados} columns={2} />
+          <ProductGrid
+            productos={productosDestacados}
+            columns={2}
+            showViewAll
+            viewAllHref="/servicios"
+          />
         </div>
       </section>
       <WhyUs />

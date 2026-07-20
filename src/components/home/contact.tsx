@@ -102,7 +102,7 @@ export function Contact() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[var(--boga-deep-500)] py-16 md:py-24">
+    <section className="relative overflow-hidden bg-[var(--boga-deep-500)] pt-8 pb-16 md:pt-10 md:pb-24">
       <BogaDecor
         variant="bars"
         tone="lima"

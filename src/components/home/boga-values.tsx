@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Target,
@@ -25,6 +26,8 @@ const values = [
       "Cada montaje, cada entrega y cada detalle se miden con el mismo estándar: impecable.",
     angle: -90,
     icon: Sparkles,
+    image: "/images/eventos/la-solar-2024.jpg",
+    imageAlt: "Producción de gran escala en evento",
   },
   {
     name: "INTEGRIDAD",
@@ -33,6 +36,8 @@ const values = [
       "Cumplimos lo que prometemos. Sin letras pequeñas, con claridad de punta a punta.",
     angle: -150,
     icon: ShieldCheck,
+    image: "/images/quienes-somos/equipo.jpg",
+    imageAlt: "Equipo BOGA en operación",
   },
   {
     name: "LIMPIEZA",
@@ -41,6 +46,8 @@ const values = [
       "La higiene define nuestra firma. Es el punto de partida de toda experiencia BOGA.",
     angle: -210,
     icon: Droplets,
+    image: "/images/products/bano-vip-photo.jpg",
+    imageAlt: "Unidad sanitaria premium limpia",
   },
   {
     name: "SERVICIO",
@@ -49,6 +56,8 @@ const values = [
       "Acompañamos el evento como si fuera propio: presencia, respuesta y cuidado humano.",
     angle: 90,
     icon: HeartHandshake,
+    image: "/images/products/operarios-photo.jpg",
+    imageAlt: "Operarios de servicio en campo",
   },
   {
     name: "CONFIANZA",
@@ -57,6 +66,8 @@ const values = [
       "Sabes que llegamos a tiempo, operamos limpio y resolvemos antes de que se note.",
     angle: 30,
     icon: Handshake,
+    image: "/images/eventos/stereo-picnic-2018.jpg",
+    imageAlt: "Evento masivo con infraestructura confiable",
   },
   {
     name: "MODERNIDAD",
@@ -65,8 +76,26 @@ const values = [
       "Equipos, procesos y presentación al día: infraestructura que eleva la imagen del evento.",
     angle: -30,
     icon: Cpu,
+    image: "/images/products/trailer-lujo-photo.jpg",
+    imageAlt: "Trailer de lujo con acabado moderno",
   },
 ] as const
+
+type ValueItem = (typeof values)[number]
+
+function useIsDesktop(minWidth = 1024) {
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(min-width: ${minWidth}px)`)
+    const update = () => setIsDesktop(mq.matches)
+    update()
+    mq.addEventListener("change", update)
+    return () => mq.removeEventListener("change", update)
+  }, [minWidth])
+
+  return isDesktop
+}
 
 function ValueOrbitCard({
   value,
@@ -75,7 +104,7 @@ function ValueOrbitCard({
   onFocus,
   onBlur,
 }: {
-  value: (typeof values)[number]
+  value: ValueItem
   index: number
   active: boolean
   onFocus: () => void
@@ -99,38 +128,38 @@ function ValueOrbitCard({
         damping: 22,
         delay: 0.08 + index * 0.07,
       }}
-      whileHover={{ scale: 1.14, zIndex: 30 }}
-      whileFocus={{ scale: 1.14, zIndex: 30 }}
+      whileHover={{ scale: 1.16, zIndex: 30 }}
+      whileFocus={{ scale: 1.16, zIndex: 30 }}
       onMouseEnter={onFocus}
       onMouseLeave={onBlur}
       onFocus={onFocus}
       onBlur={onBlur}
       aria-label={`${value.name}: ${value.description}`}
       className={cn(
-        "group absolute z-10 flex h-[10.5rem] w-[10.5rem] -translate-x-1/2 -translate-y-1/2 cursor-pointer flex-col items-center justify-center rounded-full border px-4 text-center outline-none transition-[box-shadow,background-color,border-color] duration-300 xl:h-[11.5rem] xl:w-[11.5rem]",
+        "group absolute z-10 flex h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 cursor-pointer flex-col items-center justify-center rounded-full border px-5 text-center outline-none transition-[box-shadow,background-color,border-color] duration-300 xl:h-[13.25rem] xl:w-[13.25rem]",
         active
-          ? "border-boga-lima-500/80 bg-boga-deep-500/55 shadow-[0_0_0_1px_rgba(218,247,58,0.35),0_18px_40px_rgba(27,19,65,0.35)] backdrop-blur-md"
-          : "border-white/30 bg-white/12 shadow-boga-3 backdrop-blur-sm hover:border-boga-lima-400/70 hover:bg-boga-deep-500/45"
+          ? "border-boga-lima-500 bg-boga-electric-500/90 shadow-[0_0_0_2px_rgba(218,247,58,0.45),0_22px_48px_rgba(27,19,65,0.4)] backdrop-blur-md"
+          : "border-white/35 bg-boga-electric-500/75 shadow-boga-3 backdrop-blur-sm hover:border-boga-lima-400 hover:bg-boga-electric-500/95"
       )}
       style={{ left: `${x}%`, top: `${y}%` }}
     >
       <span
         className={cn(
-          "mb-2 flex h-9 w-9 items-center justify-center rounded-full border transition-colors duration-300",
+          "mb-2.5 flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300",
           active
             ? "border-boga-lima-500 bg-boga-lima-500 text-boga-deep-500"
-            : "border-boga-lima-500/50 bg-boga-lima-500/15 text-boga-lima-500 group-hover:border-boga-lima-500 group-hover:bg-boga-lima-500 group-hover:text-boga-deep-500"
+            : "border-boga-lima-500/60 bg-boga-lima-500/20 text-boga-lima-500 group-hover:border-boga-lima-500 group-hover:bg-boga-lima-500 group-hover:text-boga-deep-500"
         )}
       >
-        <Icon className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+        <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
       </span>
-      <span className="font-sans text-[0.8rem] font-black uppercase tracking-[0.14em] text-boga-lima-500 xl:text-sm">
+      <span className="font-sans text-sm font-black uppercase tracking-[0.12em] text-boga-lima-500 xl:text-base">
         {value.name}
       </span>
       <span
         className={cn(
-          "mt-1.5 max-w-[9rem] text-[0.7rem] leading-snug transition-colors duration-300 xl:text-xs",
-          active ? "text-white" : "text-white/80 group-hover:text-white"
+          "mt-2 max-w-[10.5rem] text-[0.8125rem] leading-snug transition-colors duration-300 xl:text-sm",
+          active ? "text-white" : "text-white/90 group-hover:text-white"
         )}
       >
         {value.description}
@@ -139,9 +168,69 @@ function ValueOrbitCard({
   )
 }
 
+/** Tarjeta responsive: imagen solo dentro al hover; fondo de sección intacto */
+function ValueMobileCard({
+  value,
+  index,
+}: {
+  value: ValueItem
+  index: number
+}) {
+  const Icon = value.icon
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.35, delay: index * 0.05 }}
+      whileHover={{ scale: 1.02, y: -3 }}
+      className="group relative min-h-[17rem] overflow-hidden rounded-3xl border border-white/35 bg-boga-electric-500 text-left shadow-boga-3 outline-none transition-[border-color,box-shadow] duration-300 hover:border-boga-lima-400 hover:shadow-[0_0_0_2px_rgba(218,247,58,0.35)]"
+    >
+      {/* Imagen solo dentro de la tarjeta, aparece en hover */}
+      <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-within:opacity-100">
+        <Image
+          src={value.image}
+          alt=""
+          fill
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="object-cover scale-105 transition-transform duration-500 group-hover:scale-100"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(44,77,242,0.95) 0%, rgba(44,77,242,0.72) 48%, rgba(44,77,242,0.2) 100%)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 flex h-full min-h-[17rem] flex-col justify-end p-6">
+        <div className="mb-3 flex items-center gap-3">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-boga-lima-500/70 bg-boga-lima-500/20 text-boga-lima-500 transition-colors duration-300 group-hover:border-boga-lima-500 group-hover:bg-boga-lima-500 group-hover:text-boga-deep-500">
+            <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
+          </span>
+          <h3 className="font-sans text-lg font-black uppercase tracking-[0.1em] text-boga-lima-500">
+            {value.name}
+          </h3>
+        </div>
+        <p className="text-base leading-relaxed text-white">
+          {value.description}
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-white/85">
+          {value.detail}
+        </p>
+      </div>
+    </motion.article>
+  )
+}
+
 export function BogaValues() {
+  const isDesktop = useIsDesktop(1024)
   const [activeName, setActiveName] = useState<string | null>(null)
   const activeValue = values.find((v) => v.name === activeName) ?? null
+  // Fondo fotográfico de sección: solo desktop
+  const showSectionPhoto = isDesktop && !!activeValue
 
   return (
     <>
@@ -192,30 +281,64 @@ export function BogaValues() {
         </div>
       </section>
 
-      {/* VALORES — órbita interactiva */}
+      {/* VALORES */}
       <section className="relative overflow-hidden bg-boga-electric-500 py-20 md:py-28">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-40"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 55% at 50% 45%, rgba(27,19,65,0.45) 0%, transparent 70%)",
-          }}
-          aria-hidden="true"
-        />
+        {/* Fondo fotográfico de sección: SOLO escritorio */}
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <AnimatePresence mode="sync">
+            {showSectionPhoto && activeValue && (
+              <motion.div
+                key={activeValue.name}
+                className="absolute inset-0"
+                initial={{ opacity: 0, scale: 1.06 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Image
+                  src={activeValue.image}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  className="object-cover object-center"
+                  priority={false}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div
+            className="absolute inset-0 transition-[background] duration-500"
+            style={{
+              background: showSectionPhoto
+                ? "linear-gradient(90deg, #2c4df2 0%, rgba(44,77,242,0.92) 28%, rgba(44,77,242,0.55) 58%, rgba(44,77,242,0.12) 82%, rgba(44,77,242,0) 100%)"
+                : "#2c4df2",
+            }}
+          />
+
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(27,19,65,0.18) 0%, transparent 35%, transparent 70%, rgba(27,19,65,0.28) 100%)",
+            }}
+          />
+        </div>
+
         <BogaDecor
           variant="bubbles"
           tone="white"
-          className="absolute -left-16 -top-8 h-72 w-72 opacity-30"
+          className="absolute -left-16 -top-8 z-[1] h-72 w-72 opacity-25"
         />
         <BogaDecor
           variant="waves"
           tone="lima"
-          className="absolute right-8 top-10 h-14 w-32 opacity-45"
+          className="absolute right-8 top-10 z-[1] h-14 w-32 opacity-40"
         />
         <BogaDecor
           variant="arrows"
           tone="lima"
-          className="absolute bottom-10 left-10 h-16 w-16 opacity-35"
+          className="absolute bottom-10 left-10 z-[1] h-16 w-16 opacity-30"
         />
 
         <div className="container-boga relative z-10">
@@ -226,31 +349,29 @@ export function BogaValues() {
             <h2 className="font-sans text-display-md font-black uppercase tracking-wide text-boga-lima-500 md:text-display-lg">
               Valores
             </h2>
-            <p className="mx-auto mt-3 max-w-xl text-base text-white/90 md:text-lg">
+            <p className="mx-auto mt-3 max-w-2xl text-lg text-white md:text-xl">
               Lo que nos mueve en cada operación. Pasa el cursor para explorarlos.
             </p>
           </FadeIn>
 
-          {/* Desktop / large: órbita */}
-          <div className="relative mx-auto mt-6 hidden min-h-[36rem] w-full max-w-4xl lg:block xl:min-h-[40rem]">
-            {/* Anillos orbitales */}
+          {/* Desktop: órbita + cambio de fondo de sección */}
+          <div className="relative mx-auto mt-8 hidden min-h-[40rem] w-full max-w-5xl lg:block xl:min-h-[44rem]">
             <motion.div
               aria-hidden="true"
-              className="absolute left-1/2 top-1/2 h-[72%] w-[72%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/15"
+              className="absolute left-1/2 top-1/2 h-[74%] w-[74%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20"
               animate={{ rotate: 360 }}
               transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
             />
             <motion.div
               aria-hidden="true"
-              className="absolute left-1/2 top-1/2 h-[88%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-boga-lima-500/25"
+              className="absolute left-1/2 top-1/2 h-[90%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-boga-lima-500/30"
               animate={{ rotate: -360 }}
               transition={{ duration: 110, repeat: Infinity, ease: "linear" }}
             />
 
-            {/* Núcleo central */}
-            <div className="absolute left-1/2 top-1/2 z-20 flex w-[13rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center xl:w-[15rem]">
+            <div className="absolute left-1/2 top-1/2 z-20 flex w-[15rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center xl:w-[17rem]">
               <motion.div
-                className="flex h-[11.5rem] w-[11.5rem] flex-col items-center justify-center rounded-full border-2 border-boga-lima-500/60 bg-boga-deep-500/50 px-5 text-center shadow-[0_0_48px_rgba(218,247,58,0.18)] backdrop-blur-md xl:h-[13rem] xl:w-[13rem]"
+                className="flex h-[13.5rem] w-[13.5rem] flex-col items-center justify-center rounded-full border-2 border-boga-lima-500/70 bg-boga-electric-500/85 px-6 text-center shadow-[0_0_48px_rgba(218,247,58,0.2)] backdrop-blur-md xl:h-[15rem] xl:w-[15rem]"
                 animate={{
                   boxShadow: [
                     "0 0 32px rgba(218,247,58,0.12)",
@@ -270,10 +391,10 @@ export function BogaValues() {
                       transition={{ duration: 0.22 }}
                       className="px-1"
                     >
-                      <p className="text-[0.7rem] font-black uppercase tracking-[0.18em] text-boga-lima-500">
+                      <p className="text-sm font-black uppercase tracking-[0.16em] text-boga-lima-500 xl:text-base">
                         {activeValue.name}
                       </p>
-                      <p className="mt-2 text-[0.8rem] leading-snug text-white xl:text-sm">
+                      <p className="mt-2.5 text-sm leading-snug text-white xl:text-base">
                         {activeValue.detail}
                       </p>
                     </motion.div>
@@ -286,7 +407,7 @@ export function BogaValues() {
                       className="flex flex-col items-center"
                     >
                       <BogaCircles size="l" tone="lima" />
-                      <p className="mt-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white/75">
+                      <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/85 xl:text-sm">
                         Explora un valor
                       </p>
                     </motion.div>
@@ -307,37 +428,15 @@ export function BogaValues() {
             ))}
           </div>
 
-          {/* Mobile / tablet: grid ampliado */}
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:hidden">
-            {values.map((value, index) => {
-              const Icon = value.icon
-              return (
-                <motion.article
-                  key={value.name}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.35, delay: index * 0.05 }}
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  className="group relative overflow-hidden rounded-3xl border border-white/25 bg-white/12 p-6 text-left shadow-boga-3 backdrop-blur-sm transition-colors hover:border-boga-lima-400/70 hover:bg-boga-deep-500/40"
-                >
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-boga-lima-500/60 bg-boga-lima-500/20 text-boga-lima-500 transition-colors group-hover:bg-boga-lima-500 group-hover:text-boga-deep-500">
-                      <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
-                    </span>
-                    <h3 className="font-sans text-base font-black uppercase tracking-[0.12em] text-boga-lima-500">
-                      {value.name}
-                    </h3>
-                  </div>
-                  <p className="text-sm leading-relaxed text-white/90">
-                    {value.description}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70 transition-colors group-hover:text-white/90">
-                    {value.detail}
-                  </p>
-                </motion.article>
-              )
-            })}
+          {/* Responsive: tarjetas; imagen solo dentro al hover; sección siempre azul */}
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:hidden">
+            {values.map((value, index) => (
+              <ValueMobileCard
+                key={value.name}
+                value={value}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>

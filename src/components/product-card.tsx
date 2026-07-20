@@ -11,10 +11,11 @@ import type { Producto } from "@/lib/mocks"
 interface ProductCardProps {
   producto: Producto
   className?: string
+  /** Tarjeta más densa para grids de 3 columnas */
+  compact?: boolean
 }
 
 function getProductImagePath(slug: string): string {
-  // Sufijo -photo: archivos nuevos (evita caché de placeholders antiguos)
   return `/images/products/${slug}-photo.jpg`
 }
 
@@ -23,7 +24,7 @@ function ProductImagePlaceholder({ producto }: { producto: Producto }) {
   const firstSpec = Object.entries(specs)[0]
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--boga-surface-muted)] to-[var(--boga-surface-inset)] p-6 text-center">
+    <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[var(--boga-surface-muted)] to-[var(--boga-surface-inset)] p-4 text-center">
       <span className="font-sans text-sm font-semibold text-[var(--boga-text-secondary)]">
         {producto.nombre}
       </span>
@@ -49,12 +50,12 @@ function getBadgeColor(badge: string): string {
   return "bg-[var(--boga-neutral-200)] text-[var(--boga-neutral-700)]"
 }
 
-export function ProductCard({ producto, className }: ProductCardProps) {
+export function ProductCard({ producto, className, compact = false }: ProductCardProps) {
   const [imageError, setImageError] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const specs = (producto.especificaciones as Record<string, string> | undefined) || {}
-  const specEntries = Object.entries(specs).slice(0, 4)
+  const specEntries = Object.entries(specs).slice(0, compact ? 2 : 4)
   const imagePath = getProductImagePath(producto.slug)
   const detailHref = `/servicios/${producto.slug}`
 
@@ -65,7 +66,13 @@ export function ProductCard({ producto, className }: ProductCardProps) {
         className
       )}
     >
-      <Link href={detailHref} className="relative block aspect-[4/3] overflow-hidden">
+      <Link
+        href={detailHref}
+        className={cn(
+          "relative block overflow-hidden",
+          compact ? "aspect-[16/10]" : "aspect-[4/3]"
+        )}
+      >
         {!imageError ? (
           <Image
             src={imagePath}
@@ -75,7 +82,11 @@ export function ProductCard({ producto, className }: ProductCardProps) {
               "object-cover transition-opacity duration-500",
               imageLoaded ? "opacity-100" : "opacity-0"
             )}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            sizes={
+              compact
+                ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                : "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+            }
             onError={() => setImageError(true)}
             onLoad={() => setImageLoaded(true)}
           />
@@ -94,7 +105,7 @@ export function ProductCard({ producto, className }: ProductCardProps) {
         {producto.badge && (
           <span
             className={cn(
-              "absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider",
+              "absolute left-3 top-3 rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider",
               getBadgeColor(producto.badge)
             )}
           >
@@ -105,28 +116,53 @@ export function ProductCard({ producto, className }: ProductCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--boga-deep-500)]/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </Link>
 
-      <div className="flex flex-1 flex-col p-6 md:p-7">
+      <div
+        className={cn(
+          "flex flex-1 flex-col",
+          compact ? "p-4 md:p-5" : "p-6 md:p-7"
+        )}
+      >
         <Link href={detailHref}>
-          <h3 className="font-sans text-xl font-bold text-boga-text-primary transition-colors group-hover:text-boga-electric-500 md:text-2xl">
+          <h3
+            className={cn(
+              "font-sans font-bold text-boga-text-primary transition-colors group-hover:text-boga-electric-500",
+              compact ? "text-base md:text-lg" : "text-xl md:text-2xl"
+            )}
+          >
             {producto.nombre}
           </h3>
         </Link>
-        <p className="mt-3 text-boga-text-secondary">{producto.descripcionCorta}</p>
+        <p
+          className={cn(
+            "text-boga-text-secondary",
+            compact ? "mt-1.5 line-clamp-2 text-sm" : "mt-3"
+          )}
+        >
+          {producto.descripcionCorta}
+        </p>
 
         {specEntries.length > 0 && (
-          <ul className="mt-5 flex-1 space-y-2">
+          <ul className={cn("flex-1 space-y-1.5", compact ? "mt-3" : "mt-5 space-y-2")}>
             {specEntries.map(([label, value]) => (
               <li
                 key={label}
-                className="flex items-center gap-2 text-sm text-boga-text-secondary"
+                className={cn(
+                  "flex items-start gap-2 text-boga-text-secondary",
+                  compact ? "text-xs" : "text-sm"
+                )}
               >
                 <CheckCircle2
-                  className="h-4 w-4 shrink-0 text-boga-electric-500"
+                  className={cn(
+                    "mt-0.5 shrink-0 text-boga-electric-500",
+                    compact ? "h-3.5 w-3.5" : "h-4 w-4"
+                  )}
                   strokeWidth={1.75}
                   aria-hidden="true"
                 />
                 <span>
-                  <span className="sr-only">{label}: </span>
+                  <span className="font-medium text-boga-text-primary">
+                    {label}:
+                  </span>{" "}
                   {value}
                 </span>
               </li>
@@ -134,21 +170,29 @@ export function ProductCard({ producto, className }: ProductCardProps) {
           </ul>
         )}
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div
+          className={cn(
+            "flex flex-col gap-2 sm:flex-row",
+            compact ? "mt-4" : "mt-6 gap-3"
+          )}
+        >
           <Link
             href={detailHref}
             className={cn(
-              buttonVariants({ variant: "outline", size: "default" }),
+              buttonVariants({
+                variant: "outline",
+                size: compact ? "sm" : "default",
+              }),
               "w-full sm:flex-1"
             )}
           >
             Ver detalles
-            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            <ArrowRight className="ml-1.5 h-3.5 w-3.5" aria-hidden="true" />
           </Link>
           <Link
             href="/cotizacion"
             className={cn(
-              buttonVariants({ size: "default" }),
+              buttonVariants({ size: compact ? "sm" : "default" }),
               "btn-primary w-full sm:flex-1"
             )}
           >

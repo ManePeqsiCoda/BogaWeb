@@ -193,7 +193,8 @@ export const productos: Producto[] = [
     nombreCorto: "VIP",
     descripcion:
       "Unidad premium con acabados de lujo, espejo iluminado, lavamanos interno, dispensador de jabón y toallas. Ideal para eventos corporativos, bodas y recepciones de alto nivel.",
-    descripcionCorta: "Unidad premium con acabados de lujo para eventos exclusivos.",
+    descripcionCorta:
+      "Baño premium con acabados de lujo, pensado para eventos exclusivos y de alto protocolo.",
     categoriaId: "cat_1",
     categoria: categorias[0],
     tipo: "PRODUCTO",
@@ -205,11 +206,10 @@ export const productos: Producto[] = [
     orden: 1,
     estado: "ACTIVO",
     especificaciones: {
-      Dimensiones: "2.4m x 1.8m x 2.3m",
-      Capacidad: "200 usos",
-      "Tanque de agua": "250L",
-      Ventilación: "Forzada",
-      Iluminación: "LED",
+      Medidas: "2.4 × 1.8 × 2.3 m",
+      "Tanque de agua": "250 litros",
+      Capacidad: "Hasta 200 usos por servicio",
+      Incluye: "Lavamanos, ventilación e iluminación LED",
     },
   },
   {
@@ -219,7 +219,8 @@ export const productos: Producto[] = [
     nombreCorto: "Estándar",
     descripcion:
       "Solución práctica y confiable para obras, festivales y eventos masivos. Resistente, fácil de transportar y de mantenimiento sencillo.",
-    descripcionCorta: "Solución práctica para obras y eventos masivos.",
+    descripcionCorta:
+      "Baño resistente y práctico para obras, festivales y eventos de alto flujo.",
     categoriaId: "cat_1",
     categoria: categorias[0],
     tipo: "PRODUCTO",
@@ -231,10 +232,10 @@ export const productos: Producto[] = [
     orden: 2,
     estado: "ACTIVO",
     especificaciones: {
-      Dimensiones: "1.2m x 1.2m x 2.3m",
-      Capacidad: "150 usos",
-      Material: "Polietileno de alta densidad",
-      Ventilación: "Natural",
+      Medidas: "1.2 × 1.2 × 2.3 m",
+      Capacidad: "Hasta 150 usos por servicio",
+      Uso: "Obras, ferias y eventos masivos",
+      Incluye: "Ventilación natural y estructura reforzada",
     },
   },
   {
@@ -244,7 +245,8 @@ export const productos: Producto[] = [
     nombreCorto: "PMR",
     descripcion:
       "Unidad accesible con rampa, barra de apoyo, espacio amplio para silla de ruedas y señalización inclusiva. Cumple con normas de accesibilidad.",
-    descripcionCorta: "Unidad accesible con rampa y barras de apoyo.",
+    descripcionCorta:
+      "Baño accesible con rampa y espacio amplio para silla de ruedas.",
     categoriaId: "cat_1",
     categoria: categorias[0],
     tipo: "PRODUCTO",
@@ -256,10 +258,10 @@ export const productos: Producto[] = [
     orden: 3,
     estado: "ACTIVO",
     especificaciones: {
-      Dimensiones: "2.2m x 2.0m x 2.3m",
-      Accesibilidad: "Silla de ruedas",
-      Rampas: "Incluidas",
-      "Barras de apoyo": "Acero inoxidable",
+      Medidas: "2.2 × 2.0 × 2.3 m",
+      Acceso: "Rampa incluida",
+      Interior: "Espacio para silla de ruedas",
+      Seguridad: "Barras de apoyo en acero",
     },
   },
   {
@@ -269,7 +271,8 @@ export const productos: Producto[] = [
     nombreCorto: "Eléctrico",
     descripcion:
       "Equipos con ventilación forzada, iluminación interior LED y funcionamiento autónomo. Perfectos para eventos nocturnos y ubicaciones sin servicios.",
-    descripcionCorta: "Ventilación forzada e iluminación LED integrada.",
+    descripcionCorta:
+      "Baño con extractor e iluminación LED, ideal para eventos nocturnos.",
     categoriaId: "cat_1",
     categoria: categorias[0],
     tipo: "PRODUCTO",
@@ -281,10 +284,10 @@ export const productos: Producto[] = [
     orden: 4,
     estado: "ACTIVO",
     especificaciones: {
-      Dimensiones: "1.4m x 1.4m x 2.3m",
-      Ventilación: "Forzada con extractor",
-      Iluminación: "LED 12V",
-      Autonomía: "Batería 8 horas",
+      Medidas: "1.4 × 1.4 × 2.3 m",
+      Ventilación: "Extractor eléctrico continuo",
+      Iluminación: "LED interior integrado",
+      Autonomía: "Hasta 8 horas con batería",
     },
   },
   {
@@ -294,7 +297,8 @@ export const productos: Producto[] = [
     nombreCorto: "Lavamanos",
     descripcion:
       "Estación de higiene portátil con doble puesto, dispensador de jabón, toallas desechables y tanque de agua limpia/residual separados.",
-    descripcionCorta: "Estación de higiene portátil con doble puesto.",
+    descripcionCorta:
+      "Estación de lavado de manos con dos puestos y jabón incluido.",
     categoriaId: "cat_2",
     categoria: categorias[1],
     tipo: "PRODUCTO",
@@ -305,10 +309,10 @@ export const productos: Producto[] = [
     orden: 5,
     estado: "ACTIVO",
     especificaciones: {
-      Puestos: "2",
-      "Tanque agua limpia": "80L",
-      "Tanque agua residual": "90L",
-      Dispensador: "Jabón y toallas",
+      Puestos: "2 personas al mismo tiempo",
+      "Agua limpia": "Tanque de 80 litros",
+      "Agua residual": "Tanque de 90 litros",
+      Incluye: "Jabón y toallas desechables",
     },
   },
   {
@@ -318,7 +322,8 @@ export const productos: Producto[] = [
     nombreCorto: "Trailer",
     descripcion:
       "Múltiples cabinas climatizadas con distribución optimizada para grandes eventos. Incluye espejos, iluminación ambiental y área de lavamanos.",
-    descripcionCorta: "Múltiples cabinas climatizadas para grandes eventos.",
+    descripcionCorta:
+      "Trailer con varias cabinas climatizadas para eventos de gran formato.",
     categoriaId: "cat_1",
     categoria: categorias[0],
     tipo: "PRODUCTO",
@@ -330,10 +335,10 @@ export const productos: Producto[] = [
     orden: 6,
     estado: "ACTIVO",
     especificaciones: {
-      Dimensiones: "9m x 2.5m x 2.9m",
-      Cabinás: "6",
-      Capacidad: "1.500 usos",
-      Climatización: "Aire acondicionado",
+      Medidas: "9 × 2.5 × 2.9 m",
+      Cabinas: "6 cabinas privadas",
+      Capacidad: "Hasta 1.500 usos por servicio",
+      Confort: "Aire acondicionado e iluminación",
     },
   },
   {
@@ -343,7 +348,8 @@ export const productos: Producto[] = [
     nombreCorto: "Operarios",
     descripcion:
       "Personal capacitado para limpieza, desinfección, abastecimiento y mantenimiento durante todo el evento. Garantiza una experiencia impecable.",
-    descripcionCorta: "Personal capacitado para limpieza y mantenimiento.",
+    descripcionCorta:
+      "Personal en sitio para limpieza, reposición y soporte durante el evento.",
     categoriaId: "cat_4",
     categoria: categorias[3],
     tipo: "SERVICIO",
@@ -354,9 +360,10 @@ export const productos: Producto[] = [
     orden: 7,
     estado: "ACTIVO",
     especificaciones: {
-      Jornada: "8 horas",
-      Personal: "1 operario por 10 unidades",
-      Incluye: "Limpieza, desinfección y abastecimiento",
+      Jornada: "Turnos de 8 horas",
+      Cobertura: "1 operario por cada 10 unidades",
+      Incluye: "Limpieza, desinfección y reposición",
+      Supervisión: "Acompañamiento técnico en sitio",
     },
   },
   {
@@ -366,7 +373,8 @@ export const productos: Producto[] = [
     nombreCorto: "Ecológico",
     descripcion:
       "Estaciones de reciclaje y disposición responsable de residuos para eventos sostenibles. Personalizables con marca del evento.",
-    descripcionCorta: "Estaciones de reciclaje para eventos sostenibles.",
+    descripcionCorta:
+      "Estaciones de reciclaje para separar residuos en eventos sostenibles.",
     categoriaId: "cat_3",
     categoria: categorias[2],
     tipo: "PRODUCTO",
@@ -378,10 +386,10 @@ export const productos: Producto[] = [
     orden: 8,
     estado: "ACTIVO",
     especificaciones: {
-      Capacidad: "240L",
-      Clasificación: "3 residuos",
-      Material: "Metal reciclado",
-      Personalización: "Vinilo marca evento",
+      Capacidad: "240 litros por estación",
+      Separación: "3 tipos de residuos",
+      Material: "Estructura reciclable",
+      Personalización: "Vinilo con marca del evento",
     },
   },
 ]

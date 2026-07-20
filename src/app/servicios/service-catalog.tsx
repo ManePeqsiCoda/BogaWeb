@@ -57,7 +57,7 @@ export function ServiceCatalog({ servicios, categorias }: ServiceCatalogProps) {
       </FadeIn>
 
       <h2 className="sr-only">Catálogo de servicios</h2>
-      <ProductGrid productos={filtered} columns={2} />
+      <ProductGrid productos={filtered} columns={3} />
 
       {filtered.length === 0 && (
         <div className="py-20 text-center">
