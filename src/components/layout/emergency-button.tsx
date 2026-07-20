@@ -134,7 +134,10 @@ export function EmergencyButton({ className }: { className?: string }) {
 
                 <div className="space-y-2">
                   <Label htmlFor="emergencia-tipo">Tipo de emergencia *</Label>
-                  <Select value={tipo || undefined} onValueChange={setTipo}>
+                  <Select
+                    value={tipo || undefined}
+                    onValueChange={(value) => setTipo(value ?? "")}
+                  >
                     <SelectTrigger id="emergencia-tipo" className="w-full">
                       <SelectValue placeholder="Selecciona una opción" />
                     </SelectTrigger>
