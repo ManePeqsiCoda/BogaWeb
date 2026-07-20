@@ -1,21 +1,24 @@
 import type { Producto } from "@/lib/mocks"
 import { formatCOP } from "@/lib/cotizador/calc"
 
-/** Descuento en productos complementarios cuando el carrito tiene baño / trailer / operarios. */
+/** Descuento único (no acumulable) aplicado a todo el carrito. */
 export const BUNDLE_DISCOUNT_RATE = 0.3
 
 /**
- * Productos ancla: al estar en el carrito, los demás productos reciben 30% off.
- * Baños portátiles, trailer de lujo y servicio de operarios.
+ * Si el carrito incluye al menos uno de estos, TODO el carrito recibe 30% off.
+ * Varios anclas no acumulan descuento: siempre un solo 30%.
  */
 export const BUNDLE_TRIGGER_SLUGS = new Set([
   "bano-vip",
-  "bano-estandar",
   "discapacitados",
-  "electricos",
   "trailer-lujo",
-  "operarios",
 ])
+
+export const BUNDLE_TRIGGER_LABELS = [
+  "Baño Portátil VIP",
+  "Baño para Discapacitados",
+  "Trailer de Lujo",
+] as const
 
 export function isBundleTrigger(slug: string): boolean {
   return BUNDLE_TRIGGER_SLUGS.has(slug)
@@ -52,13 +55,14 @@ export function calcularCarritoPublico(
   items: PublicCartLineInput[]
 ): PublicCartTotals {
   const hasBundleTrigger = items.some((i) => isBundleTrigger(i.producto.slug))
+  // Un solo 30% sobre todo el carrito; no se acumula por anclas adicionales
+  const aplicaDescuentoCarrito = hasBundleTrigger
 
   const lines: PublicCartLine[] = items.map((item) => {
     const precioUnitarioLista = Math.max(0, item.producto.precioBase ?? 0)
     const cantidad = Math.max(1, item.cantidad)
     const esAncla = isBundleTrigger(item.producto.slug)
-    const aplicaDescuento = hasBundleTrigger && !esAncla
-    const precioUnitarioFinal = aplicaDescuento
+    const precioUnitarioFinal = aplicaDescuentoCarrito
       ? Math.round(precioUnitarioLista * (1 - BUNDLE_DISCOUNT_RATE))
       : precioUnitarioLista
     const subtotalLista = precioUnitarioLista * cantidad
@@ -74,7 +78,7 @@ export function calcularCarritoPublico(
       precioUnitarioFinal,
       subtotalLista,
       subtotalFinal,
-      aplicaDescuento,
+      aplicaDescuento: aplicaDescuentoCarrito,
       esAncla,
     }
   })

@@ -422,8 +422,8 @@ export function QuoteWizard({ productos }: QuoteWizardProps) {
                           Paso 1: Selección de productos
                         </h2>
                         <p className="mt-1 text-sm text-boga-text-tertiary">
-                          Baños, trailer u operarios activan {discountPct}% off
-                          en el resto del carrito.
+                          VIP, discapacitados o trailer de lujo activan{" "}
+                          {discountPct}% off en todo el carrito (sin acumular).
                         </p>
                       </div>
                       <PriceVisibilityToggle showLabel size="sm" />
@@ -440,12 +440,13 @@ export function QuoteWizard({ productos }: QuoteWizardProps) {
                       <div className="flex items-start gap-2 rounded-lg border border-boga-lima-500/40 bg-boga-lima-500/15 px-3 py-2 text-sm text-boga-text-primary">
                         <Percent className="mt-0.5 h-4 w-4 shrink-0 text-boga-lima-500" />
                         <span>
-                          Bundle activo: los productos complementarios (p. ej.
-                          lavamanos, puntos ecológicos) tienen{" "}
+                          Bundle activo:{" "}
                           <strong className="text-boga-lima-500">
                             {discountPct}% de descuento
-                          </strong>
-                          .
+                          </strong>{" "}
+                          en todo el carrito. Si hay más de un producto ancla
+                          (VIP, discapacitados o trailer), el descuento no se
+                          acumula.
                         </span>
                       </div>
                     )}
@@ -461,8 +462,7 @@ export function QuoteWizard({ productos }: QuoteWizardProps) {
                               (l) => l.productoId === producto.id
                             )
                             const showDiscountPreview =
-                              cartTotals.hasBundleTrigger &&
-                              !isBundleTrigger(producto.slug)
+                              cartTotals.hasBundleTrigger
                             const unitLista = producto.precioBase ?? 0
                             const unitFinal = showDiscountPreview
                               ? Math.round(

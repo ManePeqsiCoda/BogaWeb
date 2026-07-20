@@ -40,13 +40,14 @@ export function ProductPriceBlock({
         />
         {showBundleHint && !esAncla && (
           <p className="mt-1 max-w-sm text-xs text-boga-text-tertiary">
-            30% de descuento si cotizas junto con baños portátiles, trailer de
-            lujo u operarios.
+            Todo el carrito tiene 30% off si incluye VIP, baño para
+            discapacitados o trailer de lujo (sin acumular).
           </p>
         )}
         {showBundleHint && esAncla && (
           <p className="mt-1 max-w-sm text-xs text-boga-text-tertiary">
-            Al incluir este ítem, otros productos del cotizador llevan 30% off.
+            Al incluir este ítem, todo el carrito del cotizador recibe 30% off
+            (un solo descuento, no acumulable).
           </p>
         )}
       </div>
