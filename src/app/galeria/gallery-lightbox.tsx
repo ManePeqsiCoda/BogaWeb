@@ -130,53 +130,55 @@ export function GalleryLightbox({ event, open, onClose }: GalleryLightboxProps) 
         />
       </div>
 
-      <div className="relative mt-3 min-h-0 w-full flex-1">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={`${slide.eventId}-${index}-${slide.src}`}
-            custom={direction}
-            variants={{
-              enter: (d: number) => ({ opacity: 0, x: d > 0 ? 40 : -40 }),
-              center: { opacity: 1, x: 0 },
-              exit: (d: number) => ({ opacity: 0, x: d > 0 ? -40 : 40 }),
-            }}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={slide.src}
-              alt={`${slide.title} — foto ${index + 1} de ${slides.length}`}
-              fill
-              className="object-cover object-center"
-              sizes="100vw"
-              priority
-            />
-          </motion.div>
-        </AnimatePresence>
+      <div className="relative flex min-h-0 flex-1 items-center justify-center px-4 py-3 sm:px-10">
+        <div className="relative aspect-video w-full max-w-5xl max-h-[min(58vh,560px)] overflow-hidden rounded-xl bg-black shadow-2xl">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={`${slide.eventId}-${index}-${slide.src}`}
+              custom={direction}
+              variants={{
+                enter: (d: number) => ({ opacity: 0, x: d > 0 ? 40 : -40 }),
+                center: { opacity: 1, x: 0 },
+                exit: (d: number) => ({ opacity: 0, x: d > 0 ? -40 : 40 }),
+              }}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={slide.src}
+                alt={`${slide.title} — foto ${index + 1} de ${slides.length}`}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
 
-        {slides.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={prev}
-              className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/55 p-3 text-white backdrop-blur-sm transition-colors hover:bg-black/75 sm:left-5"
-              aria-label="Imagen anterior"
-            >
-              <ChevronLeft className="size-7" />
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/55 p-3 text-white backdrop-blur-sm transition-colors hover:bg-black/75 sm:right-5"
-              aria-label="Imagen siguiente"
-            >
-              <ChevronRight className="size-7" />
-            </button>
-          </>
-        )}
+          {slides.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={prev}
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/55 p-2.5 text-white backdrop-blur-sm transition-colors hover:bg-black/75 sm:left-3"
+                aria-label="Imagen anterior"
+              >
+                <ChevronLeft className="size-6" />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/55 p-2.5 text-white backdrop-blur-sm transition-colors hover:bg-black/75 sm:right-3"
+                aria-label="Imagen siguiente"
+              >
+                <ChevronRight className="size-6" />
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {slides.length > 1 && (
