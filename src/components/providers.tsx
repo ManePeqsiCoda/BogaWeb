@@ -15,7 +15,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const isHome = pathname === "/"
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem={false}
+      storageKey="boga-theme"
+      disableTransitionOnChange
+    >
       <AuthMockProvider>
         {!isAdmin && (
           <a

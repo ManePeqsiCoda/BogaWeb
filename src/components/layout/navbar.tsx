@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 import { EmergencyButton } from "@/components/layout/emergency-button"
+import { ThemeToggle } from "@/components/layout/theme-toggle"
 import {
   Menu,
   X,
@@ -241,26 +242,30 @@ export function Navbar() {
 
           {/* CTAs */}
           <div className="hidden items-center gap-3 min-[960px]:flex">
+            <ThemeToggle overHero={overHero} />
             <EmergencyButton />
             <Link href="/cotizacion" className="btn-primary px-5 text-xs">
               Cotizar
             </Link>
           </div>
 
-          {/* Mobile hamburger — solo bajo 960px */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen(true)}
-            className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-lg min-[960px]:hidden",
-              overHero
-                ? "text-white hover:bg-white/10"
-                : "text-[var(--boga-text-secondary)] hover:bg-[var(--boga-surface-muted)]"
-            )}
-            aria-label="Abrir menú"
-          >
-            <Menu className="h-6 w-6" aria-hidden="true" />
-          </button>
+          {/* Mobile: toggle + hamburger */}
+          <div className="flex items-center gap-1 min-[960px]:hidden">
+            <ThemeToggle overHero={overHero} />
+            <button
+              type="button"
+              onClick={() => setMobileOpen(true)}
+              className={cn(
+                "inline-flex h-10 w-10 items-center justify-center rounded-lg",
+                overHero
+                  ? "text-white hover:bg-white/10"
+                  : "text-[var(--boga-text-secondary)] hover:bg-[var(--boga-surface-muted)]"
+              )}
+              aria-label="Abrir menú"
+            >
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
         </nav>
       </header>
 

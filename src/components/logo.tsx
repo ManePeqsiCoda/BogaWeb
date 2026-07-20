@@ -41,21 +41,23 @@ export function Logo({ variant = "light", className, showTagline = true }: LogoP
         <span
           className={cn(
             "font-sans text-lg font-black leading-none tracking-tight",
-            isDark ? "text-white" : "text-[#1b1341]"
+            isDark ? "text-white" : "text-[var(--boga-deep-500)] dark:text-[var(--boga-text-primary)]"
           )}
         >
           BOGA
         </span>
         {/* Barra lima distintiva del brand kit */}
         <span
-          className="mt-1 block h-[3px] w-[3.25rem] rounded-full bg-[#daf73a]"
+          className="mt-1 block h-[3px] w-[3.25rem] rounded-full bg-[var(--boga-lima-500)]"
           aria-hidden="true"
         />
         {showTagline && (
           <span
             className={cn(
               "mt-1 font-sans text-[0.55rem] font-light uppercase leading-tight tracking-[0.28em]",
-              isDark ? "text-white/80" : "text-[#1b1341]/80"
+              isDark
+                ? "text-white/80"
+                : "text-[var(--boga-deep-500)]/80 dark:text-[var(--boga-text-secondary)]"
             )}
           >
             Ingeniería Portátil

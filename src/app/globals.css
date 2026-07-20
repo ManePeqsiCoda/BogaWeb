@@ -20,9 +20,9 @@
   --font-sans: var(--font-montserrat);
   --font-heading: var(--font-montserrat);
 
-  /* Electric Blue */
-  --color-boga-electric-50: #f0f3fe;
-  --color-boga-electric-100: #d5dbfc;
+  /* Electric Blue — 50/100 siguen tokens (cambian en .dark) */
+  --color-boga-electric-50: var(--boga-electric-50);
+  --color-boga-electric-100: var(--boga-electric-100);
   --color-boga-electric-200: #abb8fa;
   --color-boga-electric-300: #8094f7;
   --color-boga-electric-400: #5671f5;
@@ -46,9 +46,9 @@
   --color-boga-deep-900: #0b081a;
   --color-boga-deep-950: #06040e;
 
-  /* Lima */
-  --color-boga-lima-50: #fcfef1;
-  --color-boga-lima-100: #f8fdd8;
+  /* Lima — 50/100 siguen tokens (cambian en .dark) */
+  --color-boga-lima-50: var(--boga-lima-50);
+  --color-boga-lima-100: var(--boga-lima-100);
   --color-boga-lima-200: #f0fcb0;
   --color-boga-lima-300: #e9fa89;
   --color-boga-lima-400: #e1f961;
@@ -59,9 +59,9 @@
   --color-boga-lima-900: #576317;
   --color-boga-lima-950: #30360d;
 
-  /* Neutral */
-  --color-boga-neutral-50: #f8f8fa;
-  --color-boga-neutral-100: #f0eff4;
+  /* Neutral — 50/100 siguen tokens (cambian en .dark) */
+  --color-boga-neutral-50: var(--boga-neutral-50);
+  --color-boga-neutral-100: var(--boga-neutral-100);
   --color-boga-neutral-200: #e2e0e8;
   --color-boga-neutral-300: #c8c5d2;
   --color-boga-neutral-400: #a8a3b8;
@@ -76,29 +76,29 @@
   --color-boga-cream: #e9eac1;
   --color-boga-silver: #d8d8d8;
 
-  /* Surfaces */
-  --color-boga-surface-canvas: #ffffff;
-  --color-boga-surface-elevated: #ffffff;
-  --color-boga-surface-floating: #ffffff;
-  --color-boga-surface-inset: #f0eff4;
-  --color-boga-surface-muted: #f8f8fa;
-  --color-boga-surface-dark: #1b1341;
-  --color-boga-surface-hero: #2c4df2;
+  /* Surfaces — referencian tokens de :root / .dark */
+  --color-boga-surface-canvas: var(--boga-surface-canvas);
+  --color-boga-surface-elevated: var(--boga-surface-elevated);
+  --color-boga-surface-floating: var(--boga-surface-floating);
+  --color-boga-surface-inset: var(--boga-surface-inset);
+  --color-boga-surface-muted: var(--boga-surface-muted);
+  --color-boga-surface-dark: var(--boga-surface-dark);
+  --color-boga-surface-hero: var(--boga-surface-hero);
 
   /* Text */
-  --color-boga-text-primary: #272331;
-  --color-boga-text-secondary: #544e63;
-  --color-boga-text-tertiary: #8a849d;
-  --color-boga-text-muted: #a8a3b8;
-  --color-boga-text-inverted: #ffffff;
-  --color-boga-text-on-lima: #1b1341;
-  --color-boga-text-on-electric: #ffffff;
+  --color-boga-text-primary: var(--boga-text-primary);
+  --color-boga-text-secondary: var(--boga-text-secondary);
+  --color-boga-text-tertiary: var(--boga-text-tertiary);
+  --color-boga-text-muted: var(--boga-text-muted);
+  --color-boga-text-inverted: var(--boga-text-inverted);
+  --color-boga-text-on-lima: var(--boga-text-on-lima);
+  --color-boga-text-on-electric: var(--boga-text-on-electric);
 
   /* Borders */
-  --color-boga-border-subtle: rgba(27, 19, 65, 0.06);
-  --color-boga-border-default: rgba(27, 19, 65, 0.12);
-  --color-boga-border-strong: rgba(27, 19, 65, 0.24);
-  --color-boga-border-focus: #2c4df2;
+  --color-boga-border-subtle: var(--boga-border-subtle);
+  --color-boga-border-default: var(--boga-border-default);
+  --color-boga-border-strong: var(--boga-border-strong);
+  --color-boga-border-focus: var(--boga-border-focus);
 
   /* Semantic */
   --color-boga-success-50: #f5fdec;
@@ -149,47 +149,47 @@
   --color-boga-info-900: #121f61;
   --color-boga-info-950: #0a1135;
 
-  /* Semantic aliases (legacy + shadcn) */
-  --color-primary: #2c4df2;
-  --color-primary-hover: #2541ce;
-  --color-primary-light: #f0f3fe;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #1b1341;
-  --color-secondary-elevated: #171037;
-  --color-secondary-foreground: #ffffff;
-  --color-accent: #daf73a;
-  --color-accent-foreground: #1b1341;
-  --color-accent-gold: #c9a84c;
-  --color-accent-gold-bg: rgba(201, 168, 76, 0.12);
-  --color-dark: #272331;
-  --color-body: #544e63;
-  --color-muted: #8a849d;
-  --color-white: #ffffff;
-  --color-text-on-dark: #ffffff;
-  --color-text-on-dark-muted: rgba(255, 255, 255, 0.7);
-  --color-bg-light: #f8f8fa;
-  --color-bg-warm: #f8f8fa;
-  --color-border: rgba(27, 19, 65, 0.12);
-  --color-border-subtle: rgba(27, 19, 65, 0.06);
-  --color-success: #6bc935;
-  --color-success-bg: #f5fdec;
-  --color-error: #f05252;
-  --color-error-bg: #fdf2f2;
-  --color-warning: #f59e0b;
-  --color-warning-bg: #fffbeb;
-  --color-whatsapp: #25d366;
+  /* Semantic aliases (legacy + shadcn) — siguen tokens de :root / .dark */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-elevated: var(--secondary-elevated);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-bg: var(--accent-gold-bg);
+  --color-dark: var(--dark);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-white: var(--white);
+  --color-text-on-dark: var(--text-on-dark);
+  --color-text-on-dark-muted: var(--text-on-dark-muted);
+  --color-bg-light: var(--bg-light);
+  --color-bg-warm: var(--bg-warm);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-error: var(--error);
+  --color-error-bg: var(--error-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-whatsapp: var(--whatsapp);
 
   /* shadcn semantic colors */
-  --color-background: #ffffff;
-  --color-foreground: #272331;
-  --color-card: #ffffff;
-  --color-card-foreground: #272331;
-  --color-popover: #ffffff;
-  --color-popover-foreground: #272331;
-  --color-destructive: #f05252;
-  --color-input: #f0eff4;
-  --color-ring: #2c4df2;
-  --color-muted-foreground: #8a849d;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-destructive: var(--destructive);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-muted-foreground: var(--muted-foreground);
 
   /* Legacy color scales (mantener compatibilidad durante transición) */
   --color-primary-50: #f0f3fe;
@@ -677,28 +677,78 @@
 }
 
 .dark {
-  --background: var(--boga-deep-500);
-  --foreground: var(--boga-text-inverted);
-  --card: var(--boga-deep-600);
-  --card-foreground: var(--boga-text-inverted);
-  --popover: var(--boga-deep-600);
-  --popover-foreground: var(--boga-text-inverted);
+  color-scheme: dark;
+
+  /* Superficies */
+  --boga-surface-canvas: #0f0a24;
+  --boga-surface-elevated: #171037;
+  --boga-surface-floating: #1b1341;
+  --boga-surface-inset: #130d2e;
+  --boga-surface-muted: #130d2e;
+  --boga-surface-dark: #0b081a;
+  --boga-surface-hero: #2c4df2;
+
+  /* Texto */
+  --boga-text-primary: #f4f3f8;
+  --boga-text-secondary: #c8c5d2;
+  --boga-text-tertiary: #a8a3b8;
+  --boga-text-muted: #8a849d;
+  --boga-text-inverted: #ffffff;
+  --boga-text-on-lima: #1b1341;
+  --boga-text-on-electric: #ffffff;
+
+  /* Bordes */
+  --boga-border-subtle: rgba(255, 255, 255, 0.06);
+  --boga-border-default: rgba(255, 255, 255, 0.12);
+  --boga-border-strong: rgba(255, 255, 255, 0.22);
+  --boga-border-focus: #5671f5;
+  --boga-border-focus-ring: 0 0 0 3px rgba(86, 113, 245, 0.35);
+
+  /* Tintes claros de marca → versiones oscuras útiles en UI */
+  --boga-electric-50: rgba(44, 77, 242, 0.16);
+  --boga-electric-100: rgba(44, 77, 242, 0.28);
+  --boga-lima-50: rgba(218, 247, 58, 0.1);
+  --boga-lima-100: rgba(218, 247, 58, 0.18);
+  --boga-neutral-50: #171037;
+  --boga-neutral-100: #1b1341;
+
+  /* Sombras más profundas */
+  --boga-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --boga-shadow-2: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.25);
+  --boga-shadow-3: 0 4px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.25);
+  --boga-shadow-4: 0 10px 15px rgba(0, 0, 0, 0.45), 0 4px 6px rgba(0, 0, 0, 0.3);
+  --boga-shadow-5: 0 20px 25px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.3);
+
+  /* Semantic / shadcn */
+  --background: var(--boga-surface-canvas);
+  --foreground: var(--boga-text-primary);
+  --card: var(--boga-surface-elevated);
+  --card-foreground: var(--boga-text-primary);
+  --popover: var(--boga-surface-floating);
+  --popover-foreground: var(--boga-text-primary);
   --primary: var(--boga-electric-500);
+  --primary-hover: var(--boga-electric-400);
+  --primary-light: var(--boga-electric-50);
   --primary-foreground: var(--boga-text-on-electric);
   --secondary: var(--boga-deep-600);
+  --secondary-elevated: var(--boga-deep-700);
   --secondary-foreground: var(--boga-text-inverted);
   --accent: var(--boga-lima-500);
   --accent-foreground: var(--boga-text-on-lima);
   --muted: var(--boga-text-tertiary);
   --muted-foreground: var(--boga-text-muted);
-  --border: rgba(255, 255, 255, 0.1);
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --input: rgba(255, 255, 255, 0.15);
-  --ring: var(--boga-electric-500);
-  --body: var(--boga-text-tertiary);
-  --dark: var(--boga-text-inverted);
-  --bg-light: var(--boga-deep-600);
-  --bg-warm: var(--boga-deep-600);
+  --border: var(--boga-border-default);
+  --border-subtle: var(--boga-border-subtle);
+  --input: var(--boga-surface-inset);
+  --ring: var(--boga-border-focus);
+  --body: var(--boga-text-secondary);
+  --dark: var(--boga-text-primary);
+  --bg-light: var(--boga-surface-muted);
+  --bg-warm: var(--boga-surface-muted);
+  --success-bg: rgba(107, 201, 53, 0.12);
+  --error-bg: rgba(240, 82, 82, 0.12);
+  --warning-bg: rgba(245, 158, 11, 0.12);
+  --accent-gold-bg: rgba(201, 168, 76, 0.16);
 }
 
 /* Admin panel dark theme (RR Cotizador style) — keep functional */

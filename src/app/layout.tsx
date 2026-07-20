@@ -60,8 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang={siteConfig.language}
-      className="h-full antialiased light"
-      style={{ colorScheme: "light" }}
+      className="h-full antialiased"
       suppressHydrationWarning
     >
       <head>
