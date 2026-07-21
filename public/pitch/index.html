@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RR Aliados × BOGA — Pitch comercial 2026">
+  <title>RR ALIADOS × BOGA — Pitch 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --void: #3F0035;
+      --ash: #968E93;
+      --ember: #CE3D1F;
+      --parchment: #F5E6D3;
+      --pitch: #0F0F0F;
+      --ember-dark: #B8351A;
+      --ember-light: #E85A3A;
+      --mid: #1A1A1A;
+      --ember-10: rgba(206, 61, 31, 0.1);
+      --ember-20: rgba(206, 61, 31, 0.2);
+      --ember-30: rgba(206, 61, 31, 0.3);
+      --ember-60: rgba(206, 61, 31, 0.6);
+      --parchment-5: rgba(245, 230, 211, 0.05);
+      --parchment-10: rgba(245, 230, 211, 0.1);
+      --parchment-15: rgba(245, 230, 211, 0.15);
+      --parchment-30: rgba(245, 230, 211, 0.3);
+      --parchment-50: rgba(245, 230, 211, 0.5);
+      --parchment-70: rgba(245, 230, 211, 0.7);
+      --void-30: rgba(63, 0, 53, 0.3);
+      --void-95: rgba(63, 0, 53, 0.95);
+      --pitch-80: rgba(15, 15, 15, 0.8);
+      --pitch-95: rgba(15, 15, 15, 0.95);
+      --rr-teal: var(--ember);
+      --rr-red: var(--ember);
+      --rr-white: var(--parchment);
+      --rr-black: var(--pitch);
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --font-ui: 'Inter', sans-serif;
+      --page-x: clamp(1.5rem, 5vw, 4rem);
+      --section-y: clamp(4rem, 10vh, 8rem);
+      --shadow-ember: 0 0 30px rgba(206, 61, 31, 0.4);
+      --shadow-ember-sm: 0 0 15px rgba(206, 61, 31, 0.3);
+      --shadow-dark: 0 10px 40px rgba(0, 0, 0, 0.5);
+      --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+      --transition-fast: 0.2s ease;
+      --transition-medium: 0.3s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      background: var(--pitch);
+      color: var(--parchment);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    ::selection { background-color: var(--ember); color: var(--parchment); }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--pitch); }
+    ::-webkit-scrollbar-thumb { background: var(--void); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--ember); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.02em; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    .title-display {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 10vw, 120px);
+      line-height: 0.9;
+      color: var(--parchment);
+    }
+    .title-section {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--parchment);
+      margin-bottom: 24px;
+    }
+    .title-dark { color: var(--pitch); }
+    .subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--parchment);
+    }
+    .body-text {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      font-weight: 300;
+      color: var(--parchment-70);
+    }
+    .label-mono {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ash);
+    }
+
+    .presentation { position: fixed; inset: 0; overflow: hidden; }
+    .slides-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s var(--transition-smooth);
+      will-change: transform;
+    }
+    .slide {
+      min-width: 100vw;
+      min-height: 100vh;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 64px;
+    }
+    .slide--dark { background: var(--pitch); color: var(--parchment); }
+    .slide--light { background: #1C1C1C; color: var(--parchment); }
+    .slide--mid { background: #2A2A2A; color: var(--parchment); }
+    .slide-container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 20px 40px 40px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .nav-logo {
+      position: fixed; top: 20px; left: 24px; z-index: 100;
+      font-family: var(--font-display); font-size: 1.25rem; color: var(--parchment);
+      text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: color 0.3s;
+    }
+    .nav-logo span { color: var(--ember); }
+    .nav-logo:hover { color: var(--ember); }
+    .nav-menu-btn {
+      position: fixed; top: 20px; right: 24px; z-index: 100;
+      font-family: var(--font-mono); font-size: 0.75rem; color: var(--parchment);
+      text-transform: uppercase; letter-spacing: 0.15em; background: var(--pitch-80);
+      padding: 8px 16px; border-radius: 2px; border: 1px solid var(--parchment-30); transition: all 0.3s;
+    }
+    .nav-menu-btn:hover { background: var(--ember); border-color: var(--ember); }
+    .nav-arrow {
+      position: fixed; top: 50%; transform: translateY(-50%); z-index: 100;
+      width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+      background: var(--ember-10); border: 1px solid var(--ember-30); border-radius: 2px;
+      color: var(--parchment-70); font-size: 1.25rem; opacity: 0.5; transition: all 0.3s;
+    }
+    .nav-arrow:hover { opacity: 1; background: var(--ember-20); border-color: var(--ember); color: var(--parchment); }
+    .nav-arrow--left { left: 16px; }
+    .nav-arrow--right { right: 16px; }
+    .nav-arrow:disabled { opacity: 0.1; cursor: not-allowed; }
+    .slide-counter {
+      position: fixed; bottom: 24px; right: 24px; z-index: 100;
+      font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--ash);
+      background: var(--pitch-80); padding: 8px 14px; border-radius: 2px; border: 1px solid var(--parchment-10);
+    }
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px; background: var(--ember); z-index: 100;
+      transition: width 0.4s var(--transition-smooth);
+    }
+
+    .menu-overlay {
+      position: fixed; inset: 0; z-index: 99; background: var(--void-95);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .menu-overlay.active { opacity: 1; pointer-events: all; }
+    .menu-link {
+      font-family: var(--font-display); font-size: clamp(20px, 3.5vw, 36px); color: var(--parchment-70);
+      text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 24px; transition: all 0.3s;
+    }
+    .menu-link:hover { color: var(--ember); transform: translateX(8px); }
+    .menu-close {
+      position: absolute; top: 20px; right: 24px; font-family: var(--font-mono); font-size: 1rem;
+      color: var(--ash); letter-spacing: 0.1em; transition: color 0.2s;
+    }
+    .menu-close:hover { color: var(--ember); }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-entry {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
+    }
+    .animate-entry.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.15s; }
+    .delay-2 { transition-delay: 0.30s; }
+    .delay-3 { transition-delay: 0.45s; }
+    .delay-4 { transition-delay: 0.60s; }
+    .delay-5 { transition-delay: 0.75s; }
+    .delay-6 { transition-delay: 0.90s; }
+
+    #particle-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+    #slide-0 { justify-content: center; }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center;
+      display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 0 24px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono); font-size: 0.75rem; color: var(--ash);
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .hero-subtitle {
+      font-family: var(--font-body); font-size: clamp(16px, 2vw, 22px);
+      color: var(--parchment-70); max-width: 640px; line-height: 1.6; font-weight: 300;
+    }
+    .cta-button {
+      display: inline-block; background: var(--ember); color: var(--parchment);
+      font-family: var(--font-display); font-size: 1.25rem; text-transform: uppercase;
+      letter-spacing: 0.08em; padding: 16px 48px; border-radius: 2px; transition: all 0.3s; margin-top: 8px;
+    }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: var(--shadow-ember); background: var(--ember-light); }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .about-left, .about-right { display: flex; flex-direction: column; gap: 14px; }
+    .value-card {
+      background: var(--parchment-5); border-left: 3px solid var(--ember);
+      padding: 20px 24px; border-radius: 0 4px 4px 0; transition: all 0.3s;
+    }
+    .value-card:hover { transform: translateX(4px); background: var(--ember-10); }
+    .value-card__icon { font-size: 1.25rem; margin-bottom: 6px; }
+    .value-card__title {
+      font-family: var(--font-display); font-size: 1.1rem; color: var(--parchment);
+      text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.05em;
+    }
+    .value-card__text { font-family: var(--font-body); font-size: 0.875rem; color: var(--ash); line-height: 1.6; }
+
+    .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+    .problem-card {
+      background: var(--parchment-5); border: 1px solid var(--parchment-15);
+      border-top: 3px solid var(--ember); border-radius: 4px; padding: 28px; transition: all 0.3s;
+    }
+    .problem-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-ember-sm); }
+    .problem-card__icon { font-size: 1.75rem; margin-bottom: 14px; }
+    .problem-card__title {
+      font-family: var(--font-display); font-size: 1.05rem; color: var(--parchment);
+      text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.05em;
+    }
+    .problem-card__text { font-family: var(--font-body); font-size: 0.875rem; color: var(--ash); line-height: 1.6; }
+    .problem-separator { width: 60px; height: 2px; background: var(--ember); margin: 0 auto 24px; }
+    .comparison-title { text-align: center; margin-bottom: 32px; }
+    .comparison-table-wrap { width: 100%; overflow-x: auto; }
+    .comparison-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); min-width: 680px; }
+    .comparison-table thead { background: var(--void); }
+    .comparison-table thead th {
+      padding: 14px 20px; font-family: var(--font-mono); text-align: center;
+      text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--parchment-70);
+    }
+    .comparison-table tbody td { padding: 14px 20px; font-size: 0.9rem; font-weight: 300; color: var(--ash); transition: background 0.2s; }
+    .comparison-table tbody tr { border-bottom: 1px solid var(--parchment-5); }
+    .comparison-table tbody tr:hover td { background: var(--ember-10); }
+    .comparison-table td:first-child {
+      background: var(--parchment-5); color: var(--parchment); font-weight: 400; text-align: left;
+      border-right: 1px solid var(--parchment-10); font-family: var(--font-mono); font-size: 0.78rem;
+    }
+    .comparison-table td:nth-child(2) { text-align: center; border-right: 1px solid var(--parchment-10); opacity: 0.75; }
+    .comparison-table td:nth-child(3) {
+      background: var(--ember-10); color: var(--parchment); font-weight: 400; text-align: center;
+      border-left: 2px solid var(--ember); border-right: 2px solid var(--ember);
+    }
+
+    .partnership-quote {
+      background: var(--ember-10); border: 1px solid var(--ember-30); border-left: 3px solid var(--ember);
+      padding: 24px 28px; border-radius: 2px; margin-top: 28px; text-align: center;
+    }
+    .partnership-quote p {
+      font-family: var(--font-body); font-size: 1rem; color: var(--parchment-70); line-height: 1.7; font-style: italic;
+    }
+
+    .demo-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; justify-content: center; }
+    .demo-tab {
+      font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 10px 18px; border: 1px solid var(--parchment-30); border-radius: 2px;
+      color: var(--ash); background: var(--parchment-5); transition: all 0.25s;
+    }
+    .demo-tab:hover { border-color: var(--ember-60); color: var(--parchment); }
+    .demo-tab.active { background: var(--ember); border-color: var(--ember); color: var(--parchment); }
+    .demo-panel { display: none; }
+    .demo-panel.active { display: block; }
+    .device-frame {
+      background: var(--pitch); border: 1px solid var(--parchment-15); border-radius: 8px;
+      overflow: hidden; box-shadow: var(--shadow-dark);
+    }
+    .device-frame__bar {
+      background: #111; padding: 10px 16px; display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--parchment-10);
+    }
+    .device-frame__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--parchment-30); }
+    .device-frame__dot--ember { background: var(--ember); }
+    .device-frame__url {
+      flex: 1; margin-left: 8px; font-family: var(--font-mono); font-size: 0.65rem;
+      color: var(--ash); letter-spacing: 0.05em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .device-frame__body { position: relative; min-height: 360px; background: #0a0a0a; }
+    .device-frame iframe {
+      width: 100%; height: 380px; border: none; display: block; background: #fff;
+    }
+    .iframe-fallback {
+      display: none; position: absolute; inset: 0; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px; padding: 24px;
+      background: var(--pitch-95); text-align: center; z-index: 2;
+    }
+    .iframe-fallback.visible { display: flex; }
+    .iframe-fallback p { font-family: var(--font-body); font-size: 0.9rem; color: var(--ash); max-width: 360px; line-height: 1.6; }
+    .prototype-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+    .prototype-button {
+      display: inline-block; background: var(--ember); color: var(--parchment);
+      font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 10px 22px; border-radius: 2px; transition: all 0.3s;
+    }
+    .prototype-button:hover { transform: translateY(-2px); box-shadow: var(--shadow-ember); background: var(--ember-light); }
+    .prototype-button--ghost {
+      background: transparent; border: 1px solid var(--parchment-30); color: var(--parchment-70);
+    }
+    .prototype-button--ghost:hover { border-color: var(--ember); color: var(--parchment); background: var(--ember-10); }
+
+    .prototype-box {
+      background: var(--parchment-5); border: 1px solid var(--ember-30); border-radius: 2px; padding: 12px;
+    }
+    .prototype-label {
+      font-family: var(--font-mono); font-size: 0.65rem; color: var(--ash); text-align: center;
+      margin-bottom: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .prototype-iframe { width: 100%; height: 420px; border: 2px solid var(--ember-30); border-radius: 8px; display: block; }
+
+    .deliver-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .deliver-card {
+      background: var(--parchment-5); border-top: 2px solid var(--ember); padding: 22px 20px;
+      border-radius: 0 2px 2px 0; transition: all 0.3s;
+    }
+    .deliver-card:hover { transform: translateY(-3px); background: var(--ember-10); }
+    .deliver-card__icon { font-size: 1.4rem; margin-bottom: 8px; }
+    .deliver-card__title {
+      font-family: var(--font-display); font-size: 1rem; color: var(--ember);
+      text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.05em;
+    }
+    .deliver-card__text { font-family: var(--font-body); font-size: 0.82rem; color: var(--ash); line-height: 1.55; }
+
+    .slide--mid .title-dark { color: var(--parchment); }
+    .financial-title { text-align: center; margin-bottom: 8px; }
+    .financial-subtitle {
+      text-align: center; font-family: var(--font-mono); font-size: 0.85rem; color: var(--ash);
+      margin-bottom: 32px; letter-spacing: 0.1em;
+    }
+    .combo-box {
+      background: var(--ember); color: var(--parchment); padding: 20px 32px; border-radius: 2px;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+    }
+    .combo-box__label { font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .combo-box__price { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.2rem); letter-spacing: 0.02em; }
+    .payment-scheme {
+      background: var(--parchment-5); border: 1px solid var(--ember-30); border-top: 3px solid var(--ember);
+      border-radius: 4px; padding: 24px 28px; margin-bottom: 28px;
+    }
+    .payment-scheme__title {
+      font-family: var(--font-mono); font-size: 0.7rem; color: var(--ember);
+      text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 16px;
+    }
+    .payment-scheme__grid { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .payment-scheme__item { flex: 1; min-width: 160px; }
+    .payment-scheme__tag {
+      font-family: var(--font-mono); font-size: 0.65rem; color: var(--ash);
+      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .payment-scheme__desc { font-family: var(--font-body); font-size: 0.9rem; color: var(--parchment-70); line-height: 1.5; }
+    .payment-scheme__desc strong { color: var(--parchment); font-weight: 500; }
+    .payment-scheme__divider { font-size: 1.25rem; color: var(--ember); flex-shrink: 0; }
+
+    .plan-selector { margin-bottom: 24px; }
+    .plan-selector__title {
+      font-family: var(--font-mono); font-size: 0.7rem; color: var(--ember);
+      text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 14px;
+    }
+    .plan-selector__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; }
+    .plan-card {
+      background: var(--parchment-5); border: 2px solid var(--parchment-15); border-radius: 4px;
+      padding: 20px 24px; cursor: pointer; transition: all 0.3s;
+    }
+    .plan-card:hover { border-color: var(--ember-60); background: var(--ember-10); }
+    .plan-card.active { border-color: var(--ember); background: var(--ember-10); }
+    .plan-card__badge {
+      font-family: var(--font-mono); font-size: 0.65rem; color: var(--ash);
+      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .plan-card.active .plan-card__badge { color: var(--ember); }
+    .plan-card__price { font-family: var(--font-display); font-size: 2rem; color: var(--parchment); line-height: 1; margin-bottom: 4px; }
+    .plan-card__price span { font-size: 1rem; color: var(--ash); }
+    .plan-card.active .plan-card__price { color: var(--ember); }
+    .plan-card__detail { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ember); letter-spacing: 0.05em; margin-bottom: 10px; }
+    .plan-card__desc { font-family: var(--font-body); font-size: 0.82rem; color: var(--ash); line-height: 1.5; margin-bottom: 10px; }
+    .plan-card__check { font-family: var(--font-mono); font-size: 0.65rem; color: var(--ember); letter-spacing: 0.1em; text-transform: uppercase; display: none; }
+    .plan-card.active .plan-card__check { display: block; }
+    .combo-note { font-family: var(--font-body); font-size: 0.875rem; color: var(--ash); margin-bottom: 20px; }
+
+    .care-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+    .care-box {
+      background: var(--parchment-5); border: 1px solid var(--parchment-15); border-radius: 4px; padding: 20px 22px;
+    }
+    .care-box--no { border-left: 3px solid var(--ash); }
+    .care-box--yes { border-left: 3px solid var(--ember); }
+    .care-box__title {
+      font-family: var(--font-display); font-size: 0.95rem; color: var(--parchment);
+      text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;
+    }
+    .care-box ul li {
+      font-family: var(--font-body); font-size: 0.85rem; color: var(--ash); line-height: 1.6;
+      padding-left: 16px; position: relative; margin-bottom: 6px;
+    }
+    .care-box ul li::before { content: '—'; position: absolute; left: 0; color: var(--ember); }
+    .price-rationale {
+      background: var(--ember-10); border: 1px solid var(--ember-30); padding: 20px 24px;
+      border-radius: 2px; margin-bottom: 8px;
+    }
+    .price-rationale p { font-family: var(--font-body); font-size: 0.9rem; color: var(--parchment-70); line-height: 1.65; }
+
+    .upsell-grid { display: flex; flex-direction: column; gap: 12px; }
+    .upsell-row {
+      display: grid; grid-template-columns: 2fr 3fr 1fr; gap: 16px; align-items: start;
+      background: var(--parchment-5); border-left: 3px solid var(--ember); padding: 16px 20px;
+      border-radius: 0 4px 4px 0; transition: all 0.3s;
+    }
+    .upsell-row:hover { background: var(--ember-10); }
+    .upsell-row__name { font-family: var(--font-display); font-size: 0.95rem; color: var(--parchment); text-transform: uppercase; letter-spacing: 0.05em; }
+    .upsell-row__desc { font-family: var(--font-body); font-size: 0.82rem; color: var(--ash); line-height: 1.5; }
+    .upsell-row__price { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ember); text-align: right; white-space: nowrap; }
+
+    .closing { text-align: center; }
+    .closing-title { font-size: clamp(36px, 6vw, 72px); margin-bottom: 16px; }
+    .closing-subtitle {
+      font-family: var(--font-body); font-size: 1.05rem; color: var(--parchment-70);
+      max-width: 700px; margin: 0 auto 28px; line-height: 1.6;
+    }
+    .steps { max-width: 560px; margin: 0 auto 28px; text-align: left; }
+    .step { display: flex; gap: 20px; margin-bottom: 18px; position: relative; }
+    .step:not(:last-child)::before {
+      content: ''; position: absolute; left: 23px; top: 48px; width: 2px; height: calc(100% + 4px);
+      background: var(--ember-60);
+    }
+    .step-number {
+      width: 48px; height: 48px; border: 2px solid var(--ember); color: var(--ember);
+      font-family: var(--font-display); font-size: 1.25rem; display: flex; align-items: center;
+      justify-content: center; border-radius: 50%; flex-shrink: 0;
+    }
+    .step-title { font-family: var(--font-display); font-size: 1rem; color: var(--ember); text-transform: uppercase; margin-bottom: 4px; }
+    .step-text { font-family: var(--font-body); font-size: 0.88rem; color: var(--ash); line-height: 1.5; }
+    .contact-box {
+      background: var(--ember); color: var(--parchment); padding: 20px 32px; border-radius: 2px;
+      max-width: 420px; margin: 0 auto 16px;
+    }
+    .contact-box__name { font-family: var(--font-display); font-size: 1.4rem; text-transform: uppercase; margin-bottom: 6px; }
+    .contact-box__role { font-family: var(--font-body); font-size: 0.95rem; margin-bottom: 4px; }
+    .contact-box__loc { font-family: var(--font-body); font-size: 0.85rem; opacity: 0.85; }
+    .closing-cta {
+      display: inline-block; background: var(--void); color: var(--parchment);
+      font-family: var(--font-display); font-size: 1.05rem; text-transform: uppercase;
+      padding: 14px 36px; border-radius: 2px; border: 1px solid var(--parchment-30); transition: all 0.3s;
+    }
+    .closing-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-ember); border-color: var(--ember); }
+    .closing-footer { font-family: var(--font-body); font-size: 0.85rem; color: var(--ash); font-style: italic; margin-top: 16px; }
+
+    @media (max-width: 1024px) {
+      .about-grid, .care-columns { grid-template-columns: 1fr; gap: 32px; }
+      .problem-grid, .deliver-grid { grid-template-columns: repeat(2, 1fr); }
+      .device-frame iframe, .prototype-iframe { height: 300px; }
+      .upsell-row { grid-template-columns: 1fr; gap: 8px; }
+      .upsell-row__price { text-align: left; }
+    }
+    @media (max-width: 768px) {
+      .slide-container { padding: 60px 20px; }
+      .problem-grid, .deliver-grid, .plan-selector__grid { grid-template-columns: 1fr; }
+      .nav-arrow { display: none; }
+      .device-frame iframe, .prototype-iframe { height: 260px; }
+    }
+    @media (max-width: 480px) {
+      .title-display { font-size: 48px; }
+      .closing-title { font-size: 36px; }
+    }
+    @media print {
+      .presentation { position: static; overflow: visible; }
+      .slides-track { display: block; transform: none !important; }
+      .slide { min-width: auto; min-height: auto; page-break-after: always; display: block; padding: 40px 0; }
+      #particle-canvas, .nav-arrow, .nav-menu-btn, .nav-logo, .slide-counter, #progress-bar, .menu-overlay { display: none !important; }
+      body { overflow: visible; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .animate-entry { opacity: 1; transform: none; }
+      #particle-canvas { display: none; }
+      .slides-track { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-logo" onclick="goToSlide(0)">RR ALIADOS <span>&times;</span> BOGA</div>
+  <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">MENU</button>
+  <div id="progress-bar" style="width: 0%"></div>
+  <button class="nav-arrow nav-arrow--left" onclick="goToSlide(currentSlide - 1)" aria-label="Anterior" id="arrow-left">&#8592;</button>
+  <button class="nav-arrow nav-arrow--right" onclick="goToSlide(currentSlide + 1)" aria-label="Siguiente" id="arrow-right">&#8594;</button>
+  <div class="slide-counter" id="slide-counter">01 / 10</div>
+
+  <div class="menu-overlay" id="menu-overlay">
+    <button class="menu-close" onclick="toggleMenu()" aria-label="Cerrar menú">&#10005;</button>
+    <button class="menu-link" onclick="goToSlide(0); toggleMenu();">Apertura</button>
+    <button class="menu-link" onclick="goToSlide(1); toggleMenu();">Quiénes somos</button>
+    <button class="menu-link" onclick="goToSlide(2); toggleMenu();">BOGA hoy</button>
+    <button class="menu-link" onclick="goToSlide(3); toggleMenu();">Por qué RR</button>
+    <button class="menu-link" onclick="goToSlide(4); toggleMenu();">Trabajos en frames</button>
+    <button class="menu-link" onclick="goToSlide(5); toggleMenu();">Prototipo BOGA</button>
+    <button class="menu-link" onclick="goToSlide(6); toggleMenu();">Go-live</button>
+    <button class="menu-link" onclick="goToSlide(7); toggleMenu();">Inversión</button>
+    <button class="menu-link" onclick="goToSlide(8); toggleMenu();">Upsells mes 1</button>
+    <button class="menu-link" onclick="goToSlide(9); toggleMenu();">Próximos pasos</button>
+  </div>
+
+  <div class="presentation">
+    <div class="slides-track" id="slides-track">
+
+      <!-- SLIDE 0: APERTURA -->
+      <section class="slide slide--dark" id="slide-0" data-index="0" aria-label="Apertura">
+        <canvas id="particle-canvas"></canvas>
+        <div class="hero-content">
+          <p class="hero-eyebrow animate-entry">RR ALIADOS &times; BOGA &mdash; 2026</p>
+          <h1 class="title-display animate-entry delay-1">CON LAS MANOS<br>EN EL FUEGO.</h1>
+          <p class="hero-subtitle animate-entry delay-2">Growth Partner tecnol&oacute;gico para BOGA &mdash; web, cotizador y operaci&oacute;n digital que cierra leads de eventos.</p>
+          <button class="cta-button animate-entry delay-3" onclick="goToSlide(1)">EMPEZAR PRESENTACI&Oacute;N &rarr;</button>
+        </div>
+      </section>
+
+      <!-- SLIDE 1: QUIÉNES SOMOS -->
+      <section class="slide slide--dark" id="slide-1" data-index="1" aria-label="Quiénes somos">
+        <div class="slide-container">
+          <div class="about-grid">
+            <div class="about-left">
+              <h2 class="title-section animate-entry">&iquest;QUI&Eacute;NES SOMOS?</h2>
+              <p class="body-text animate-entry delay-1">Somos <strong>Growth Partner</strong>, no una agencia tradicional que compite por volumen de contenido.</p>
+              <p class="body-text animate-entry delay-2">Construimos prototipos funcionales <strong>antes de firmar</strong>. Si no te sirve lo que ves, no tiene sentido hablar de contrato.</p>
+              <p class="body-text animate-entry delay-3"><strong>AI First + c&oacute;digo propio.</strong> Entregamos en d&iacute;as lo que otros tardan semanas. Con <strong>skin in the game</strong>: si tu web no convierte, nosotros tampoco ganamos.</p>
+            </div>
+            <div class="about-right">
+              <div class="value-card animate-entry delay-1">
+                <div class="value-card__icon">&#9889;</div>
+                <div class="value-card__title">Growth Partner</div>
+                <div class="value-card__text">Nos asociamos a tu crecimiento comercial, no vendemos paquetes sueltos de posts.</div>
+              </div>
+              <div class="value-card animate-entry delay-2">
+                <div class="value-card__icon">&#129302;</div>
+                <div class="value-card__title">AI First</div>
+                <div class="value-card__text">Prototipamos r&aacute;pido, iteramos con datos y automatizamos lo repetitivo.</div>
+              </div>
+              <div class="value-card animate-entry delay-3">
+                <div class="value-card__icon">&#128736;</div>
+                <div class="value-card__title">Prototipo antes de firmar</div>
+                <div class="value-card__text">BOGA ya tiene uno funcional en esta presentaci&oacute;n &mdash; construido antes de esta reuni&oacute;n.</div>
+              </div>
+              <div class="value-card animate-entry delay-4">
+                <div class="value-card__icon">&#129309;</div>
+                <div class="value-card__title">Skin in the game</div>
+                <div class="value-card__text">Nuestro &eacute;xito est&aacute; atado al tuyo: web que cotiza, forms que llegan, operaci&oacute;n estable.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: BOGA HOY -->
+      <section class="slide slide--mid" id="slide-2" data-index="2" aria-label="BOGA hoy">
+        <div class="slide-container">
+          <h2 class="title-section comparison-title animate-entry">BOGA HOY &mdash; DIAGN&Oacute;STICO</h2>
+          <p class="animate-entry delay-1" style="font-family: var(--font-body); font-size: 1.2rem; color: var(--ember); text-align: center; margin-bottom: 36px;">Operan bien en campo. La web no refleja la marca ni cierra leads.</p>
+          <div class="problem-grid">
+            <div class="problem-card animate-entry delay-1">
+              <div class="problem-card__icon">&#127760;</div>
+              <div class="problem-card__title">LANDING DESACTUALIZADA</div>
+              <div class="problem-card__text"><strong>junisama.com.co</strong> muestra una cara vieja de marca. El prototipo BOGA ya comunica mejor confianza, cat&aacute;logo y operaci&oacute;n 24/7.</div>
+            </div>
+            <div class="problem-card animate-entry delay-2">
+              <div class="problem-card__icon">&#128172;</div>
+              <div class="problem-card__title">COTIZACIONES POR WHATSAPP</div>
+              <div class="problem-card__text">El embudo comercial depende de mensajes manuales. Sin formulario estructurado, cada lead pierde contexto (evento, sede, fechas, volumen).</div>
+            </div>
+            <div class="problem-card animate-entry delay-3">
+              <div class="problem-card__icon">&#127881;</div>
+              <div class="problem-card__title">NECESITAN WEB QUE CIERRE EVENTOS</div>
+              <div class="problem-card__text">Alquiler de baños e ingenier&iacute;a port&aacute;til vive de <strong>cotizaciones r&aacute;idas</strong>. Hace falta una web que capture, califique y entregue leads listos para cerrar.</div>
+            </div>
+          </div>
+          <div class="problem-separator animate-entry delay-4"></div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: POR QUÉ RR -->
+      <section class="slide slide--dark" id="slide-3" data-index="3" aria-label="Por qué RR">
+        <div class="slide-container">
+          <h2 class="title-section comparison-title animate-entry">POR QU&Eacute; RR (Y NO PELEAR MARKETING)</h2>
+          <div class="comparison-table-wrap animate-entry delay-1">
+            <table class="comparison-table" role="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Marketing creativo (quien ya tienen)</th>
+                  <th scope="col">RR ALIADOS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Foco</td><td>Contenido, redes, creatividad de campa&ntilde;a</td><td>Web, cotizador, tech y Care t&eacute;cnico</td></tr>
+                <tr><td>Entregables</td><td>Reels, piezas, pauta creativa</td><td>Landing BOGA, forms, WA/SMTP, panel cotizaciones</td></tr>
+                <tr><td>Embudo</td><td>Awareness y tr&aacute;fico</td><td>Captura de leads + cotizaci&oacute;n estructurada</td></tr>
+                <tr><td>Operaci&oacute;n</td><td>No mantienen hosting ni bugs</td><td>Hosting, deploys, monitoreo y soporte con techo de horas</td></tr>
+                <tr><td>Relaci&oacute;n</td><td>Competir por el contrato de contenido</td><td>Partnership t&eacute;cnico: ella creativo, nosotros tech</td></tr>
+                <tr><td>Precio</td><td>Fee creativo mensual</td><td>Proyecto go-live + Care t&eacute;cnico modular</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="partnership-quote animate-entry delay-2">
+            <p>&ldquo;Nosotros dejamos la web y el cotizador trabajando 24/7; el marketing creativo lo sigue llevando quien ya conocen. No venimos a pelear ese contrato: venimos a que cada lead de la web les llegue limpio y r&aacute;pido.&rdquo;</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: TRABAJOS EN FRAMES -->
+      <section class="slide slide--dark" id="slide-4" data-index="4" aria-label="Trabajos en frames">
+        <div class="slide-container" style="padding-top: 48px; justify-content: flex-start;">
+          <h2 class="title-section comparison-title animate-entry" style="font-size: clamp(24px, 3.5vw, 42px);">TRABAJOS EN FRAMES</h2>
+          <p class="body-text animate-entry delay-1" style="text-align: center; margin-bottom: 20px;">Prototipos y sitios que ya construimos &mdash; misma l&oacute;gica que aplicamos a BOGA.</p>
+
+          <div class="demo-tabs animate-entry delay-2">
+            <button class="demo-tab active" data-demo="wuundeer" onclick="switchDemo('wuundeer')">Wuundeer</button>
+            <button class="demo-tab" data-demo="realseguros" onclick="switchDemo('realseguros')">Real Seguros</button>
+            <button class="demo-tab" data-demo="siraitia" onclick="switchDemo('siraitia')">Siraitia</button>
+          </div>
+
+          <div class="demo-panel active animate-entry delay-3" id="demo-wuundeer">
+            <div class="device-frame">
+              <div class="device-frame__bar">
+                <span class="device-frame__dot device-frame__dot--ember"></span>
+                <span class="device-frame__dot"></span>
+                <span class="device-frame__dot"></span>
+                <span class="device-frame__url">wuundeer-prototype.vercel.app</span>
+              </div>
+              <div class="device-frame__body">
+                <iframe id="iframe-wuundeer" src="https://wuundeer-prototype.vercel.app/" title="Wuundeer prototype" loading="lazy" allow="fullscreen"></iframe>
+                <div class="iframe-fallback" id="fallback-wuundeer">
+                  <p>Este sitio puede bloquear la vista embebida. Abr&iacute;lo en pantalla completa para verlo.</p>
+                  <a class="prototype-button" href="https://wuundeer-prototype.vercel.app/" target="_blank" rel="noopener">Abrir pantalla completa &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="prototype-actions">
+              <a class="prototype-button" href="https://wuundeer-prototype.vercel.app/" target="_blank" rel="noopener">Abrir pantalla completa &rarr;</a>
+            </div>
+          </div>
+
+          <div class="demo-panel" id="demo-realseguros">
+            <div class="device-frame">
+              <div class="device-frame__bar">
+                <span class="device-frame__dot device-frame__dot--ember"></span>
+                <span class="device-frame__dot"></span>
+                <span class="device-frame__dot"></span>
+                <span class="device-frame__url">real-seguros-web.vercel.app</span>
+              </div>
+              <div class="device-frame__body">
+                <iframe id="iframe-realseguros" data-src="https://real-seguros-web.vercel.app/" title="Real Seguros web" loading="lazy" allow="fullscreen"></iframe>
+                <div class="iframe-fallback" id="fallback-realseguros">
+                  <p>Este sitio puede bloquear la vista embebida. Abr&iacute;lo en pantalla completa para verlo.</p>
+                  <a class="prototype-button" href="https://real-seguros-web.vercel.app/" target="_blank" rel="noopener">Abrir pantalla completa &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="prototype-actions">
+              <a class="prototype-button" href="https://real-seguros-web.vercel.app/" target="_blank" rel="noopener">Abrir pantalla completa &rarr;</a>
+            </div>
+          </div>
+
+          <div class="demo-panel" id="demo-siraitia">
+            <div class="device-frame">
+              <div class="device-frame__bar">
+                <span class="device-frame__dot device-frame__dot--ember"></span>
+                <span class="device-frame__dot"></span>
+                <span class="device-frame__dot"></span>
+                <span class="device-frame__url">siraitia.shop</span>
+              </div>
+              <div class="device-frame__body">
+                <iframe id="iframe-siraitia" data-src="https://siraitia.shop/" title="Siraitia shop" loading="lazy" allow="fullscreen"></iframe>
+                <div class="iframe-fallback" id="fallback-siraitia">
+                  <p>Este sitio puede bloquear la vista embebida. Abr&iacute;lo en pantalla completa para verlo.</p>
+                  <a class="prototype-button" href="https://siraitia.shop/" target="_blank" rel="noopener">Abrir pantalla completa &rarr;</a>
+                </div>
+              </div>
+            </div>
+            <div class="prototype-actions">
+              <a class="prototype-button" href="https://siraitia.shop/" target="_blank" rel="noopener">Abrir pantalla completa &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: PROTOTIPO BOGA -->
+      <section class="slide slide--mid" id="slide-5" data-index="5" aria-label="Prototipo BOGA">
+        <div class="slide-container" style="padding-top: 48px; justify-content: flex-start;">
+          <h2 class="title-section comparison-title animate-entry">PROTOTIPO BOGA</h2>
+          <p class="financial-subtitle animate-entry delay-1">Construido antes de esta reuni&oacute;n &mdash; listo para go-live con pulido y dominio cliente.</p>
+          <div class="prototype-box animate-entry delay-2">
+            <div class="prototype-label">[ PROTOTIPO RR &mdash; mismo sitio / ]</div>
+            <div class="device-frame__body" style="min-height: 420px; position: relative;">
+              <iframe class="prototype-iframe" id="iframe-boga" src="/" title="Prototipo BOGA" loading="lazy" allow="fullscreen"></iframe>
+              <div class="iframe-fallback" id="fallback-boga">
+                <p>El prototipo puede no cargar embebido. Compar&aacute; con la landing actual del cliente.</p>
+                <a class="prototype-button" href="/" target="_blank" rel="noopener">Abrir prototipo &rarr;</a>
+              </div>
+            </div>
+            <div class="prototype-actions">
+              <a class="prototype-button" href="/" target="_blank" rel="noopener">Abrir pantalla completa &rarr;</a>
+              <a class="prototype-button prototype-button--ghost" href="https://junisama.com.co/" target="_blank" rel="noopener">Comparar con junisama.com.co &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: GO-LIVE -->
+      <section class="slide slide--dark" id="slide-6" data-index="6" aria-label="Qué entregamos">
+        <div class="slide-container" style="padding-top: 48px; justify-content: flex-start;">
+          <h2 class="title-section comparison-title animate-entry">QU&Eacute; ENTREGAMOS EN EL GO-LIVE</h2>
+          <p class="body-text animate-entry delay-1" style="text-align: center; margin-bottom: 28px;">Alcance del proyecto cerrado &mdash; sin paquetes de contenido ni pauta.</p>
+          <div class="deliver-grid">
+            <div class="deliver-card animate-entry delay-1">
+              <div class="deliver-card__icon">&#127760;</div>
+              <div class="deliver-card__title">Landing BOGA</div>
+              <div class="deliver-card__text">Reemplazo de junisama.com.co con marca BOGA, cat&aacute;logo y mensaje comercial actualizado.</div>
+            </div>
+            <div class="deliver-card animate-entry delay-2">
+              <div class="deliver-card__icon">&#128196;</div>
+              <div class="deliver-card__title">Cotizador</div>
+              <div class="deliver-card__text">Flujo para cotizar eventos con datos estructurados &mdash; menos ida y vuelta por WhatsApp.</div>
+            </div>
+            <div class="deliver-card animate-entry delay-3">
+              <div class="deliver-card__icon">&#9993;</div>
+              <div class="deliver-card__title">Formularios</div>
+              <div class="deliver-card__text">Captura de leads con campos de evento, contacto y necesidad operativa.</div>
+            </div>
+            <div class="deliver-card animate-entry delay-4">
+              <div class="deliver-card__icon">&#128172;</div>
+              <div class="deliver-card__title">WhatsApp + SMTP</div>
+              <div class="deliver-card__text">Notificaciones al equipo comercial cuando entra una cotizaci&oacute;n o contacto.</div>
+            </div>
+            <div class="deliver-card animate-entry delay-5">
+              <div class="deliver-card__icon">&#128205;</div>
+              <div class="deliver-card__title">Sedes</div>
+              <div class="deliver-card__text">Presencia de cobertura geogr&aacute;fica y confianza operativa para clientes de eventos.</div>
+            </div>
+            <div class="deliver-card animate-entry delay-6">
+              <div class="deliver-card__icon">&#9729;</div>
+              <div class="deliver-card__title">Hosting + SSL</div>
+              <div class="deliver-card__text">Publicaci&oacute;n en dominio cliente, certificado, deploys y base t&eacute;cnica estable.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: INVERSIÓN -->
+      <section class="slide slide--mid" id="slide-7" data-index="7" aria-label="Inversión">
+        <div class="slide-container" style="padding-top: 48px; justify-content: flex-start;">
+          <h2 class="title-section financial-title animate-entry">INVERSI&Oacute;N</h2>
+          <p class="financial-subtitle animate-entry delay-1">Proyecto go-live recomendado + Care t&eacute;cnico mensual (compromiso 3 meses)</p>
+
+          <div class="combo-box animate-entry delay-2">
+            <div class="combo-box__label">Proyecto go-live recomendado</div>
+            <div class="combo-box__price">$1.200.000 &ndash; $1.500.000 COP</div>
+          </div>
+
+          <div class="payment-scheme animate-entry delay-2">
+            <div class="payment-scheme__title">Pago del proyecto</div>
+            <div class="payment-scheme__grid">
+              <div class="payment-scheme__item">
+                <div class="payment-scheme__tag">Inicio</div>
+                <div class="payment-scheme__desc"><strong>50%</strong> al firmar y arrancar go-live</div>
+              </div>
+              <div class="payment-scheme__divider">&rarr;</div>
+              <div class="payment-scheme__item">
+                <div class="payment-scheme__tag">Publicaci&oacute;n</div>
+                <div class="payment-scheme__desc"><strong>50%</strong> al publicar en dominio cliente</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="plan-selector animate-entry delay-3">
+            <div class="plan-selector__title">Care t&eacute;cnico &mdash; elige plan (visual)</div>
+            <div class="plan-selector__grid">
+              <div class="plan-card" id="plan-light" onclick="selectCarePlan('light')">
+                <div class="plan-card__badge">Care Light</div>
+                <div class="plan-card__price">$200.000<span>/mes</span></div>
+                <div class="plan-card__detail">2 horas incluidas &middot; compromiso 3 meses</div>
+                <div class="plan-card__desc">Hosting, SSL, deploys, bugs menores y textos dentro del techo de horas.</div>
+                <div class="plan-card__check">&#10003; SELECCIONADO</div>
+              </div>
+              <div class="plan-card active" id="plan-standard" onclick="selectCarePlan('standard')">
+                <div class="plan-card__badge">Care Standard &mdash; recomendado</div>
+                <div class="plan-card__price">$300.000<span>/mes</span></div>
+                <div class="plan-card__detail">4 horas incluidas &middot; compromiso 3 meses</div>
+                <div class="plan-card__desc">Todo Light + monitoreo forms/WA/SMTP + 1 mejora t&eacute;cnica al mes + reporte breve.</div>
+                <div class="plan-card__check">&#10003; SELECCIONADO</div>
+              </div>
+            </div>
+            <p class="combo-note" id="care-plan-note">Care Standard activo: $300.000/mes &middot; mes 1 percibido con go-live ~$1.800.000 (50% proyecto + Care).</p>
+          </div>
+
+          <div class="care-columns animate-entry delay-4">
+            <div class="care-box care-box--yes">
+              <div class="care-box__title">Care incluye</div>
+              <ul>
+                <li>Hosting, SSL y deploys</li>
+                <li>Bugs, textos e im&aacute;genes (dentro de horas)</li>
+                <li>Monitoreo formularios + WA + SMTP</li>
+                <li>Canal de soporte con techo de horas</li>
+              </ul>
+            </div>
+            <div class="care-box care-box--no">
+              <div class="care-box__title">Care NO incluye</div>
+              <ul>
+                <li>Creaci&oacute;n de contenido / redes</li>
+                <li>Community management</li>
+                <li>Pauta Meta / Google</li>
+                <li>Campa&ntilde;as creativas de temporada completas</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="price-rationale animate-entry delay-5">
+            <p><strong>&iquest;Por qu&eacute; ese precio?</strong> El costo real de hosting + SMTP + soporte por WhatsApp sin techo supera $150K/mes. Care cubre operaci&oacute;n t&eacute;cnica y te da paz mental: cada &ldquo;ay&uacute;dame con esto&rdquo; tiene un canal, no destruye margen ni tu tiempo.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: UPSELLS -->
+      <section class="slide slide--dark" id="slide-8" data-index="8" aria-label="Upsells mes 1">
+        <div class="slide-container" style="padding-top: 48px; justify-content: flex-start;">
+          <h2 class="title-section comparison-title animate-entry">DESDE EL MES 1 &mdash; MEJORAS OPCIONALES</h2>
+          <p class="body-text animate-entry delay-1" style="text-align: center; margin-bottom: 24px;">Upsells t&eacute;cnicos que encajan con BOGA. Ella pone copy/fotos donde aplique; nosotros montamos la m&aacute;quina.</p>
+          <div class="upsell-grid">
+            <div class="upsell-row animate-entry delay-1">
+              <div class="upsell-row__name">Mejoras cotizador</div>
+              <div class="upsell-row__desc">Fechas en rango, validaci&oacute;n, PDF o referencia de cotizaci&oacute;n &mdash; embudo de eventos m&aacute;s s&oacute;lido.</div>
+              <div class="upsell-row__price">$400K &ndash; $900K<br>sprint</div>
+            </div>
+            <div class="upsell-row animate-entry delay-2">
+              <div class="upsell-row__name">Panel admin cotizaciones</div>
+              <div class="upsell-row__desc">Operaci&oacute;n interna: ver, filtrar y gestionar leads del cotizador sin depender de chats sueltos.</div>
+              <div class="upsell-row__price">$1.5M &ndash; $3M<br>fase</div>
+            </div>
+            <div class="upsell-row animate-entry delay-3">
+              <div class="upsell-row__name">SEO t&eacute;cnico + fichas sedes</div>
+              <div class="upsell-row__desc">Captar b&uacute;squedas tipo &ldquo;ba&ntilde;os port&aacute;til Medell&iacute;n / Bogot&aacute;&rdquo; con base t&eacute;cnica s&oacute;lida.</div>
+              <div class="upsell-row__price">$300K &ndash; $600K<br>setup</div>
+            </div>
+            <div class="upsell-row animate-entry delay-4">
+              <div class="upsell-row__name">Landings de temporada</div>
+              <div class="upsell-row__desc">Feria de las Flores, fin de a&ntilde;o, etc. &mdash; ella entrega copy y fotos; RR monta la p&aacute;gina.</div>
+              <div class="upsell-row__price">$250K &ndash; $500K<br>c/u</div>
+            </div>
+            <div class="upsell-row animate-entry delay-5">
+              <div class="upsell-row__name">Integraci&oacute;n lead &rarr; WA / CRM</div>
+              <div class="upsell-row__desc">Velocidad de respuesta comercial: lead estructurado directo al canal que cierran hoy.</div>
+              <div class="upsell-row__price">$300K &ndash; $700K</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: PRÓXIMOS PASOS -->
+      <section class="slide slide--dark" id="slide-9" data-index="9" aria-label="Próximos pasos">
+        <div class="slide-container closing" style="justify-content: flex-start; padding-top: 40px;">
+          <h2 class="title-display closing-title animate-entry">PR&Oacute;XIMOS PASOS</h2>
+          <p class="closing-subtitle animate-entry delay-1">BOGA tiene la operaci&oacute;n en campo. RR tiene la web, el cotizador y el Care. Falta alinear alcance y arrancar.</p>
+
+          <div class="steps animate-entry delay-2">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <div class="step-title">Preguntas</div>
+                <div class="step-text">Resolvemos dudas de alcance, dominio, forms y relaci&oacute;n con marketing creativo.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <div class="step-title">Propuesta</div>
+                <div class="step-text">Go-live + Care Light o Standard por escrito. Pago 50/50 del proyecto.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <div class="step-title">Go-live</div>
+                <div class="step-text">Publicamos BOGA en dominio cliente con cotizador, forms y notificaciones activas.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <div class="step-title">Care</div>
+                <div class="step-text">Soporte t&eacute;cnico mensual con techo de horas. Upsells de cotizador/panel cuando el form genere leads reales.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <div class="contact-box animate-entry delay-3">
+              <div class="contact-box__name">RR ALIADOS</div>
+              <div class="contact-box__role">Santiago Rosas &mdash; Founder &amp; CEO</div>
+              <div class="contact-box__loc">Medell&iacute;n, Colombia &middot; 2026</div>
+            </div>
+            <a class="closing-cta animate-entry delay-3" id="whatsapp-cta" href="https://wa.me/573104435375?text=Hola%20Santiago%2C%20vimos%20el%20pitch%20BOGA%20y%20queremos%20seguir%20con%20go-live." target="_blank" rel="noopener">ESCRIBINOS POR WHATSAPP &rarr;</a>
+          </div>
+          <p class="closing-footer animate-entry delay-4">&ldquo;Con las manos en el fuego.&rdquo; &mdash; RR Aliados</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    var currentSlide = 0;
+    var totalSlides = 10;
+    var track = document.getElementById('slides-track');
+    var progressBar = document.getElementById('progress-bar');
+    var counter = document.getElementById('slide-counter');
+    var arrowLeft = document.getElementById('arrow-left');
+    var arrowRight = document.getElementById('arrow-right');
+    var menuOverlay = document.getElementById('menu-overlay');
+    var isMenuOpen = false;
+    var STORAGE_KEY = 'rr-aliados-boga-current-slide';
+
+    function goToSlide(n) {
+      if (n < 0 || n >= totalSlides) return;
+      currentSlide = n;
+      track.style.transform = 'translateX(-' + (n * 100) + 'vw)';
+      updateProgress();
+      updateCounter();
+      updateArrows();
+      localStorage.setItem(STORAGE_KEY, n);
+      triggerSlideAnimations(n);
+      if (n === 0) startParticles(); else stopParticles();
+      if (n === 4) lazyLoadDemoIframes();
+    }
+
+    function updateProgress() {
+      var pct = (currentSlide / (totalSlides - 1)) * 100;
+      progressBar.style.width = pct + '%';
+    }
+
+    function updateCounter() {
+      counter.textContent = String(currentSlide + 1).padStart(2, '0') + ' / ' + String(totalSlides).padStart(2, '0');
+    }
+
+    function updateArrows() {
+      if (arrowLeft) arrowLeft.disabled = currentSlide === 0;
+      if (arrowRight) arrowRight.disabled = currentSlide === totalSlides - 1;
+    }
+
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      menuOverlay.classList.toggle('active', isMenuOpen);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (isMenuOpen) {
+        if (e.key === 'Escape') toggleMenu();
+        return;
+      }
+      switch (e.key) {
+        case 'ArrowRight': case 'PageDown': case ' ':
+          e.preventDefault(); goToSlide(currentSlide + 1); break;
+        case 'ArrowLeft': case 'PageUp':
+          e.preventDefault(); goToSlide(currentSlide - 1); break;
+        case 'Home': e.preventDefault(); goToSlide(0); break;
+        case 'End': e.preventDefault(); goToSlide(totalSlides - 1); break;
+      }
+    });
+
+    var touchStartX = 0;
+    document.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    document.addEventListener('touchend', function(e) {
+      var diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) goToSlide(currentSlide + (diff > 0 ? 1 : -1));
+    }, { passive: true });
+
+    var savedSlide = parseInt(localStorage.getItem(STORAGE_KEY), 10) || 0;
+    if (savedSlide > 0 && savedSlide < totalSlides) goToSlide(savedSlide);
+    else { updateProgress(); updateCounter(); updateArrows(); triggerSlideAnimations(0); }
+
+    function triggerSlideAnimations(slideIndex) {
+      var slide = document.getElementById('slide-' + slideIndex);
+      if (!slide) return;
+      var elements = slide.querySelectorAll('.animate-entry');
+      elements.forEach(function(el) { el.classList.remove('visible'); });
+      void slide.offsetWidth;
+      elements.forEach(function(el, i) {
+        setTimeout(function() { el.classList.add('visible'); }, 50 + i * 80);
+      });
+    }
+
+    var slideObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) triggerSlideAnimations(parseInt(entry.target.getAttribute('data-index'), 10));
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.slide').forEach(function(slide) { slideObserver.observe(slide); });
+
+    var canvas = document.getElementById('particle-canvas');
+    var ctx = canvas ? canvas.getContext('2d') : null;
+    var particles = [];
+    var animFrameId = null;
+    var mouseX = -1000;
+    var mouseY = -1000;
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+      particles = [];
+      for (var i = 0; i < 80; i++) {
+        particles.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: Math.random() * 2 + 1
+        });
+      }
+    }
+
+    function drawParticles() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        var dx = p.x - mouseX;
+        var dy = p.y - mouseY;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 150) {
+          var force = (150 - dist) / 150;
+          p.x += (dx / dist) * force * 2;
+          p.y += (dy / dist) * force * 2;
+        }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(206, 61, 31, 0.55)';
+        ctx.fill();
+      }
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx2 = particles[i].x - particles[j].x;
+          var dy2 = particles[i].y - particles[j].y;
+          var d = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+          if (d < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(206, 61, 31, ' + ((1 - d / 120) * 0.12) + ')';
+            ctx.stroke();
+          }
+        }
+      }
+      animFrameId = requestAnimationFrame(drawParticles);
+    }
+
+    function startParticles() {
+      if (animFrameId || !canvas) return;
+      resizeCanvas();
+      drawParticles();
+    }
+
+    function stopParticles() {
+      if (animFrameId) { cancelAnimationFrame(animFrameId); animFrameId = null; }
+    }
+
+    if (canvas) {
+      resizeCanvas();
+      createParticles();
+      startParticles();
+      window.addEventListener('resize', resizeCanvas);
+      document.addEventListener('mousemove', function(e) { mouseX = e.clientX; mouseY = e.clientY; });
+    }
+
+    function switchDemo(id) {
+      document.querySelectorAll('.demo-tab').forEach(function(tab) {
+        tab.classList.toggle('active', tab.getAttribute('data-demo') === id);
+      });
+      document.querySelectorAll('.demo-panel').forEach(function(panel) {
+        panel.classList.toggle('active', panel.id === 'demo-' + id);
+      });
+      lazyLoadDemoIframes();
+    }
+
+    function lazyLoadDemoIframes() {
+      document.querySelectorAll('iframe[data-src]').forEach(function(iframe) {
+        if (!iframe.src && iframe.closest('.demo-panel.active')) {
+          iframe.src = iframe.getAttribute('data-src');
+          setupIframeFallback(iframe.id, iframe.id.replace('iframe-', 'fallback-'));
+        }
+      });
+    }
+
+    function setupIframeFallback(iframeId, fallbackId) {
+      var iframe = document.getElementById(iframeId);
+      var fallback = document.getElementById(fallbackId);
+      if (!iframe || !fallback) return;
+      var loaded = false;
+      iframe.addEventListener('load', function() {
+        loaded = true;
+        setTimeout(function() {
+          try {
+            var doc = iframe.contentDocument;
+            if (!doc || !doc.body || doc.body.childElementCount === 0) fallback.classList.add('visible');
+          } catch (err) {
+            fallback.classList.remove('visible');
+          }
+        }, 2500);
+      });
+      iframe.addEventListener('error', function() { fallback.classList.add('visible'); });
+      setTimeout(function() { if (!loaded) fallback.classList.add('visible'); }, 10000);
+    }
+
+    ['wuundeer', 'realseguros', 'siraitia', 'boga'].forEach(function(name) {
+      setupIframeFallback('iframe-' + name, 'fallback-' + name);
+    });
+
+    var currentCarePlan = 'standard';
+    function selectCarePlan(plan) {
+      currentCarePlan = plan;
+      document.getElementById('plan-light').classList.toggle('active', plan === 'light');
+      document.getElementById('plan-standard').classList.toggle('active', plan === 'standard');
+      var notes = {
+        light: 'Care Light activo: $200.000/mes · mes 1 percibido con go-live ~$1.700.000 (50% proyecto $1.35M + Care).',
+        standard: 'Care Standard activo: $300.000/mes · mes 1 percibido con go-live ~$1.800.000 (50% proyecto $1.35M + Care).'
+      };
+      document.getElementById('care-plan-note').textContent = notes[plan];
+    }
+  </script>
+</body>
+</html>

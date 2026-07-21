@@ -75,8 +75,9 @@ const nextConfig: NextConfig = {
 
     const securityHeaders = [
       {
+        // SAMEORIGIN: permite que /pitch embeba el prototipo del mismo deploy
         key: "X-Frame-Options",
-        value: "DENY",
+        value: "SAMEORIGIN",
       },
       {
         key: "X-Content-Type-Options",
@@ -97,7 +98,7 @@ const nextConfig: NextConfig = {
           "style-src 'self' 'unsafe-inline' https:",
           "img-src 'self' data: blob: https:",
           "font-src 'self' https: data:",
-          "frame-src 'self' https://www.google.com https://www.google.com/maps https://maps.google.com",
+          "frame-src 'self' https://www.google.com https://www.google.com/maps https://maps.google.com https://wuundeer-prototype.vercel.app https://real-seguros-web.vercel.app https://siraitia.shop https://manepeqsicoda.github.io",
           "connect-src 'self' https://vitals.vercel-insights.com https://www.google.com",
           "object-src 'none'",
           "base-uri 'self'",
@@ -109,6 +110,24 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/admin/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+        ],
+      },
+      {
+        source: "/pitch",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+        ],
+      },
+      {
+        source: "/pitch/:path*",
         headers: [
           {
             key: "X-Robots-Tag",
