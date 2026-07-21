@@ -1,5 +1,5 @@
 node_modules/
-assets/node_modules/
+.pitch/node_modules/
 .vscode/
 .DS_Store
 desktop.ini
