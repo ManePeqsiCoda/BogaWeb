@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="vercel-toolbar" content="hidden">
   <meta name="description" content="RR Aliados &times; BOGA &mdash; Propuesta web + Care 2026">
   <title>RR &times; BOGA &mdash; Propuesta 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -432,7 +433,7 @@
       position: relative;
       width: 210mm;
       min-height: 297mm;
-      padding: 16mm 15mm;
+      padding: 12mm 13mm;
       background:
         radial-gradient(circle at 82% 8%, rgba(206,61,31,0.14) 0%, transparent 42%),
         radial-gradient(circle at 6% 96%, rgba(63,0,53,0.55) 0%, transparent 46%),
@@ -444,10 +445,10 @@
     .pdf-page:last-child { page-break-after: auto; break-after: auto; }
 
     /* Hero */
-    .pdf-hero { padding-bottom: 12mm; border-bottom: 1px solid var(--parchment-10); }
-    .pdf-hero__logos { display: flex; align-items: center; gap: 14px; margin-bottom: 22mm; }
-    .pdf-hero__logos img.pdf-rr { width: 42px; height: 42px; border-radius: 9px; }
-    .pdf-hero__logos img.pdf-boga { height: 38px; width: auto; }
+    .pdf-hero { padding-bottom: 8mm; border-bottom: 1px solid var(--parchment-10); }
+    .pdf-hero__logos { display: flex; align-items: center; gap: 14px; margin-bottom: 14mm; }
+    .pdf-hero__logos img.pdf-rr { width: 36px; height: 36px; border-radius: 9px; }
+    .pdf-hero__logos img.pdf-boga { height: 32px; width: auto; }
     .pdf-hero__logos .pdf-x { color: var(--ember); font-size: 20px; font-family: var(--font-mono); }
     .pdf-hero__meta {
       font-family: var(--font-mono); font-size: 11px;
@@ -456,7 +457,7 @@
     }
     .pdf-hero__title {
       font-family: var(--font-display);
-      font-size: 92px; line-height: 0.92; letter-spacing: 0.01em;
+      font-size: 76px; line-height: 0.92; letter-spacing: 0.01em;
     }
     .pdf-hero__title span { color: var(--ember); }
     .pdf-hero__sub {
@@ -474,11 +475,11 @@
     }
 
     /* Sections */
-    .pdf-section { margin-top: 12mm; break-inside: avoid; }
+    .pdf-section { margin-top: 8mm; break-inside: avoid; }
     .pdf-h2 {
-      display: flex; align-items: baseline; gap: 12px;
-      font-family: var(--font-display); font-size: 30px;
-      letter-spacing: 0.02em; margin-bottom: 12px;
+      display: flex; align-items: baseline; gap: 10px;
+      font-family: var(--font-display); font-size: 26px;
+      letter-spacing: 0.02em; margin-bottom: 8px;
     }
     .pdf-h2__num {
       font-family: var(--font-mono); font-size: 13px;
@@ -486,19 +487,19 @@
     }
     .pdf-lead {
       font-family: var(--font-body); font-weight: 300;
-      font-size: 13.5px; line-height: 1.6; color: var(--parchment-70);
+      font-size: 11px; line-height: 1.45; color: var(--parchment-70);
       max-width: 165mm;
     }
 
-    .pdf-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; }
+    .pdf-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; margin-top: 8px; }
     .pdf-grid--4 { grid-template-columns: repeat(2, 1fr); }
     .pdf-item {
       position: relative;
       background: var(--parchment-5);
       border: 1px solid var(--parchment-10);
       border-left: 2px solid var(--ember);
-      border-radius: 10px;
-      padding: 13px 15px 14px;
+      border-radius: 8px;
+      padding: 9px 12px 10px;
       break-inside: avoid;
     }
     .pdf-item__n {
@@ -506,59 +507,59 @@
       color: var(--ember); letter-spacing: 0.1em;
     }
     .pdf-item h3 {
-      font-family: var(--font-display); font-size: 20px;
-      letter-spacing: 0.02em; margin: 3px 0 5px; line-height: 1;
+      font-family: var(--font-display); font-size: 17px;
+      letter-spacing: 0.02em; margin: 2px 0 3px; line-height: 1;
     }
     .pdf-item p {
       font-family: var(--font-body); font-weight: 300;
-      font-size: 11.5px; line-height: 1.45; color: var(--parchment-70);
+      font-size: 10px; line-height: 1.35; color: var(--parchment-70);
     }
 
     /* Prices */
-    .pdf-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .pdf-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
     .pdf-price {
       background: linear-gradient(150deg, rgba(206,61,31,0.12), rgba(63,0,53,0.35));
       border: 1px solid var(--ember-30);
-      border-radius: 12px; padding: 18px 20px; break-inside: avoid;
+      border-radius: 10px; padding: 12px 14px; break-inside: avoid;
     }
     .pdf-price__label {
-      display: block; font-family: var(--font-mono); font-size: 10px;
-      letter-spacing: 0.16em; text-transform: uppercase; color: var(--parchment-50);
+      display: block; font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--parchment-50);
     }
     .pdf-price__amt {
-      display: block; font-family: var(--font-display); font-size: 44px;
-      line-height: 1; margin: 8px 0 6px; letter-spacing: 0.01em;
+      display: block; font-family: var(--font-display); font-size: 36px;
+      line-height: 1; margin: 4px 0 4px; letter-spacing: 0.01em;
     }
-    .pdf-price__amt small { font-size: 15px; color: var(--parchment-50); }
+    .pdf-price__amt small { font-size: 13px; color: var(--parchment-50); }
     .pdf-price__note {
       display: block; font-family: var(--font-body); font-weight: 300;
-      font-size: 11px; color: var(--parchment-70);
+      font-size: 10px; line-height: 1.35; color: var(--parchment-70);
     }
     .pdf-note {
-      margin-top: 12px;
+      margin-top: 8px;
       font-family: var(--font-body); font-weight: 300;
-      font-size: 11.5px; line-height: 1.5; color: var(--parchment-70);
-      border-left: 2px solid var(--ember); padding-left: 12px;
+      font-size: 10px; line-height: 1.4; color: var(--parchment-70);
+      border-left: 2px solid var(--ember); padding-left: 10px;
     }
     .pdf-note b { color: var(--parchment); font-weight: 500; }
 
-    .pdf-care { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .pdf-care { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
     .pdf-care__col {
       background: var(--parchment-5);
       border: 1px solid var(--parchment-10);
-      border-radius: 10px; padding: 14px 16px; break-inside: avoid;
+      border-radius: 8px; padding: 10px 12px; break-inside: avoid;
     }
     .pdf-care__col h4 {
-      font-family: var(--font-mono); font-size: 10px;
-      letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 9px;
+      font-family: var(--font-mono); font-size: 9px;
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px;
     }
     .pdf-care__col--yes h4 { color: #3FB871; }
     .pdf-care__col--no h4 { color: var(--parchment-50); }
     .pdf-care__col ul { list-style: none; }
     .pdf-care__col li {
       font-family: var(--font-body); font-weight: 300;
-      font-size: 12px; line-height: 1.9; color: var(--parchment-70);
-      padding-left: 16px; position: relative;
+      font-size: 10px; line-height: 1.65; color: var(--parchment-70);
+      padding-left: 13px; position: relative;
     }
     .pdf-care__col--yes li::before { content: '+'; position: absolute; left: 0; color: #3FB871; }
     .pdf-care__col--no li::before { content: '–'; position: absolute; left: 0; color: var(--parchment-30); }
@@ -566,15 +567,15 @@
     .pdf-chip {
       background: var(--parchment-5);
       border: 1px solid var(--parchment-10);
-      border-radius: 10px; padding: 13px 15px; break-inside: avoid;
+      border-radius: 8px; padding: 9px 12px; break-inside: avoid;
     }
     .pdf-chip h3 {
-      font-family: var(--font-display); font-size: 19px;
-      letter-spacing: 0.02em; margin-bottom: 4px; line-height: 1;
+      font-family: var(--font-display); font-size: 16px;
+      letter-spacing: 0.02em; margin-bottom: 2px; line-height: 1;
     }
     .pdf-chip p {
       font-family: var(--font-body); font-weight: 300;
-      font-size: 11px; line-height: 1.4; color: var(--parchment-70);
+      font-size: 10px; line-height: 1.3; color: var(--parchment-70);
     }
 
     /* Footer */
@@ -2204,62 +2205,48 @@
         </div>
         <div class="pdf-hero__meta">RR Aliados &middot; Propuesta 2026</div>
         <h1 class="pdf-hero__title">Propuesta <span>BOGA</span></h1>
-        <p class="pdf-hero__sub">Web en producci&oacute;n, cotizador y soporte continuo &mdash; listo para vender desde el d&iacute;a uno. Este es el resumen de todo lo que conversamos.</p>
+        <p class="pdf-hero__sub">Web en producci&oacute;n, cotizador y soporte continuo &mdash; listo para vender desde el d&iacute;a uno. Resumen ejecutivo de todo lo conversado.</p>
         <div class="pdf-hero__strip">
           <span class="pdf-strip-chip">Web en su dominio</span>
           <span class="pdf-strip-chip">Cotizador + WhatsApp</span>
           <span class="pdf-strip-chip">Panel admin</span>
           <span class="pdf-strip-chip">Hosting + SSL</span>
+          <span class="pdf-strip-chip">SLA &lt; 24h</span>
         </div>
       </header>
 
       <section class="pdf-section">
         <h2 class="pdf-h2"><span class="pdf-h2__num">01</span> Qui&eacute;nes somos</h2>
-        <p class="pdf-lead">Somos growth partners, no intermediarios. Construimos producto digital con IA y entregamos prototipos funcionales <strong style="color:var(--parchment)">antes de firmar</strong>. Ponemos la piel en el juego: lo que ven en la propuesta es lo que queda en producci&oacute;n.</p>
+        <p class="pdf-lead">Somos growth partners, no intermediarios. Construimos producto digital con IA y entregamos prototipos funcionales <strong style="color:var(--parchment)">antes de firmar</strong>. Lo que ven en la propuesta es lo que queda en producci&oacute;n.</p>
       </section>
 
       <section class="pdf-section">
         <h2 class="pdf-h2"><span class="pdf-h2__num">02</span> Qu&eacute; entregamos en el go-live</h2>
         <div class="pdf-grid">
-          <div class="pdf-item"><span class="pdf-item__n">01</span><h3>Web BOGA en producci&oacute;n</h3><p>Sitio completo en su dominio (reemplaza junisama.com.co) con la identidad BOGA de punta a punta.</p></div>
-          <div class="pdf-item"><span class="pdf-item__n">02</span><h3>Cotizador + formularios</h3><p>Solicitudes estructuradas con validaci&oacute;n y confirmaci&oacute;n. Cada lead queda registrado, no se pierde en un chat.</p></div>
-          <div class="pdf-item"><span class="pdf-item__n">03</span><h3>WhatsApp + correo</h3><p>Cada cotizaci&oacute;n dispara alerta a WhatsApp y correo del equipo comercial, y queda listada en el panel.</p></div>
-          <div class="pdf-item"><span class="pdf-item__n">04</span><h3>Cat&aacute;logo, sedes y marca</h3><p>Productos con fotos y especificaciones, cobertura por sedes y la marca BOGA aplicada en todo el sitio.</p></div>
-          <div class="pdf-item"><span class="pdf-item__n">05</span><h3>Hosting + SSL + puesta en marcha</h3><p>Infraestructura, certificado SSL, DNS y deploy final. Sitio seguro, r&aacute;pido y en l&iacute;nea.</p></div>
-          <div class="pdf-item"><span class="pdf-item__n">06</span><h3>Panel admin BOGA</h3><p>Dashboard, productos, tarifas, paquetes, cotizaciones, solicitudes, clientes y eventos en un solo lugar.</p></div>
+          <div class="pdf-item"><span class="pdf-item__n">01</span><h3>Web BOGA en producci&oacute;n</h3><p>Sitio completo en su dominio (reemplaza junisama.com.co) con la identidad BOGA.</p></div>
+          <div class="pdf-item"><span class="pdf-item__n">02</span><h3>Cotizador + formularios</h3><p>Solicitudes estructuradas con validaci&oacute;n. Cada lead queda registrado.</p></div>
+          <div class="pdf-item"><span class="pdf-item__n">03</span><h3>WhatsApp + correo</h3><p>Alertas al equipo comercial y panel unificado de cotizaciones.</p></div>
+          <div class="pdf-item"><span class="pdf-item__n">04</span><h3>Cat&aacute;logo, sedes y marca</h3><p>Productos, cobertura y marca BOGA editables dentro de la cuota.</p></div>
+          <div class="pdf-item"><span class="pdf-item__n">05</span><h3>Hosting + SSL + deploy</h3><p>Infraestructura, certificado SSL, DNS. Sitio seguro y r&aacute;pido.</p></div>
+          <div class="pdf-item"><span class="pdf-item__n">06</span><h3>Panel admin BOGA</h3><p>Dashboard, tarifas, cotizaciones, clientes y eventos en un solo lugar.</p></div>
         </div>
       </section>
 
-      <footer class="pdf-footer">
-        <div class="pdf-footer__logos">
-          <img class="pdf-rr" src="assets/rr-logo.svg" alt="RR Aliados">
-          <span class="pdf-x">&times;</span>
-          <img class="pdf-boga" src="assets/boga-mark.svg" alt="BOGA">
-        </div>
-        <div class="pdf-footer__contact">
-          <span>WhatsApp +57 310 4435375</span>
-          <span>rraliadosteam@gmail.com</span>
-        </div>
-        <div class="pdf-footer__tag">P&aacute;gina 1 de 2 &middot; RR Aliados &times; BOGA</div>
-      </footer>
-    </div>
-
-    <div class="pdf-page">
-      <section class="pdf-section" style="margin-top:0">
+      <section class="pdf-section">
         <h2 class="pdf-h2"><span class="pdf-h2__num">03</span> Inversi&oacute;n</h2>
         <div class="pdf-prices">
           <div class="pdf-price">
-            <span class="pdf-price__label">Proyecto go-live</span>
+            <span class="pdf-price__label">Proyecto go-live (pago &uacute;nico)</span>
             <span class="pdf-price__amt">$1.200.000 <small>COP</small></span>
-            <span class="pdf-price__note">Pago al arrancar / firma del acuerdo</span>
+            <span class="pdf-price__note">Incluye web, cotizador, WhatsApp, panel, hosting, SSL y puesta en marcha &mdash; precio fijo, alcance definido.</span>
           </div>
           <div class="pdf-price">
             <span class="pdf-price__label">Cuota mensual (soporte)</span>
             <span class="pdf-price__amt">$300.000 <small>COP / mes</small></span>
-            <span class="pdf-price__note">&Uacute;nico plan &middot; empieza a los 30 d&iacute;as del go-live</span>
+            <span class="pdf-price__note">Empieza a los 30 d&iacute;as del go-live. Incluye hosting, SSL, deploys, bugs, cambios de contenido, monitoreo y SLA de respuesta &lt; 24h h&aacute;biles.</span>
           </div>
         </div>
-        <p class="pdf-note">En el mercado, un proyecto con este alcance suele costar entre <b>$1.500.000 y $2.000.000 COP</b>. Nuestra propuesta cerrada es <b>$1.200.000 COP</b> &mdash; por debajo del mercado, con precio fijo y alcance definido.</p>
+        <p class="pdf-note">En el mercado, un proyecto con este alcance suele costar entre <b>$1.500.000 y $2.000.000 COP</b>. Nuestra propuesta cerrada es <b>$1.200.000 COP</b> &mdash; por debajo del mercado, con precio fijo.</p>
         <div class="pdf-care">
           <div class="pdf-care__col pdf-care__col--yes">
             <h4>La cuota incluye</h4>
@@ -2270,6 +2257,7 @@
               <li>Cambios de textos e im&aacute;genes</li>
               <li>Monitoreo de forms / WA / SMTP</li>
               <li>Hasta 4 h/mes de soporte t&eacute;cnico</li>
+              <li>SLA: respuesta &lt; 24h h&aacute;biles</li>
             </ul>
           </div>
           <div class="pdf-care__col pdf-care__col--no">
@@ -2285,12 +2273,26 @@
       </section>
 
       <section class="pdf-section">
-        <h2 class="pdf-h2"><span class="pdf-h2__num">04</span> Despu&eacute;s del go-live</h2>
-        <p class="pdf-lead">El admin, el cotizador y el cat&aacute;logo ya van en el go-live. Estas son ideas para seguir creciendo cuando ustedes quieran:</p>
-        <div class="pdf-grid pdf-grid--4">
+        <h2 class="pdf-h2"><span class="pdf-h2__num">04</span> Roadmap financiero</h2>
+        <div class="pdf-chip" style="display:flex;flex-direction:column;gap:6px;padding:16px 18px;">
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+            <div><strong style="font-family:var(--font-display);font-size:22px;color:var(--parchment);letter-spacing:0.02em;">D&iacute;a 0</strong><br><span style="font-size:11px;color:var(--parchment-70);">Firma + $1.200.000</span></div>
+            <div style="color:var(--ember);font-size:20px;">&rarr;</div>
+            <div><strong style="font-family:var(--font-display);font-size:22px;color:var(--parchment);letter-spacing:0.02em;">2 a 3 sem.</strong><br><span style="font-size:11px;color:var(--parchment-70);">Go-live + web en producci&oacute;n</span></div>
+            <div style="color:var(--ember);font-size:20px;">&rarr;</div>
+            <div><strong style="font-family:var(--font-display);font-size:22px;color:var(--parchment);letter-spacing:0.02em;">D&iacute;a 30</strong><br><span style="font-size:11px;color:var(--parchment-70);">Primera cuota $300.000</span></div>
+          </div>
+          <p style="font-size:10px;color:var(--parchment-50);margin-top:4px;">Total primer mes: $1.500.000 COP &middot; Meses siguientes: $300.000 COP</p>
+        </div>
+      </section>
+
+      <section class="pdf-section">
+        <h2 class="pdf-h2"><span class="pdf-h2__num">05</span> Despu&eacute;s del go-live</h2>
+        <p class="pdf-lead">El admin, cotizador y cat&aacute;logo ya van en el go-live. Estas son ideas para crecer cuando ustedes quieran:</p>
+        <div class="pdf-grid pdf-grid--4" style="margin-top:8px;">
           <div class="pdf-chip"><h3>PDF al cliente</h3><p>Cotizaci&oacute;n formal al instante, sin Excel.</p></div>
           <div class="pdf-chip"><h3>SEO por sedes</h3><p>P&aacute;ginas por ciudad con CTA de cotizar.</p></div>
-          <div class="pdf-chip"><h3>Landings de temporada</h3><p>P&aacute;ginas cortas para picos de demanda.</p></div>
+          <div class="pdf-chip"><h3>Landings temporada</h3><p>P&aacute;ginas cortas para picos de demanda.</p></div>
           <div class="pdf-chip"><h3>Kit comercial</h3><p>Misma cara online y en obra.</p></div>
         </div>
       </section>
